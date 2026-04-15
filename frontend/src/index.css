@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.1), transparent 40%),
+      radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.08), transparent 40%),
+      linear-gradient(135deg, #f8fafc 0%, #edf2f8 50%, #e2e8f0 100%);
+    background-size: 150% 150%;
+    background-attachment: fixed;
+    animation: gradientShift 20s ease infinite;
+    color: #0f172a;
+    font-family: "Inter", system-ui, sans-serif;
+    min-height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.18);
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  /* Premium Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 2rem;
+    box-shadow: 
+      0 8px 32px 0 rgba(31, 38, 135, 0.07),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 
+      0 20px 48px -12px rgba(31, 38, 135, 0.12),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
+  }
+
+  /* Status badges */
+  .badge-normal {
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
+  }
+  .badge-warning, .badge-watch {
+    @apply bg-amber-50 text-amber-700 border border-amber-200;
+  }
+  .badge-high {
+    @apply bg-orange-50 text-orange-700 border border-orange-200;
+  }
+  .badge-critical {
+    @apply bg-red-50 text-red-700 border border-red-200;
+  }
+
+  /* Shadow Glows */
+  .shadow-glow-green { box-shadow: 0 0 20px rgba(16, 185, 129, 0.25); }
+  .shadow-glow-orange { box-shadow: 0 0 20px rgba(249, 115, 22, 0.25); }
+  .shadow-glow-red { box-shadow: 0 0 20px rgba(239, 68, 68, 0.25); }
+  .shadow-glow { box-shadow: 0 0 15px rgba(59, 130, 246, 0.3); }
+
+  /* Premium Sidebar Classes */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.1);
+    border-radius: 10px;
+  }
+
+  /* Entrance Animations */
+  @keyframes slideInLeft {
+    from { transform: translateX(-30px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes bounceIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .animate-bounce-in {
+    animation: bounceIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-spin-slow {
+    animation: spinSlow 8s linear infinite;
+  }
+
+  /* Stagger children animations */
+  .stagger-children > * {
+    opacity: 0;
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  .stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Drawer Animations */
+  @keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Pulse Animations */
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+  }
+  .animate-pulse_slow {
+    animation: pulseSlow 3s infinite ease-in-out;
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker 60s linear infinite;
+}
+
+/* Fade-in utility */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* slide-up utility (used by App.jsx cards) */
+@keyframes slide-up {
+  0%   { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slide-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hi-Tech Textures */
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.scanline-overlay {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 0, 0, 0.02) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Base scrollbar for global windows */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

@@ -1,0 +1,1028 @@
+{
+  "sources": {
+    "old_data": {
+      "M231": {
+        "file": "D:\\old data\\M231Jan.csv",
+        "total_rows_approx": 1294550,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2026-01-02 01:02:40",
+          "max": "2026-01-11 03:12:30"
+        },
+        "date_range_date": {
+          "min": "2026-01-02 00:00:00",
+          "max": "2026-01-11 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2026.0,
+            "std": 0.0,
+            "min": 2026.0,
+            "max": 2026.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year",
+          "month"
+        ]
+      },
+      "M356": {
+        "file": "D:\\old data\\M356Jan.csv",
+        "total_rows_approx": 1282100,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2026-01-01 02:17:21",
+          "max": "2026-01-07 03:53:01"
+        },
+        "date_range_date": {
+          "min": "2026-01-01 00:00:00",
+          "max": "2026-01-07 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2026.0,
+            "std": 0.0,
+            "min": 2026.0,
+            "max": 2026.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year",
+          "month"
+        ]
+      }
+    },
+    "new_raw_data": {
+      "M231": {
+        "file": "D:\\new raw data\\M231-11.csv",
+        "total_rows_approx": 3776824,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2026-01-07 01:03:21",
+          "max": "2026-01-18 02:23:20"
+        },
+        "date_range_date": {
+          "min": "2026-01-07 00:00:00",
+          "max": "2026-01-18 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2026.0,
+            "std": 0.0,
+            "min": 2026.0,
+            "max": 2026.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year",
+          "month"
+        ]
+      },
+      "M356": {
+        "file": "D:\\new raw data\\M356-57.csv",
+        "total_rows_approx": 5470531,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2026-01-03 01:19:51",
+          "max": "2026-01-27 05:52:31"
+        },
+        "date_range_date": {
+          "min": "2026-01-03 00:00:00",
+          "max": "2026-01-27 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2026.0,
+            "std": 0.0,
+            "min": 2026.0,
+            "max": 2026.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 1.0,
+            "std": 0.0,
+            "min": 1.0,
+            "max": 1.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year",
+          "month"
+        ]
+      }
+    },
+    "new_data": {
+      "M231": {
+        "file": "D:\\new data\\M231-11.csv",
+        "total_rows_approx": 7668075,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2025-10-29 16:44:56",
+          "max": "2025-12-08 08:27:32"
+        },
+        "date_range_date": {
+          "min": "2025-10-29 00:00:00",
+          "max": "2025-12-08 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2025.0,
+            "std": 0.0,
+            "min": 2025.0,
+            "max": 2025.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 10.8167,
+            "std": 0.9574,
+            "min": 10.0,
+            "max": 12.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year"
+        ]
+      },
+      "M356": {
+        "file": "D:\\new data\\M356-57.csv",
+        "total_rows_approx": 11402395,
+        "sample_rows": 3000,
+        "columns": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "variable_attribute",
+          "device",
+          "machine_def",
+          "year",
+          "month",
+          "date"
+        ],
+        "n_columns": 11,
+        "dtypes": {
+          "device_name": "str",
+          "machine_definition": "str",
+          "variable_name": "str",
+          "value": "str",
+          "timestamp": "str",
+          "variable_attribute": "float64",
+          "device": "str",
+          "machine_def": "str",
+          "year": "int64",
+          "month": "int64",
+          "date": "str"
+        },
+        "timestamp_cols": [
+          "timestamp",
+          "date"
+        ],
+        "date_range_timestamp": {
+          "min": "2025-10-01 02:04:34",
+          "max": "2025-11-07 02:25:29"
+        },
+        "date_range_date": {
+          "min": "2025-10-01 00:00:00",
+          "max": "2025-11-07 00:00:00"
+        },
+        "n_numeric_cols": 3,
+        "numeric_cols": [
+          "variable_attribute",
+          "year",
+          "month"
+        ],
+        "n_categorical_cols": 8,
+        "categorical_cols": [
+          "device_name",
+          "machine_definition",
+          "variable_name",
+          "value",
+          "timestamp",
+          "device",
+          "machine_def",
+          "date"
+        ],
+        "missing_pct": {
+          "variable_attribute": 100.0
+        },
+        "cols_with_missing": 1,
+        "scrap_cols_detected": [],
+        "identifier_cols": [],
+        "sensor_stats_sample": {
+          "variable_attribute": {
+            "mean": NaN,
+            "std": NaN,
+            "min": NaN,
+            "max": NaN,
+            "zero_pct": 0.0
+          },
+          "year": {
+            "mean": 2025.0,
+            "std": 0.0,
+            "min": 2025.0,
+            "max": 2025.0,
+            "zero_pct": 0.0
+          },
+          "month": {
+            "mean": 10.1833,
+            "std": 0.387,
+            "min": 10.0,
+            "max": 11.0,
+            "zero_pct": 0.0
+          }
+        },
+        "dead_sensor_cols": [
+          "year"
+        ]
+      }
+    }
+  },
+  "mes": {
+    "old_data": {
+      "sheets": [
+        "Sheet1",
+        "Sheet2"
+      ],
+      "file": "D:/old data/Hydra Dataset -- MES_Manufacturing_M-231_M-356_M-471_M-607_M-612.xlsx",
+      "sheet_Sheet1_shape": [
+        332,
+        43
+      ],
+      "sheet_Sheet1_cols": [
+        "manufacturing_plant_name",
+        "       manufacturing_plant_id",
+        "       manufacturing_plant_country_region_level_2_name",
+        "       segment_abbr_name",
+        "       business_unit_id",
+        "       plant_shift_calendar_year_id",
+        "       plant_shift_calendar_month_id",
+        "       plant_shift_calendar_week_id",
+        "       plant_shift_fiscal_year_id",
+        "       plant_shift_fiscal_month_id",
+        "       plant_shift_fiscal_week_id",
+        "       machine_event_record_id",
+        "       production_order_event_record_id",
+        "       machine_id",
+        "       machine_group_code",
+        "       cost_center_id",
+        "       machine_status_code",
+        "       machine_status_name",
+        "       machine_status_class_code",
+        "       hydra_bmk_number",
+        "       machine_event_create_date",
+        "       machine_event_create_time",
+        "       machine_production_time_seconds_quantity",
+        "       machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "       machine_status_seconds_quantity",
+        "       plant_shift_timestamp",
+        "       yield_quantity",
+        "       scrap_quantity",
+        "       production_order_operation_composite_id",
+        "       part_number",
+        "       resource_id",
+        "       part_description",
+        "       strokes_yield_quantity",
+        "       strokes_total_quantity",
+        "       machine_event_end_date",
+        "       machine_event_end_time",
+        "       production_order_logoff_date",
+        "       production_order_logon_time",
+        "       production_order_logon_date",
+        "       production_order_logoff_time",
+        "       last_load_timestamp",
+        "       hydra_plant_instance_name",
+        "plant_shift_date"
+      ],
+      "sheet_Sheet1_scrap_cols": [
+        "manufacturing_plant_name",
+        "       manufacturing_plant_id",
+        "       manufacturing_plant_country_region_level_2_name",
+        "       scrap_quantity"
+      ],
+      "sheet_Sheet1_vc_manufacturing_plant_name": {
+        "Oostkamp": 332
+      },
+      "sheet_Sheet1_vc_       manufacturing_plant_id": {
+        "538": 332
+      },
+      "sheet_Sheet1_id_cols": [
+        "       machine_event_record_id",
+        "       machine_id",
+        "       machine_group_code",
+        "       machine_status_code",
+        "       machine_status_name",
+        "       machine_status_class_code",
+        "       machine_event_create_date",
+        "       machine_event_create_time",
+        "       machine_production_time_seconds_quantity",
+        "       machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "       machine_status_seconds_quantity",
+        "       part_number",
+        "       part_description",
+        "       machine_event_end_date",
+        "       machine_event_end_time"
+      ],
+      "sheet_Sheet2_shape": [
+        0,
+        1
+      ],
+      "sheet_Sheet2_cols": [
+        "SELECT manufacturing_plant_name,\n       manufacturing_plant_id,\n       manufacturing_plant_country_region_level_2_name,\n       segment_abbr_name,\n       business_unit_id,\n       plant_shift_calendar_year_id,\n       plant_shift_calendar_month_id,\n       plant_shift_calendar_week_id,\n       plant_shift_fiscal_year_id,\n       plant_shift_fiscal_month_id,\n       plant_shift_fiscal_week_id,\n       machine_event_record_id,\n       production_order_event_record_id,\n       machine_id,\n       machine_group_code,\n       cost_center_id,\n       machine_status_code,\n       machine_status_name,\n       machine_status_class_code,\n       hydra_bmk_number,\n       machine_event_create_date,\n       machine_event_create_time,\n       machine_production_time_seconds_quantity,\n       machine_production_or_setup_or_repair_or_break_time_seconds_quantity,\n       machine_status_seconds_quantity,\n       plant_shift_timestamp,\n       yield_quantity,\n       scrap_quantity,\n       production_order_operation_composite_id,\n       part_number,\n       resource_id,\n       part_description,\n       strokes_yield_quantity,\n       strokes_total_quantity,\n       machine_event_end_date,\n       machine_event_end_time,\n       production_order_logoff_date,\n       production_order_logon_time,\n       production_order_logon_date,\n       production_order_logoff_time,\n       last_load_timestamp,\n       hydra_plant_instance_name,\n       plant_shift_date\nFROM manufacturing.interruption_by_machine \nWHERE manufacturing_plant_id = '0538' AND machine_id IN ('M-231''M-356','M-471','M-607','M-612')\nAND machine_event_create_date > '2026-01-01'"
+      ],
+      "sheet_Sheet2_scrap_cols": [
+        "SELECT manufacturing_plant_name,\n       manufacturing_plant_id,\n       manufacturing_plant_country_region_level_2_name,\n       segment_abbr_name,\n       business_unit_id,\n       plant_shift_calendar_year_id,\n       plant_shift_calendar_month_id,\n       plant_shift_calendar_week_id,\n       plant_shift_fiscal_year_id,\n       plant_shift_fiscal_month_id,\n       plant_shift_fiscal_week_id,\n       machine_event_record_id,\n       production_order_event_record_id,\n       machine_id,\n       machine_group_code,\n       cost_center_id,\n       machine_status_code,\n       machine_status_name,\n       machine_status_class_code,\n       hydra_bmk_number,\n       machine_event_create_date,\n       machine_event_create_time,\n       machine_production_time_seconds_quantity,\n       machine_production_or_setup_or_repair_or_break_time_seconds_quantity,\n       machine_status_seconds_quantity,\n       plant_shift_timestamp,\n       yield_quantity,\n       scrap_quantity,\n       production_order_operation_composite_id,\n       part_number,\n       resource_id,\n       part_description,\n       strokes_yield_quantity,\n       strokes_total_quantity,\n       machine_event_end_date,\n       machine_event_end_time,\n       production_order_logoff_date,\n       production_order_logon_time,\n       production_order_logon_date,\n       production_order_logoff_time,\n       last_load_timestamp,\n       hydra_plant_instance_name,\n       plant_shift_date\nFROM manufacturing.interruption_by_machine \nWHERE manufacturing_plant_id = '0538' AND machine_id IN ('M-231''M-356','M-471','M-607','M-612')\nAND machine_event_create_date > '2026-01-01'"
+      ],
+      "sheet_Sheet2_vc_SELECT manufacturing_plant_name,\n       manufacturing_plant_id,\n       manufacturing_plant_country_region_level_2_name,\n       segment_abbr_name,\n       business_unit_id,\n       plant_shift_calendar_year_id,\n       plant_shift_calendar_month_id,\n       plant_shift_calendar_week_id,\n       plant_shift_fiscal_year_id,\n       plant_shift_fiscal_month_id,\n       plant_shift_fiscal_week_id,\n       machine_event_record_id,\n       production_order_event_record_id,\n       machine_id,\n       machine_group_code,\n       cost_center_id,\n       machine_status_code,\n       machine_status_name,\n       machine_status_class_code,\n       hydra_bmk_number,\n       machine_event_create_date,\n       machine_event_create_time,\n       machine_production_time_seconds_quantity,\n       machine_production_or_setup_or_repair_or_break_time_seconds_quantity,\n       machine_status_seconds_quantity,\n       plant_shift_timestamp,\n       yield_quantity,\n       scrap_quantity,\n       production_order_operation_composite_id,\n       part_number,\n       resource_id,\n       part_description,\n       strokes_yield_quantity,\n       strokes_total_quantity,\n       machine_event_end_date,\n       machine_event_end_time,\n       production_order_logoff_date,\n       production_order_logon_time,\n       production_order_logon_date,\n       production_order_logoff_time,\n       last_load_timestamp,\n       hydra_plant_instance_name,\n       plant_shift_date\nFROM manufacturing.interruption_by_machine \nWHERE manufacturing_plant_id = '0538' AND machine_id IN ('M-231''M-356','M-471','M-607','M-612')\nAND machine_event_create_date > '2026-01-01'": {},
+      "sheet_Sheet2_id_cols": [
+        "SELECT manufacturing_plant_name,\n       manufacturing_plant_id,\n       manufacturing_plant_country_region_level_2_name,\n       segment_abbr_name,\n       business_unit_id,\n       plant_shift_calendar_year_id,\n       plant_shift_calendar_month_id,\n       plant_shift_calendar_week_id,\n       plant_shift_fiscal_year_id,\n       plant_shift_fiscal_month_id,\n       plant_shift_fiscal_week_id,\n       machine_event_record_id,\n       production_order_event_record_id,\n       machine_id,\n       machine_group_code,\n       cost_center_id,\n       machine_status_code,\n       machine_status_name,\n       machine_status_class_code,\n       hydra_bmk_number,\n       machine_event_create_date,\n       machine_event_create_time,\n       machine_production_time_seconds_quantity,\n       machine_production_or_setup_or_repair_or_break_time_seconds_quantity,\n       machine_status_seconds_quantity,\n       plant_shift_timestamp,\n       yield_quantity,\n       scrap_quantity,\n       production_order_operation_composite_id,\n       part_number,\n       resource_id,\n       part_description,\n       strokes_yield_quantity,\n       strokes_total_quantity,\n       machine_event_end_date,\n       machine_event_end_time,\n       production_order_logoff_date,\n       production_order_logon_time,\n       production_order_logon_date,\n       production_order_logoff_time,\n       last_load_timestamp,\n       hydra_plant_instance_name,\n       plant_shift_date\nFROM manufacturing.interruption_by_machine \nWHERE manufacturing_plant_id = '0538' AND machine_id IN ('M-231''M-356','M-471','M-607','M-612')\nAND machine_event_create_date > '2026-01-01'"
+      ]
+    },
+    "new_raw_data": {
+      "sheets": [
+        "Data"
+      ],
+      "file": "D:/new raw data/MES_Manufacturing_M-231_M-356_M-471_M-607_M-612.xlsx",
+      "sheet_Data_shape": [
+        5758,
+        43
+      ],
+      "sheet_Data_cols": [
+        "manufacturing_plant_name",
+        "manufacturing_plant_id",
+        "manufacturing_plant_country_region_level_2_name",
+        "segment_abbr_name",
+        "business_unit_id",
+        "plant_shift_calendar_year_id",
+        "plant_shift_calendar_month_id",
+        "plant_shift_calendar_week_id",
+        "plant_shift_fiscal_year_id",
+        "plant_shift_fiscal_month_id",
+        "plant_shift_fiscal_week_id",
+        "machine_event_record_id",
+        "production_order_event_record_id",
+        "machine_id",
+        "machine_group_code",
+        "cost_center_id",
+        "machine_status_code",
+        "machine_status_name",
+        "machine_status_class_code",
+        "hydra_bmk_number",
+        "machine_event_create_date",
+        "machine_event_create_time",
+        "machine_production_time_seconds_quantity",
+        "machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "machine_status_seconds_quantity",
+        "plant_shift_timestamp",
+        "yield_quantity",
+        "scrap_quantity",
+        "production_order_operation_composite_id",
+        "part_number",
+        "resource_id",
+        "part_description",
+        "strokes_yield_quantity",
+        "strokes_total_quantity",
+        "machine_event_end_date",
+        "machine_event_end_time",
+        "production_order_logoff_date",
+        "production_order_logon_time",
+        "production_order_logon_date",
+        "production_order_logoff_time",
+        "last_load_timestamp",
+        "hydra_plant_instance_name",
+        "plant_shift_date"
+      ],
+      "sheet_Data_scrap_cols": [
+        "manufacturing_plant_name",
+        "manufacturing_plant_id",
+        "manufacturing_plant_country_region_level_2_name",
+        "scrap_quantity"
+      ],
+      "sheet_Data_vc_manufacturing_plant_name": {
+        "Oostkamp": 5758
+      },
+      "sheet_Data_vc_manufacturing_plant_id": {
+        "538": 5758
+      },
+      "sheet_Data_id_cols": [
+        "machine_event_record_id",
+        "machine_id",
+        "machine_group_code",
+        "machine_status_code",
+        "machine_status_name",
+        "machine_status_class_code",
+        "machine_event_create_date",
+        "machine_event_create_time",
+        "machine_production_time_seconds_quantity",
+        "machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "machine_status_seconds_quantity",
+        "part_number",
+        "part_description",
+        "machine_event_end_date",
+        "machine_event_end_time"
+      ]
+    },
+    "new_data": {
+      "sheets": [
+        "Data"
+      ],
+      "file": "D:/new data/MES_Manufacturing_M-231_M-356_M-471_M-607_M-612.xlsx",
+      "sheet_Data_shape": [
+        5758,
+        43
+      ],
+      "sheet_Data_cols": [
+        "manufacturing_plant_name",
+        "manufacturing_plant_id",
+        "manufacturing_plant_country_region_level_2_name",
+        "segment_abbr_name",
+        "business_unit_id",
+        "plant_shift_calendar_year_id",
+        "plant_shift_calendar_month_id",
+        "plant_shift_calendar_week_id",
+        "plant_shift_fiscal_year_id",
+        "plant_shift_fiscal_month_id",
+        "plant_shift_fiscal_week_id",
+        "machine_event_record_id",
+        "production_order_event_record_id",
+        "machine_id",
+        "machine_group_code",
+        "cost_center_id",
+        "machine_status_code",
+        "machine_status_name",
+        "machine_status_class_code",
+        "hydra_bmk_number",
+        "machine_event_create_date",
+        "machine_event_create_time",
+        "machine_production_time_seconds_quantity",
+        "machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "machine_status_seconds_quantity",
+        "plant_shift_timestamp",
+        "yield_quantity",
+        "scrap_quantity",
+        "production_order_operation_composite_id",
+        "part_number",
+        "resource_id",
+        "part_description",
+        "strokes_yield_quantity",
+        "strokes_total_quantity",
+        "machine_event_end_date",
+        "machine_event_end_time",
+        "production_order_logoff_date",
+        "production_order_logon_time",
+        "production_order_logon_date",
+        "production_order_logoff_time",
+        "last_load_timestamp",
+        "hydra_plant_instance_name",
+        "plant_shift_date"
+      ],
+      "sheet_Data_scrap_cols": [
+        "manufacturing_plant_name",
+        "manufacturing_plant_id",
+        "manufacturing_plant_country_region_level_2_name",
+        "scrap_quantity"
+      ],
+      "sheet_Data_vc_manufacturing_plant_name": {
+        "Oostkamp": 5758
+      },
+      "sheet_Data_vc_manufacturing_plant_id": {
+        "538": 5758
+      },
+      "sheet_Data_id_cols": [
+        "machine_event_record_id",
+        "machine_id",
+        "machine_group_code",
+        "machine_status_code",
+        "machine_status_name",
+        "machine_status_class_code",
+        "machine_event_create_date",
+        "machine_event_create_time",
+        "machine_production_time_seconds_quantity",
+        "machine_production_or_setup_or_repair_or_break_time_seconds_quantity",
+        "machine_status_seconds_quantity",
+        "part_number",
+        "part_description",
+        "machine_event_end_date",
+        "machine_event_end_time"
+      ]
+    }
+  },
+  "processed_master": {
+    "file": "D:/teit04/te connectivity 3/new_processed_data/FINAL_TRAINING_MASTER_V3.parquet",
+    "total_rows": 1250000,
+    "n_columns": 66,
+    "columns": [
+      "timestamp",
+      "Cushion",
+      "Cycle_time",
+      "Cyl_tmp_z1",
+      "Cyl_tmp_z2",
+      "Cyl_tmp_z3",
+      "Cyl_tmp_z4",
+      "Cyl_tmp_z5",
+      "Cyl_tmp_z6",
+      "Cyl_tmp_z7",
+      "Cyl_tmp_z8",
+      "Dosage_time",
+      "Ejector_fix_deviation_torque",
+      "Extruder_start_position",
+      "Extruder_torque",
+      "Injection_pressure",
+      "Injection_time",
+      "Peak_pressure_position",
+      "Peak_pressure_time",
+      "Shot_size",
+      "Switch_position",
+      "Switch_pressure",
+      "Cushion_roc_5",
+      "Cushion_roc_30",
+      "Cycle_time_roc_5",
+      "Cycle_time_roc_30",
+      "Cyl_tmp_z1_roc_5",
+      "Cyl_tmp_z1_roc_30",
+      "Cyl_tmp_z2_roc_5",
+      "Cyl_tmp_z2_roc_30",
+      "Cyl_tmp_z3_roc_5",
+      "Cyl_tmp_z3_roc_30",
+      "Cyl_tmp_z4_roc_5",
+      "Cyl_tmp_z4_roc_30",
+      "Cyl_tmp_z5_roc_5",
+      "Cyl_tmp_z5_roc_30",
+      "Cyl_tmp_z6_roc_5",
+      "Cyl_tmp_z6_roc_30",
+      "Cyl_tmp_z7_roc_5",
+      "Cyl_tmp_z7_roc_30",
+      "Cyl_tmp_z8_roc_5",
+      "Cyl_tmp_z8_roc_30",
+      "Dosage_time_roc_5",
+      "Dosage_time_roc_30",
+      "Ejector_fix_deviation_torque_roc_5",
+      "Ejector_fix_deviation_torque_roc_30",
+      "Extruder_start_position_roc_5",
+      "Extruder_start_position_roc_30",
+      "Extruder_torque_roc_5",
+      "Extruder_torque_roc_30",
+      "Injection_pressure_roc_5",
+      "Injection_pressure_roc_30",
+      "Injection_time_roc_5",
+      "Injection_time_roc_30",
+      "Peak_pressure_position_roc_5",
+      "Peak_pressure_position_roc_30",
+      "Peak_pressure_time_roc_5",
+      "Peak_pressure_time_roc_30",
+      "Shot_size_roc_5",
+      "Shot_size_roc_30",
+      "Switch_position_roc_5",
+      "Switch_position_roc_30",
+      "Switch_pressure_roc_5",
+      "Switch_pressure_roc_30",
+      "is_scrap",
+      "machine_id"
+    ],
+    "dtypes": {
+      "timestamp": "datetime64[ns, UTC]",
+      "Cushion": "float64",
+      "Cycle_time": "float64",
+      "Cyl_tmp_z1": "float64",
+      "Cyl_tmp_z2": "float64",
+      "Cyl_tmp_z3": "float64",
+      "Cyl_tmp_z4": "float64",
+      "Cyl_tmp_z5": "float64",
+      "Cyl_tmp_z6": "float64",
+      "Cyl_tmp_z7": "float64",
+      "Cyl_tmp_z8": "float64",
+      "Dosage_time": "float64",
+      "Ejector_fix_deviation_torque": "float64",
+      "Extruder_start_position": "float64",
+      "Extruder_torque": "float64",
+      "Injection_pressure": "float64",
+      "Injection_time": "float64",
+      "Peak_pressure_position": "float64",
+      "Peak_pressure_time": "float64",
+      "Shot_size": "float64",
+      "Switch_position": "float64",
+      "Switch_pressure": "float64",
+      "Cushion_roc_5": "float64",
+      "Cushion_roc_30": "float64",
+      "Cycle_time_roc_5": "float64",
+      "Cycle_time_roc_30": "float64",
+      "Cyl_tmp_z1_roc_5": "float64",
+      "Cyl_tmp_z1_roc_30": "float64",
+      "Cyl_tmp_z2_roc_5": "float64",
+      "Cyl_tmp_z2_roc_30": "float64",
+      "Cyl_tmp_z3_roc_5": "float64",
+      "Cyl_tmp_z3_roc_30": "float64",
+      "Cyl_tmp_z4_roc_5": "float64",
+      "Cyl_tmp_z4_roc_30": "float64",
+      "Cyl_tmp_z5_roc_5": "float64",
+      "Cyl_tmp_z5_roc_30": "float64",
+      "Cyl_tmp_z6_roc_5": "float64",
+      "Cyl_tmp_z6_roc_30": "float64",
+      "Cyl_tmp_z7_roc_5": "float64",
+      "Cyl_tmp_z7_roc_30": "float64",
+      "Cyl_tmp_z8_roc_5": "float64",
+      "Cyl_tmp_z8_roc_30": "float64",
+      "Dosage_time_roc_5": "float64",
+      "Dosage_time_roc_30": "float64",
+      "Ejector_fix_deviation_torque_roc_5": "float64",
+      "Ejector_fix_deviation_torque_roc_30": "float64",
+      "Extruder_start_position_roc_5": "float64",
+      "Extruder_start_position_roc_30": "float64",
+      "Extruder_torque_roc_5": "float64",
+      "Extruder_torque_roc_30": "float64",
+      "Injection_pressure_roc_5": "float64",
+      "Injection_pressure_roc_30": "float64",
+      "Injection_time_roc_5": "float64",
+      "Injection_time_roc_30": "float64",
+      "Peak_pressure_position_roc_5": "float64",
+      "Peak_pressure_position_roc_30": "float64",
+      "Peak_pressure_time_roc_5": "float64",
+      "Peak_pressure_time_roc_30": "float64",
+      "Shot_size_roc_5": "float64",
+      "Shot_size_roc_30": "float64",
+      "Switch_position_roc_5": "float64",
+      "Switch_position_roc_30": "float64",
+      "Switch_pressure_roc_5": "float64",
+      "Switch_pressure_roc_30": "float64",
+      "is_scrap": "int64",
+      "machine_id": "str"
+    },
+    "date_range": {
+      "min": "2025-10-01 02:01:18+00:00",
+      "max": "2026-01-12 01:00:15+00:00"
+    },
+    "rows_per_machine": {
+      "M231": 250000,
+      "M356": 250000,
+      "M471": 250000,
+      "M607": 250000,
+      "M612": 250000
+    },
+    "global_scrap_rate_pct": 1.5388,
+    "scrap_rate_per_machine": {
+      "M231": 2.4556,
+      "M356": 1.074,
+      "M471": 0.992,
+      "M607": 1.664,
+      "M612": 1.5084
+    },
+    "cols_with_missing": 0,
+    "missing_summary": {},
+    "dead_cols": [
+      "Cyl_tmp_z2",
+      "Cyl_tmp_z6",
+      "Cyl_tmp_z7",
+      "Cyl_tmp_z2_roc_5",
+      "Cyl_tmp_z2_roc_30",
+      "Cyl_tmp_z6_roc_5",
+      "Cyl_tmp_z6_roc_30",
+      "Cyl_tmp_z7_roc_5",
+      "Cyl_tmp_z7_roc_30"
+    ],
+    "n_numeric_features": 64,
+    "roc_feature_count": 42,
+    "roc_feature_sample": [
+      "Cushion_roc_5",
+      "Cushion_roc_30",
+      "Cycle_time_roc_5",
+      "Cycle_time_roc_30",
+      "Cyl_tmp_z1_roc_5",
+      "Cyl_tmp_z1_roc_30",
+      "Cyl_tmp_z2_roc_5",
+      "Cyl_tmp_z2_roc_30",
+      "Cyl_tmp_z3_roc_5",
+      "Cyl_tmp_z3_roc_30"
+    ]
+  }
+}

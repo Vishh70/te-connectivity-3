@@ -1,0 +1,8432 @@
+{
+  "M231": {
+    "Cushion": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_encoded": {
+      "mean": 0.23099997639656067,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_code": {
+      "mean": 1.0,
+      "std": 1.0
+    },
+    "machine_definition_code": {
+      "mean": 1.0,
+      "std": 1.0
+    },
+    "tool_id_code": {
+      "mean": 2.0,
+      "std": 1.0
+    },
+    "machine_type_code": {
+      "mean": 1.0,
+      "std": 1.0
+    },
+    "part_number_code": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_Dosage_Ratio": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Thermal_Stability_Index": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Pressure_Impulse": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    }
+  },
+  "M356": {
+    "Cushion": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_encoded": {
+      "mean": 0.35599997639656067,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_code": {
+      "mean": 2.0,
+      "std": 1.0
+    },
+    "machine_definition_code": {
+      "mean": 2.0,
+      "std": 1.0
+    },
+    "tool_id_code": {
+      "mean": 1.0,
+      "std": 1.0
+    },
+    "machine_type_code": {
+      "mean": 4.0,
+      "std": 1.0
+    },
+    "part_number_code": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_Dosage_Ratio": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Thermal_Stability_Index": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Pressure_Impulse": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    }
+  },
+  "M471": {
+    "Cushion": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_encoded": {
+      "mean": 0.47099998593330383,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_code": {
+      "mean": 3.0,
+      "std": 1.0
+    },
+    "machine_definition_code": {
+      "mean": 3.0,
+      "std": 1.0
+    },
+    "tool_id_code": {
+      "mean": 4.0,
+      "std": 1.0
+    },
+    "machine_type_code": {
+      "mean": 2.0,
+      "std": 1.0
+    },
+    "part_number_code": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_Dosage_Ratio": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Thermal_Stability_Index": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Pressure_Impulse": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    }
+  },
+  "M607": {
+    "Cushion": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_encoded": {
+      "mean": 0.6069998741149902,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_code": {
+      "mean": 4.0,
+      "std": 1.0
+    },
+    "machine_definition_code": {
+      "mean": 4.0,
+      "std": 1.0
+    },
+    "tool_id_code": {
+      "mean": 3.0,
+      "std": 1.0
+    },
+    "machine_type_code": {
+      "mean": 3.0,
+      "std": 1.0
+    },
+    "part_number_code": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_Dosage_Ratio": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Thermal_Stability_Index": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Pressure_Impulse": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    }
+  },
+  "M612": {
+    "Cushion": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_roc_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_encoded": {
+      "mean": 0.6119999885559082,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Ejector_fix_deviation_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_start_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_size_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rate_of_change_30": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "machine_id_code": {
+      "mean": 5.0,
+      "std": 1.0
+    },
+    "machine_definition_code": {
+      "mean": 5.0,
+      "std": 1.0
+    },
+    "tool_id_code": {
+      "mean": 1.0,
+      "std": 1.0
+    },
+    "machine_type_code": {
+      "mean": 4.0,
+      "std": 1.0
+    },
+    "part_number_code": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_utilization": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_margin_norm": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_safe_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_Dosage_Ratio": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Thermal_Stability_Index": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Pressure_Impulse": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cycle_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Peak_pressure_time_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Extruder_torque_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Scrap_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Shot_counter_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_3": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_lag_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_min_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_max_5": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_violation_count_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_min_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_margin_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_delta_1": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_10": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_mean_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    }
+  }
+}

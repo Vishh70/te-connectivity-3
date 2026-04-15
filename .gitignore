@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+node_modules/
+frontend/node_modules/
+
+# Caches
+.pytest_cache/
+.pytest_tmp/
+.pytest_tmp_local/
+pytest-cache-files-*/
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project Specific - Large Data (Excluding to stay within GitHub limits)
+pipeline\ \ data/
+new_processed_data/
+processed/
+test_raw_data/
+analysis/
+artifacts/
+metrics/
+ml_pipeline/
+scratch/
+pip
+cd
+
+# Archives
+*.zip
+*.tar.gz
+*.7z
+
+# OS files
+.DS_Store
+Thumbs.db
