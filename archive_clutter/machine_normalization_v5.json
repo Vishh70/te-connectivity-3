@@ -945,7 +945,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_utilization": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_margin_norm": {
@@ -1005,7 +1005,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_margin_norm": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_violation": {
@@ -1077,11 +1077,11 @@
       "std": 1.0
     },
     "safety_margin_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "Cycle_Dosage_Ratio": {
@@ -1153,38 +1153,6 @@
       "std": 1.0
     },
     "Extruder_torque_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_5": {
       "mean": 0.0,
       "std": 1.0
     },
@@ -1308,30 +1276,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "Cushion_rolling_std_10": {
       "mean": 0.0,
       "std": 1.0
@@ -1452,46 +1396,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "safety_violation_count_delta_1": {
       "mean": 0.0,
       "std": 1.0
@@ -1553,19 +1457,19 @@
       "std": 1.0
     },
     "safety_margin_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_lag_3": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_lag_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_5": {
@@ -1573,27 +1477,27 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_lag_3": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_lag_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_5": {
@@ -1601,11 +1505,11 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_violation_count_rolling_mean_10": {
@@ -1649,7 +1553,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_10": {
@@ -1657,7 +1561,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_20": {
@@ -1669,7 +1573,7 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_10": {
@@ -1677,10 +1581,126 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "process_instability_index": {
       "mean": 0.0,
       "std": 1.0
     }
@@ -1903,7 +1923,7 @@
       "std": 1.0
     },
     "machine_id_encoded": {
-      "mean": 0.35599997639656067,
+      "mean": 0.35600000619888306,
       "std": 1.0
     },
     "Cushion_rolling_mean_5": {
@@ -2631,7 +2651,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_utilization": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_margin_norm": {
@@ -2691,7 +2711,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_margin_norm": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_violation": {
@@ -2763,11 +2783,11 @@
       "std": 1.0
     },
     "safety_margin_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "Cycle_Dosage_Ratio": {
@@ -2839,38 +2859,6 @@
       "std": 1.0
     },
     "Extruder_torque_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_5": {
       "mean": 0.0,
       "std": 1.0
     },
@@ -2994,30 +2982,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "Cushion_rolling_std_10": {
       "mean": 0.0,
       "std": 1.0
@@ -3138,46 +3102,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "safety_violation_count_delta_1": {
       "mean": 0.0,
       "std": 1.0
@@ -3239,19 +3163,19 @@
       "std": 1.0
     },
     "safety_margin_mean_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332807496190071,
+      "std": 0.00041866666288115084
     },
     "safety_margin_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332807496190071,
+      "std": 0.00041866666288115084
     },
     "safety_margin_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03331755846738815,
+      "std": 0.0007250375347211957
     },
     "safety_margin_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_5": {
@@ -3259,27 +3183,27 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332807496190071,
+      "std": 0.00041866666288115084
     },
     "safety_utilization_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332807496190071,
+      "std": 0.00041866666288115084
     },
     "safety_utilization_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03331755846738815,
+      "std": 0.0007250375347211957
     },
     "safety_utilization_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_5": {
@@ -3287,11 +3211,11 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_violation_count_rolling_mean_10": {
@@ -3335,7 +3259,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_10": {
@@ -3343,7 +3267,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_20": {
@@ -3355,7 +3279,7 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_10": {
@@ -3363,10 +3287,126 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333507180214,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "process_instability_index": {
       "mean": 0.0,
       "std": 1.0
     }
@@ -3589,7 +3629,7 @@
       "std": 1.0
     },
     "machine_id_encoded": {
-      "mean": 0.47099998593330383,
+      "mean": 0.4710000455379486,
       "std": 1.0
     },
     "Cushion_rolling_mean_5": {
@@ -4317,7 +4357,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_utilization": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_margin_norm": {
@@ -4377,7 +4417,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_margin_norm": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_violation": {
@@ -4449,11 +4489,11 @@
       "std": 1.0
     },
     "safety_margin_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "Cycle_Dosage_Ratio": {
@@ -4525,38 +4565,6 @@
       "std": 1.0
     },
     "Extruder_torque_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_5": {
       "mean": 0.0,
       "std": 1.0
     },
@@ -4680,30 +4688,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "Cushion_rolling_std_10": {
       "mean": 0.0,
       "std": 1.0
@@ -4824,46 +4808,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "safety_violation_count_delta_1": {
       "mean": 0.0,
       "std": 1.0
@@ -4925,19 +4869,19 @@
       "std": 1.0
     },
     "safety_margin_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_lag_3": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_lag_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_5": {
@@ -4945,27 +4889,27 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_3": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_5": {
@@ -4973,11 +4917,11 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_violation_count_rolling_mean_10": {
@@ -5021,7 +4965,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_10": {
@@ -5029,7 +4973,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_20": {
@@ -5041,7 +4985,7 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_10": {
@@ -5049,10 +4993,126 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "process_instability_index": {
       "mean": 0.0,
       "std": 1.0
     }
@@ -5275,7 +5335,7 @@
       "std": 1.0
     },
     "machine_id_encoded": {
-      "mean": 0.6069998741149902,
+      "mean": 0.606999933719635,
       "std": 1.0
     },
     "Cushion_rolling_mean_5": {
@@ -6003,7 +6063,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_utilization": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_margin_norm": {
@@ -6063,7 +6123,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_margin_norm": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_violation": {
@@ -6135,11 +6195,11 @@
       "std": 1.0
     },
     "safety_margin_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "Cycle_Dosage_Ratio": {
@@ -6211,38 +6271,6 @@
       "std": 1.0
     },
     "Extruder_torque_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_5": {
       "mean": 0.0,
       "std": 1.0
     },
@@ -6366,30 +6394,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "Cushion_rolling_std_10": {
       "mean": 0.0,
       "std": 1.0
@@ -6510,46 +6514,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "safety_violation_count_delta_1": {
       "mean": 0.0,
       "std": 1.0
@@ -6611,19 +6575,19 @@
       "std": 1.0
     },
     "safety_margin_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.033328719437122345,
+      "std": 0.0003922111645806581
     },
     "safety_margin_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.033328719437122345,
+      "std": 0.0003922111645806581
     },
     "safety_margin_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_5": {
@@ -6631,27 +6595,27 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.033328719437122345,
+      "std": 0.0003922111645806581
     },
     "safety_utilization_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.033328719437122345,
+      "std": 0.0003922111645806581
     },
     "safety_utilization_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_5": {
@@ -6659,11 +6623,11 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_violation_count_rolling_mean_10": {
@@ -6707,7 +6671,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_10": {
@@ -6715,7 +6679,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_20": {
@@ -6727,7 +6691,7 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_10": {
@@ -6735,10 +6699,126 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "process_instability_index": {
       "mean": 0.0,
       "std": 1.0
     }
@@ -7689,7 +7769,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_utilization": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_margin_norm": {
@@ -7749,7 +7829,7 @@
       "std": 1.0
     },
     "Extruder_torque_safe_margin_norm": {
-      "mean": 0.0,
+      "mean": 0.5,
       "std": 1.0
     },
     "Cushion_safe_violation": {
@@ -7821,11 +7901,11 @@
       "std": 1.0
     },
     "safety_margin_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "Cycle_Dosage_Ratio": {
@@ -7897,38 +7977,6 @@
       "std": 1.0
     },
     "Extruder_torque_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_delta_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_1": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_lag_5": {
       "mean": 0.0,
       "std": 1.0
     },
@@ -8052,30 +8100,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_mean_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "Cushion_rolling_std_10": {
       "mean": 0.0,
       "std": 1.0
@@ -8196,46 +8220,6 @@
       "mean": 0.0,
       "std": 1.0
     },
-    "Scrap_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_10": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_std_20": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_min_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Scrap_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
-    "Shot_counter_rolling_max_5": {
-      "mean": 0.0,
-      "std": 1.0
-    },
     "safety_violation_count_delta_1": {
       "mean": 0.0,
       "std": 1.0
@@ -8297,19 +8281,19 @@
       "std": 1.0
     },
     "safety_margin_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332367539405823,
+      "std": 0.000567298848181963
     },
     "safety_margin_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332367539405823,
+      "std": 0.000567298848181963
     },
     "safety_margin_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_5": {
@@ -8317,27 +8301,27 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_1": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_lag_3": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332367539405823,
+      "std": 0.000567298848181963
     },
     "safety_utilization_mean_lag_5": {
-      "mean": 0.0,
-      "std": 1.0
+      "mean": 0.03332367539405823,
+      "std": 0.000567298848181963
     },
     "safety_utilization_mean_rolling_mean_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_5": {
@@ -8345,11 +8329,11 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_min_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_max_5": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_violation_count_rolling_mean_10": {
@@ -8393,7 +8377,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_10": {
@@ -8401,7 +8385,7 @@
       "std": 1.0
     },
     "safety_margin_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_margin_mean_rolling_std_20": {
@@ -8413,7 +8397,7 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_10": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_10": {
@@ -8421,10 +8405,126 @@
       "std": 1.0
     },
     "safety_utilization_mean_rolling_mean_20": {
-      "mean": 0.0,
+      "mean": 0.03333333134651184,
       "std": 1.0
     },
     "safety_utilization_mean_rolling_std_20": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_violation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cushion_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Dosage_time_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Injection_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_pressure_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z1_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z2_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z3_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z4_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z5_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z6_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z7_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Cyl_tmp_z8_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "Switch_position_tol_deviation": {
+      "mean": 0.0,
+      "std": 1.0
+    },
+    "process_instability_index": {
       "mean": 0.0,
       "std": 1.0
     }

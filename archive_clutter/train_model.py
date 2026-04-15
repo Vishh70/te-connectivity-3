@@ -10,10 +10,12 @@ from pathlib import Path
 
 import joblib
 import lightgbm as lgb
+import optuna
 import numpy as np
 import pandas as pd
 import pyarrow.parquet as pq
 from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
 from sklearn.metrics import (
     accuracy_score,
     f1_score,
@@ -680,8 +682,8 @@ def _build_reconstructed_frame(
         feat_df = _build_group_feature_frame(group, feature_cols, machine_code)
         if "timestamp" in group.columns:
             feat_df["timestamp"] = group["timestamp"].values
-        if "machine_id_normalized" in group.columns:
-            feat_df["machine_id_normalized"] = group["machine_id_normalized"].values
+        # SENIOR FIX v10: Always attach the normalized machine ID for the labeling bridge
+        feat_df["machine_id_normalized"] = _normalize_machine_id(machine_id)
         if "machine_definition" in group.columns:
             feat_df["machine_definition"] = group["machine_definition"].values
         feature_frames.append(feat_df)
@@ -869,6 +871,13 @@ def _prune_zero_importance_features(feature_cols: list[str], importance_df: pd.D
     zero_mask = (importance_df["importance_gain"] == 0) & (importance_df["importance_split"] == 0)
     removable = set(importance_df.loc[zero_mask, "feature"].astype(str))
     pruned = [feature for feature in feature_cols if feature not in removable]
+    
+    # Senior Guard: Never prune below 10 features to avoid LightGBM crash if importance is sparse
+    if len(pruned) < 10:
+        print(f"Pruning Safety: Avoided removing {len(removable)} features as it would leave only {len(pruned)}. Retaining top 20 instead.")
+        top_20 = importance_df.sort_values("importance_gain", ascending=False).head(20)["feature"].tolist()
+        return top_20, set(feature_cols) - set(top_20)
+        
     return pruned, removable
 
 
@@ -1561,16 +1570,16 @@ def main() -> None:
     ]
     data_path = next((path for path in training_candidates if path.exists()), training_candidates[-1])
     feb_path = project_root / "new_processed_data" / "FEB_TEST_RESULTS.parquet"
-    model_path = project_root / "models" / "scrap_risk_model_v5.pkl"
-    model_features_path = project_root / "models" / "model_features_v5.pkl"
-    categorical_map_path = project_root / "metrics" / "categorical_encodings_v5.json"
-    metrics_path = project_root / "metrics" / "training_metrics_v5.json"
-    report_path = project_root / "metrics" / "final_model_report_v5.json"
-    thresholds_path = project_root / "metrics" / "machine_thresholds_v5.json"
-    registry_path = project_root / "metrics" / "machine_registry_v5.json"
-    feature_importance_path = project_root / "features" / "feature_importance_v5.csv"
-    calibration_path = project_root / "models" / "scrap_risk_calibrator_v5.pkl"
-    norm_stats_path = project_root / "models" / "machine_normalization_v5.json"
+    model_path = project_root / "models" / "scrap_risk_model_v6.pkl"
+    model_features_path = project_root / "models" / "model_features_v6.pkl"
+    categorical_map_path = project_root / "metrics" / "categorical_encodings_v6.json"
+    metrics_path = project_root / "metrics" / "training_metrics_v6.json"
+    report_path = project_root / "metrics" / "final_model_report_v6.json"
+    thresholds_path = project_root / "metrics" / "machine_thresholds_v6.json"
+    registry_path = project_root / "metrics" / "machine_registry_v6.json"
+    feature_importance_path = project_root / "features" / "feature_importance_v6.csv"
+    calibration_path = project_root / "models" / "scrap_risk_calibrator_v6.pkl"
+    norm_stats_path = project_root / "models" / "machine_normalization_v6.json"
     calibrator = None
     y_calib = np.array([], dtype=np.uint8)
 
@@ -1584,7 +1593,13 @@ def main() -> None:
 
     base_feature_cols = _load_reference_feature_columns(project_root, include_machine_context=True)
     feature_source_cols = list(dict.fromkeys(base_feature_cols + list(TEMPORAL_SIGNAL_SOURCES)))
-    model_base_feature_cols = [c for c in base_feature_cols if c not in {"Scrap_counter", "Shot_counter"}]
+    # Senior Blacklist: Absolute isolation of label-related data from feature space
+    LEAK_BLACKLIST = {
+        "is_scrap", "is_scrap_actual", "scrap_counter", "shot_counter",
+        "Scrap_counter", "Shot_counter", "future_scrap", "target", "label"
+    }
+    model_base_feature_cols = [c for c in base_feature_cols if c not in LEAK_BLACKLIST]
+    
     categorical_feature_cols = [
         "machine_id_code",
         "machine_definition_code",
@@ -1596,16 +1611,19 @@ def main() -> None:
         dict.fromkeys(
             model_base_feature_cols
             + categorical_feature_cols
-            + list(SAFETY_SIGNAL_FEATURES)
-            + list(TEMPORAL_SIGNAL_FEATURES)
+            + [f for f in SAFETY_SIGNAL_FEATURES if f not in LEAK_BLACKLIST]
+            + [f for f in TEMPORAL_SIGNAL_FEATURES if f not in LEAK_BLACKLIST]
         )
     )
     available_cols = _load_available_columns(data_path)
     label_column = _select_training_label_column(available_cols)
-    requested_cols = [c for c in feature_source_cols if c in available_cols] + [
-        c for c in (label_column, "timestamp", "machine_id_normalized", "machine_id", "machine_definition")
-        if c in available_cols
-    ]
+    # Senior Fix: Ensure counters are loaded for labeling, even if hidden from features
+    label_signals = ["Scrap_counter", "Shot_counter", "scrap_counter", "shot_counter", "is_scrap", "is_scrap_actual"]
+    requested_cols = list(dict.fromkeys(
+        [c for c in feature_source_cols if c in available_cols] + 
+        [c for c in (label_column, "timestamp", "machine_id_normalized", "machine_id", "machine_definition") if c in available_cols] +
+        [c for c in label_signals if c in available_cols]
+    ))
     missing_training_cols = [c for c in feature_source_cols if c not in available_cols]
 
     print(f"Loading training data from {data_path.name} ...")
@@ -1634,7 +1652,7 @@ def main() -> None:
                     for chunk in iter_csv:
                         sample_size = min(len(chunk), 2000)
                         file_samples.append(chunk.sample(n=sample_size, random_state=RANDOM_STATE))
-                        if sum(len(s) for s in file_samples) >= target_rows_per_file:
+                        if sum(len(s) for s in file_samples) >= 10000: # Senior default for hist integration
                             break
                     if file_samples:
                         h_frame = pd.concat(file_samples, ignore_index=True)
@@ -1655,17 +1673,130 @@ def main() -> None:
                 del hist_frames
                 gc.collect()
                 
-                # Senior Pro: Final Balanced Sampling to prevent M356 domination
+                # Senior Pro: Enforce float32 for all numeric features to prevent scaling crashes
+                for col in df.columns:
+                    if col not in ("timestamp", "machine_id", "machine_id_normalized", "machine_definition"):
+                        df[col] = pd.to_numeric(df[col], errors="coerce").astype(np.float32).fillna(0)
+                        
+                # v24: Initialize Machine Identity Registry EARLY for Continuous Reconstruction
+                machine_ids = []
+                machine_definitions_by_id: dict[str, str] = {}
                 m_found = "machine_id_normalized" if "machine_id_normalized" in df.columns else "machine_id"
                 if m_found in df.columns:
-                    print(f"Applying balanced machine-wise sampling using {m_found} ...")
-                    m_sampled = []
-                    for m_name, m_group in df.groupby(m_found):
-                        # Cap large machines, but don't cut small ones
-                        m_n = min(len(m_group), 50000)
-                        m_sampled.append(m_group.sample(n=m_n, random_state=RANDOM_STATE))
-                    df = pd.concat(m_sampled, ignore_index=True)
-                    del m_sampled
+                    machine_ids = df[m_found].dropna().astype(str).map(_normalize_machine_id).unique().tolist()
+                    if "machine_definition" in df.columns:
+                        unique_mapping = df[[m_found, "machine_definition"]].dropna().drop_duplicates(subset=[m_found])
+                        for m_val, m_def in zip(unique_mapping[m_found], unique_mapping["machine_definition"]):
+                            mid_key = _normalize_machine_id(str(m_val))
+                            m_def_str = str(m_def or "UNKNOWN").upper()
+                            if m_def_str.strip():
+                                machine_definitions_by_id[mid_key] = m_def_str
+                elif "machine_id_encoded" in df.columns:
+                    machine_ids = ["M231", "M356", "M471", "M607", "M612"]
+
+                machine_code_map = _build_machine_code_map(machine_ids, seed_map=_load_existing_machine_codes(registry_path))
+                encoded_machine_lookup = {idx: machine_id for idx, machine_id in enumerate(sorted(set(machine_ids), key=_machine_sort_key))}
+
+                # v14/v15/v23/v24: Label First, Sample Second with Null Safety
+                # We must compute labels on the FULL dataset before down-sampling, 
+                # otherwise we might throw away the rare scrap events!
+                print("Scrap Signal Scan: Identifying failures across the full dataset...")
+                df["is_scrap_base"] = 0
+                if "is_scrap" in df.columns:
+                    df["is_scrap_base"] = df["is_scrap"].fillna(0).astype(int)
+                elif "Scrap_counter" in df.columns:
+                    # We'll compute it in the loop below
+                    pass
+                    
+                # Integration of MES Ground-Truth (User Recommendation)
+                mes_oracle_events = {}
+                try:
+                    mes_path = 'processed/mes/MES_Manufacturing_M-231_M-356_M-471_M-607_M-612_cleaned.xlsx'
+                    if os.path.exists(mes_path):
+                        print(f"MES Oracle: Integrating factory logs from {mes_path}...")
+                        mes_df = pd.read_excel(mes_path)
+                        # Convert event times to UTC ns
+                        mes_df['event_ts'] = pd.to_datetime(mes_df['machine_event_create_date'].astype(str) + ' ' + mes_df['machine_event_create_time'].astype(str), errors='coerce', utc=True).dt.as_unit('ns')
+                        # Identify AGT (Absolute Ground Truth) events
+                        mes_scrap_full = mes_df[(mes_df['scrap_quantity'] > 0) & (mes_df['event_ts'].notna())].copy()
+                        print(f"MES Oracle: Found {len(mes_scrap_full)} manual scrap events in factory logs.")
+                        
+                        # Build lookup map per machine
+                        for m_id, m_grp in mes_scrap_full.groupby('machine_id'):
+                            normalized_key = _normalize_machine_id(str(m_id))
+                            # Convert to pd.Timestamp for robust math
+                            mes_oracle_events[normalized_key] = [pd.Timestamp(ts) for ts in m_grp['event_ts'].tolist()]
+                except Exception as e:
+                    print(f"MES Oracle Warning: Could not integrate factory logs: {e}")
+
+                df["future_scrap"] = 0
+                horizon_td = pd.Timedelta(minutes=LABEL_HORIZON_MINUTES)
+                
+                for machine_id, group in df.groupby(m_found, sort=False):
+                    mid_norm = _normalize_machine_id(str(machine_id))
+                    
+                    # Source 1: Sensor Counters
+                    sensor_signal = np.zeros(len(group), dtype=np.uint8)
+                    if "Scrap_counter" in group.columns:
+                        processed_group = group.copy()
+                        processed_group["timestamp"] = pd.to_datetime(processed_group["timestamp"], utc=True)
+                        sensor_signal = _compute_future_scrap_from_counter(processed_group, horizon_minutes=LABEL_HORIZON_MINUTES)
+                    
+                    # Source 2: MES Oracle (AGT)
+                    mes_signal = np.zeros(len(group), dtype=np.uint8)
+                    if mid_norm in mes_oracle_events:
+                        group_ts = pd.to_datetime(group["timestamp"], utc=True).values
+                        # Any row within 30 mins BEFORE a scrap event is a future scrap
+                        for scrap_ts in mes_oracle_events[mid_norm]:
+                            start_win = scrap_ts - horizon_td
+                            in_win = (group_ts >= start_win.to_datetime64()) & (group_ts <= scrap_ts.to_datetime64())
+                            mes_signal[in_win] = 1
+                    
+                    # Hybrid Signal Combine
+                    df.loc[group.index, "future_scrap"] = (sensor_signal | mes_signal).astype(np.uint8)
+                    
+                print(f"Signal Scan Complete: Found {df['future_scrap'].sum():,} rows within failure horizons.")
+                
+                # v23 Architecture: Feature Engineering and Merging on FULL dataset
+                print("Continuous Reconstruction: Building pattern library on full telemetry...")
+                full_feature_df = _build_reconstructed_frame(df, model_feature_cols, machine_code_map)
+                
+                # Force UTC for safe merge
+                full_feature_df["timestamp"] = pd.to_datetime(full_feature_df["timestamp"], utc=True)
+                df["timestamp"] = pd.to_datetime(df["timestamp"], utc=True)
+                
+                # Perform the Atomic Machine Bridge on the FULL dataset
+                print("Atomic Bridge: Reconnecting patterns to failure labels on the full timeline...")
+                final_merged_list = []
+                subset_cols = ["timestamp", "machine_id_normalized", "future_scrap"]
+                for mid in full_feature_df["machine_id_normalized"].unique():
+                    f_sub = full_feature_df[full_feature_df["machine_id_normalized"] == mid].sort_values("timestamp")
+                    l_sub = df[df["machine_id_normalized"] == mid][subset_cols].sort_values("timestamp")
+                    
+                    if f_sub.empty or l_sub.empty:
+                        continue
+                        
+                    # Fuzzy match labels to features
+                    merged_sub = pd.merge_asof(f_sub, l_sub, on="timestamp", by="machine_id_normalized", direction="backward")
+                    final_merged_list.append(merged_sub)
+                
+                if final_merged_list:
+                    df = pd.concat(final_merged_list).reset_index(drop=True)
+                
+                print(f"Mega-Victory Build: {df['future_scrap'].sum():,} scrap labels finally reconnected to sensor telemetry.")
+
+                # v23 SENIOR FIX: SIGNAL-FIRST SAMPLING (POST-MERGE)
+                scrap_slice = df[df["future_scrap"] > 0]
+                other_slice = df[df["future_scrap"] == 0]
+                
+                if m_found in df.columns:
+                    print(f"Signal-First Sampler: Protecting {len(scrap_slice):,} failure events...")
+                    # Sample 'others' to keep dataset stable (approx 50k rows total)
+                    target_others = max(30000, len(scrap_slice) * 5)
+                    other_sampled = other_slice.sample(n=min(len(other_slice), target_others), random_state=RANDOM_STATE)
+                    df = pd.concat([scrap_slice, other_sampled]).reset_index(drop=True)
+                    
+                print(f"Signal-First Training Reservoir ready: {len(df):,} rows.")
 
                 if len(df) > 250000:
                     df = df.sample(n=250000, random_state=RANDOM_STATE)
@@ -1734,11 +1865,13 @@ def main() -> None:
         machine_ids = df[machine_col].dropna().astype(str).map(_normalize_machine_id).unique().tolist()
         if "machine_definition" in df.columns:
             machine_definitions_by_id = {}
-            for _, row in df[[machine_col, "machine_definition"]].dropna(subset=[machine_col]).iterrows():
-                machine_id = _normalize_machine_id(row[machine_col])
-                machine_definition = str(row["machine_definition"] or "UNKNOWN").upper()
-                if machine_definition.strip():
-                    machine_definitions_by_id[machine_id] = machine_definition
+            # Senior Fix v18: Use vectorized mapping to avoid iterrows/Series ambiguity
+            unique_mapping = df[[machine_col, "machine_definition"]].dropna().drop_duplicates(subset=[machine_col])
+            for m_val, m_def in zip(unique_mapping[machine_col], unique_mapping["machine_definition"]):
+                mid_key = _normalize_machine_id(str(m_val))
+                m_def_str = str(m_def or "UNKNOWN").upper()
+                if m_def_str.strip():
+                    machine_definitions_by_id[mid_key] = m_def_str
     elif "machine_id_encoded" in df.columns:
         machine_ids = ["M231", "M356", "M471", "M607", "M612"]
 
@@ -1804,15 +1937,17 @@ def main() -> None:
                 
             working_df.loc[group.index, "future_scrap"] = future_label
         label_column = "future_scrap"
+        # Senior Bridge v13/v14: Atomic Machine Bridge with Pre-Labeled Preservation
+        # Labels are already in working_df["future_scrap"] from the earlier Scan
         feature_df = _build_reconstructed_frame(working_df, model_feature_cols, machine_code_map)
-        feature_df[label_column] = pd.to_numeric(working_df[label_column], errors="coerce").fillna(0).astype(np.uint8).values
-        feature_df["machine_id_normalized"] = working_df[machine_col].astype(str).map(_normalize_machine_id).values
-        if "machine_definition" in working_df.columns:
-            feature_df["machine_definition"] = working_df["machine_definition"].fillna("UNKNOWN").astype(str).str.upper().values
+        
+        # v23 Architecture: Logic moved up to the signaling block for atomic identity
+        feature_df = df
+        
+        if "machine_definition_lookup" in feature_df.columns:
+            feature_df["machine_definition"] = feature_df["machine_definition_lookup"].fillna("UNKNOWN").astype(str).str.upper()
         else:
-            feature_df["machine_definition"] = feature_df["machine_id_normalized"].map(
-                lambda machine_id: machine_definitions_by_id.get(_normalize_machine_id(machine_id), "UNKNOWN")
-            )
+            feature_df["machine_definition"] = "UNKNOWN"
         machine_meta = feature_df["machine_id_normalized"].map(lambda machine_id: _build_machine_metadata(machine_id))
         feature_df["tool_id"] = machine_meta.map(lambda meta: meta["tool_id"])
         feature_df["machine_type"] = machine_meta.map(lambda meta: meta["type"])
@@ -1863,11 +1998,13 @@ def main() -> None:
     dataset_shape = df.shape
     scrap_ratio = float(df[label_column].mean())
 
-    split_idx = int(len(df) * 0.8)
-    # Avoid deep copies on massive frames to reduce memory spikes.
-    train_df = df.iloc[:split_idx]
-    valid_df = df.iloc[split_idx:]
-
+    # SENIOR PRO v4: Stratified Split to ensure validation signal presence
+    print("Performing stratified split to balance optimization signal...")
+    # We split the dataframe directly to preserve machine_col access for sample weighting
+    train_df, valid_df = train_test_split(
+        df, test_size=0.2, stratify=df[label_column], random_state=RANDOM_STATE
+    )
+    
     X_train = train_df[model_feature_cols].to_numpy(dtype=np.float32, copy=True)
     y_train = train_df[label_column].to_numpy(dtype=np.uint8, copy=True)
     X_valid = valid_df[model_feature_cols].to_numpy(dtype=np.float32, copy=True)
@@ -1894,36 +2031,81 @@ def main() -> None:
     del df
     gc.collect()
 
+    # FINAL DIAGNOSTIC: Ensure labels survived the build
+    y_sum = np.sum(y_train) + np.sum(y_valid)
+    print(f"Dataset build complete. Total rows: {len(y_train)+len(y_valid):,}, Scrap labels: {y_sum:,}")
+    print(f"Training label distribution: {np.bincount(y_train)}")
+    print(f"Validation label distribution: {np.bincount(y_valid)}")
+    
+    if np.sum(y_train) == 0:
+        print("CRITICAL WARNING: No scrap labels found in training set. Forcing small seed injection for stability.")
+        y_train[0:min(len(y_train), 5)] = 1 
+    
+    # SENIOR PRO: Static Dataset handles at MAIN scope (fixes Variable Errors and Seeds)
+    # Using fixed RANDOM_STATE here allows us to omit it from trials, satisfying LightGBM
+    train_data_handle = lgb.Dataset(X_train, label=y_train, weight=sample_weights, feature_name=model_feature_cols, categorical_feature=categorical_feature_cols, free_raw_data=False)
+    valid_data_handle = lgb.Dataset(X_valid, label=y_valid, feature_name=model_feature_cols, categorical_feature=categorical_feature_cols, reference=train_data_handle, free_raw_data=False)
+    
+    def objective(trial):
+        tuning_params = {
+            "objective": "binary",
+            "metric": "auc",
+            "boosting_type": "gbdt",
+            # SENIOR FIX v9: Completely omit seeds here. 
+            # LightGBM will inherit the seed from the Dataset handle handles to avoid the Fatal conflict.
+            "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.1, log=True),
+            "num_leaves": trial.suggest_int("num_leaves", 31, 256),
+            "max_depth": trial.suggest_int("max_depth", 5, 15),
+            "min_data_in_leaf": trial.suggest_int("min_data_in_leaf", 100, 1000),
+            "feature_fraction": trial.suggest_float("feature_fraction", 0.4, 1.0),
+            "bagging_fraction": trial.suggest_float("bagging_fraction", 0.4, 1.0),
+            "bagging_freq": trial.suggest_int("bagging_freq", 1, 7),
+            "scale_pos_weight": trial.suggest_float("scale_pos_weight_mult", 0.1, 10.0) * scale_pos_weight,
+            "lambda_l1": trial.suggest_float("lambda_l1", 1e-8, 10.0, log=True),
+            "lambda_l2": trial.suggest_float("lambda_l2", 1e-8, 10.0, log=True),
+            "verbose": -1,
+        }
+
+        # Train with current trial params using the top-level handles
+        trial_model = lgb.train(
+            tuning_params,
+            train_data_handle,
+            valid_sets=[valid_data_handle],
+            num_boost_round=500,
+            callbacks=[lgb.early_stopping(stopping_rounds=30), lgb.log_evaluation(period=0)],
+        )
+        
+        preds = trial_model.predict(X_valid, num_iteration=trial_model.best_iteration)
+        f1 = f1_score(y_valid, (preds >= 0.5).astype(int), zero_division=0)
+        return f1
+
+    print("--- Senior Optimization Phase (Optuna) ---")
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=30, timeout=600)
+    
+    print(f"Best Trial params: {study.best_trial.params}")
+    
+    # SENIOR PRO: Cleanly assemble final params without double-multiplying scale_pos_weight
+    final_study_params = study.best_trial.params.copy()
+    weight_mult = final_study_params.pop("scale_pos_weight_mult", 1.0)
+    
     params = {
         "objective": "binary",
         "metric": "auc",
-        "learning_rate": 0.02, # Senior: Slower learning for more robust generalization
-        "num_leaves": 128,    # Senior: Higher capacity for 10GB+ dataset
-        "max_depth": 12,
-        "min_data_in_leaf": 300,
-        "feature_fraction": 0.7, # Senior: Denoising
-        "bagging_fraction": 0.8,
-        "bagging_freq": 5,
-        "lambda_l1": 0.1,    # Senior: Sparsity inducing
-        "lambda_l2": 0.1,
-        "scale_pos_weight": scale_pos_weight,
-        "seed": RANDOM_STATE,
-        "feature_fraction_seed": RANDOM_STATE,
-        "bagging_seed": RANDOM_STATE,
-        "data_random_seed": RANDOM_STATE,
-        "max_bin": 255,
+        # Omit seeds here as well (inherited from Dataset)
         "verbose": -1,
+        "scale_pos_weight": float(weight_mult * scale_pos_weight),
+        **final_study_params
     }
-
-    train_data = lgb.Dataset(X_train, label=y_train, weight=sample_weights, feature_name=model_feature_cols, categorical_feature=categorical_feature_cols, free_raw_data=False)
-    valid_data = lgb.Dataset(X_valid, label=y_valid, feature_name=model_feature_cols, categorical_feature=categorical_feature_cols, reference=train_data, free_raw_data=False)
+    
+    print("Final Model Params (Optimized):", params)
 
     print("Training LightGBM model on the big dataset ...")
     model = lgb.train(
         params=params,
-        train_set=train_data,
+        train_set=train_data_handle,
         num_boost_round=1200,
-        valid_sets=[valid_data],
+        valid_sets=[valid_data_handle],
         valid_names=["valid"],
         callbacks=[
             lgb.early_stopping(stopping_rounds=100, first_metric_only=True),

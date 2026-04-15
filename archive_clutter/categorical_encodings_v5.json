@@ -1,0 +1,43 @@
+{
+  "version": "v5-big-dataset-future_scrap-precision-first",
+  "categorical_features": [
+    "machine_id_code",
+    "machine_definition_code",
+    "tool_id_code",
+    "machine_type_code",
+    "part_number_code"
+  ],
+  "machine_id_code": {
+    "UNKNOWN": 0,
+    "M231": 1,
+    "M356": 2,
+    "M471": 3,
+    "M607": 4,
+    "M612": 5
+  },
+  "machine_definition_code": {
+    "UNKNOWN": 0,
+    "M231": 1,
+    "M356": 2,
+    "M471": 3,
+    "M607": 4,
+    "M612": 5
+  },
+  "tool_id_code": {
+    "UNKNOWN": 0,
+    "T-022": 1,
+    "T-041": 2,
+    "T-085": 3,
+    "T-109": 4
+  },
+  "machine_type_code": {
+    "UNKNOWN": 0,
+    "HIGH PRECISION": 1,
+    "HIGH PRESSURE": 2,
+    "MULTI-CAVITY": 3,
+    "STANDARD": 4
+  },
+  "part_number_code": {
+    "UNKNOWN": 0
+  }
+}

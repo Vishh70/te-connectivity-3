@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 import { Activity, AlertTriangle, BarChart3, Clock3, ShieldAlert } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 import apiClient, { getWsUrl } from "./utils/apiClient";
 import Login from "./components/Login";
@@ -625,19 +626,29 @@ function App() {
             ) : currentView === "audit" ? (
               <AuditHub />
             ) : (
-              <>
+              <AnimatePresence mode="wait">
+              <motion.div 
+                key="dashboard"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, staggerChildren: 0.1 }}
+                className="flex flex-col gap-6"
+              >
                 <section id="dashboard" className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 scroll-mt-28">
                   {dashboardCards.map((card, idx) => {
                     const Icon = card.icon;
                     return (
-                      <div
+                      <motion.div
                         key={card.title}
-                        className={`glass-card group relative overflow-hidden flex flex-col justify-between p-5 transition-all duration-300 animate-slide-up ${
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: idx * 0.05 }}
+                        className={`glass-card group relative overflow-hidden flex flex-col justify-between p-5 transition-all duration-300 ${
                           card.clickable
                             ? 'cursor-pointer hover:shadow-xl hover:-translate-y-1 hover:border-brand-200/60 active:scale-95'
                             : 'hover:shadow-lg hover:-translate-y-0.5 hover:border-slate-300/60'
                         }`}
-                        style={{ animationDelay: `${idx * 0.05}s` }}
                         onClick={card.onClick}
                       >
                         <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-slate-100 opacity-0 group-hover:opacity-50 blur-2xl transition-opacity duration-300" />
@@ -655,31 +666,50 @@ function App() {
                         <div className="relative z-10 border-t border-slate-100/50 pt-3">
                           <p className="text-[11px] font-bold text-slate-500/80 tracking-wide line-clamp-1">{card.note}</p>
                         </div>
-                      </div>
+                      </motion.div>
                     );
                   })}
                 </section>
 
-                <div id="health-monitor" className="scroll-mt-28">
-                  <HealthMonitor timeline={displayTimeline} riskScore={currentHealth.risk_score} />
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                  <motion.div 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="lg:col-span-2 scroll-mt-28" 
+                    id="health-monitor"
+                  >
+                    <HealthMonitor timeline={displayTimeline} riskScore={currentHealth.risk_score} />
+                  </motion.div>
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="lg:col-span-1 scroll-mt-28" 
+                    id="root-cause"
+                  >
+                    <RootCause rootCauses={rootCauses} onSelectSensor={handleSelectSensor} />
+                  </motion.div>
                 </div>
 
-                <div id="root-cause" className="scroll-mt-28">
-                  <RootCause rootCauses={rootCauses} onSelectSensor={handleSelectSensor} />
-                </div>
-
-                <div ref={gridRef} className="min-h-[600px] flex-1">
-                  <TelemetryGrid
-                    telemetryRows={telemetryRows}
-                    selectedSensor={selectedSensor}
-                    onSelectSensor={handleSelectSensor}
-                  />
-                </div>
-
-                <div id="prediction-stats" className="scroll-mt-28">
-                  <PredictionStats summaryStats={summaryStats} timeline={displayTimeline} />
-                </div>
-              </>
+                <motion.div 
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   className="grid grid-cols-1 gap-6 lg:grid-cols-4"
+                >
+                  <div ref={gridRef} className="lg:col-span-3 min-h-[600px] flex-1">
+                    <TelemetryGrid
+                      telemetryRows={telemetryRows}
+                      selectedSensor={selectedSensor}
+                      onSelectSensor={handleSelectSensor}
+                    />
+                  </div>
+                  
+                  <div id="prediction-stats" className="lg:col-span-1 scroll-mt-28">
+                    <PredictionStats summaryStats={summaryStats} timeline={displayTimeline} />
+                  </div>
+                </motion.div>
+              </motion.div>
+              </AnimatePresence>
             )}
 
             <SensorDrawer

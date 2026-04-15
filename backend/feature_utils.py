@@ -21,10 +21,14 @@ SAFETY_SIGNAL_FEATURES: tuple[str, ...] = tuple(
         "Cycle_Dosage_Ratio",
         "Thermal_Stability_Index",
         "Pressure_Impulse",
+        "Injection_Efficiency",
+        "Pressure_Volatility",
+        "Cushion_Consistency_Score",
+        "Thermal_Sync_Error",
     ]
 )
 TEMPORAL_SIGNAL_SOURCES: tuple[str, ...] = tuple(
-    list(SAFETY_SIGNAL_SENSORS) + ["Scrap_counter", "Shot_counter"]
+    list(SAFETY_SIGNAL_SENSORS)
 )
 TEMPORAL_SIGNAL_FEATURES: tuple[str, ...] = tuple(
     [f"{source}_delta_1" for source in TEMPORAL_SIGNAL_SOURCES]
@@ -83,6 +87,9 @@ TEMPORAL_SIGNAL_FEATURES: tuple[str, ...] = tuple(
         "safety_utilization_mean_rolling_mean_20",
         "safety_utilization_mean_rolling_std_20",
     ]
+    + [f"{s}_tol_violation" for s in ("Cushion", "Injection_time", "Dosage_time", "Injection_pressure", "Switch_pressure", "Cyl_tmp_z1", "Cyl_tmp_z2", "Cyl_tmp_z3", "Cyl_tmp_z4", "Cyl_tmp_z5", "Cyl_tmp_z6", "Cyl_tmp_z7", "Cyl_tmp_z8", "Switch_position")]
+    + [f"{s}_tol_deviation" for s in ("Cushion", "Injection_time", "Dosage_time", "Injection_pressure", "Switch_pressure", "Cyl_tmp_z1", "Cyl_tmp_z2", "Cyl_tmp_z3", "Cyl_tmp_z4", "Cyl_tmp_z5", "Cyl_tmp_z6", "Cyl_tmp_z7", "Cyl_tmp_z8", "Switch_position")]
+    + ["process_instability_index"]
 )
 
 
@@ -155,11 +162,26 @@ def augment_safety_signal_features(frame: pd.DataFrame) -> pd.DataFrame:
         temps = result[available_zones].apply(pd.to_numeric, errors="coerce").astype("float32")
         result["Thermal_Stability_Index"] = temps.std(axis=1).fillna(0.0).astype("float32")
     
-    # 3. Pressure Impulse: Area under the pressure curve (interaction)
     if "Injection_pressure" in result.columns and "Injection_time" in result.columns:
         press = pd.to_numeric(result["Injection_pressure"], errors="coerce").astype("float32")
         itime = pd.to_numeric(result["Injection_time"], errors="coerce").astype("float32")
         result["Pressure_Impulse"] = (press * itime).fillna(0.0).astype("float32")
+        result["Injection_Efficiency"] = (press / itime.replace(0, 1.0)).fillna(0.0).astype("float32")
+
+    # 4. Senior Pro V7: Volatility & Consistency
+    if "Injection_pressure" in result.columns:
+        press = pd.to_numeric(result["Injection_pressure"], errors="coerce").astype("float32")
+        result["Pressure_Volatility"] = press.diff().abs().rolling(window=10).mean().fillna(0.0).astype("float32")
+
+    if "Cushion" in result.columns:
+        cushion = pd.to_numeric(result["Cushion"], errors="coerce").astype("float32")
+        result["Cushion_Consistency_Score"] = 1.0 / (cushion.rolling(window=10).std().fillna(0.1) + 1e-6)
+
+    # 5. Thermal Sync Error: Deviation from baseline thermal profile
+    if available_zones:
+        temps = result[available_zones].apply(pd.to_numeric, errors="coerce").astype("float32")
+        avg_temp = temps.mean(axis=1)
+        result["Thermal_Sync_Error"] = (temps.sub(avg_temp, axis=0).abs().mean(axis=1)).fillna(0.0).astype("float32")
 
     return result
 
@@ -232,5 +254,35 @@ def augment_temporal_signal_features(frame: pd.DataFrame) -> pd.DataFrame:
 
     if new_columns:
         result = pd.concat([result, pd.DataFrame(new_columns, index=result.index)], axis=1)
+
+    # SENIOR PRO v26: DOMAIN TOLERANCE ORACLE
+    # Values extracted from processed/safe/AI_cup_parameter_info_cleaned.csv
+    TOLERANCES = {
+        "Cushion": 0.5,
+        "Injection_time": 0.03,
+        "Dosage_time": 1.0,
+        "Injection_pressure": 100.0,
+        "Switch_pressure": 100.0,
+        "Cyl_tmp_z1": 5.0, "Cyl_tmp_z2": 5.0, "Cyl_tmp_z3": 5.0, "Cyl_tmp_z4": 5.0,
+        "Cyl_tmp_z5": 5.0, "Cyl_tmp_z6": 5.0, "Cyl_tmp_z7": 5.0, "Cyl_tmp_z8": 5.0,
+        "Switch_position": 0.05
+    }
+    
+    domain_cols: dict[str, pd.Series] = {}
+    for sensor, tol in TOLERANCES.items():
+        if sensor in result.columns:
+            val = pd.to_numeric(result[sensor], errors="coerce").ffill().fillna(0).astype("float32")
+            # Use rolling mean as proxy for 'Set Value'
+            ref = val.rolling(window=20, min_periods=1).mean().astype("float32")
+            diff = (val - ref).abs()
+            
+            domain_cols[f"{sensor}_tol_violation"] = (diff > tol).astype("float32")
+            domain_cols[f"{sensor}_tol_deviation"] = (diff / max(tol, 1e-6)).astype("float32")
+            
+    if domain_cols:
+        result = pd.concat([result, pd.DataFrame(domain_cols, index=result.index)], axis=1)
+        # Global process health index
+        violation_cols = [c for c in result.columns if "_tol_violation" in c]
+        result["process_instability_index"] = result[violation_cols].sum(axis=1).astype("float32")
 
     return result

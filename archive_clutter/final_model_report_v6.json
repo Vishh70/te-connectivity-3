@@ -1,0 +1,121 @@
+{
+  "version": "v5-big-dataset-future_scrap-precision-first",
+  "label_horizon_minutes": 30,
+  "label_column": "future_scrap",
+  "training_dataset": "cleaned_dataset_v4.5f.parquet",
+  "training_rows": 33333,
+  "training_positive_rate": 0.0999909999099991,
+  "training_label_column": "future_scrap",
+  "training_machine_column": "machine_id_normalized",
+  "training_feature_count": 20,
+  "model_path": "C:\\2. te ai cup\\te connectivity 3\\models\\scrap_risk_model_v6.pkl",
+  "best_iteration": 1,
+  "validation": {
+    "rows": 6667,
+    "accuracy": 0.8999550022498876,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "auc": 0.734479260369815,
+    "precision_target_threshold": {
+      "threshold": 0.14450401067733765,
+      "accuracy": 0.6167691615419229,
+      "precision": 0.1731301939058172,
+      "recall": 0.7496251874062968,
+      "f1": 0.2812939521800282,
+      "predicted_positives": 2888
+    }
+  },
+  "feb_test": {
+    "rows": 777006,
+    "precision_target_threshold": {
+      "threshold": 0.14463138580322266,
+      "accuracy": 0.75002,
+      "precision": 1.0,
+      "recall": 8e-05,
+      "f1": 0.00015998720102391808,
+      "predicted_positives": 3
+    },
+    "baseline": {
+      "accuracy": 0.9048076848827422,
+      "precision": 0.2950524847684064,
+      "recall": 0.12801566953835375,
+      "f1": 0.17855913285874528,
+      "auc": 0.47232918318715805,
+      "predicted_positives": 27246
+    },
+    "tuned": {
+      "accuracy": 0.9191808042666337,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc": 0.47232918318715805,
+      "predicted_positives": 0
+    },
+    "per_machine": [
+      {
+        "machine": "M231",
+        "rows": 99362,
+        "positives": 6379,
+        "threshold": 0.14450401067733765,
+        "accuracy": 0.06422978603490268,
+        "precision": 0.06420153181895953,
+        "recall": 1.0,
+        "f1": 0.12065671754714484,
+        "predicted_positives": 99359,
+        "auc": 0.5000161319811148
+      },
+      {
+        "machine": "M356",
+        "rows": 167403,
+        "positives": 16283,
+        "threshold": 0.09555836766958237,
+        "accuracy": 0.10855333333333334,
+        "precision": 0.10855333333333334,
+        "recall": 1.0,
+        "f1": 0.19584683942435488,
+        "predicted_positives": 150000,
+        "auc": 0.4876469742010581
+      },
+      {
+        "machine": "M471",
+        "rows": 166964,
+        "positives": 7616,
+        "threshold": 0.09555836766958237,
+        "accuracy": 0.05077333333333333,
+        "precision": 0.05077333333333333,
+        "recall": 1.0,
+        "f1": 0.09663993503197645,
+        "predicted_positives": 150000,
+        "auc": 0.4936785435049086
+      },
+      {
+        "machine": "M607",
+        "rows": 168449,
+        "positives": 16078,
+        "threshold": 0.14213043451309204,
+        "accuracy": 0.8928733333333333,
+        "precision": 1.0,
+        "recall": 0.0005597711158104242,
+        "f1": 0.0011189158948219059,
+        "predicted_positives": 9,
+        "auc": 0.5002798855579053
+      },
+      {
+        "machine": "M612",
+        "rows": 174828,
+        "positives": 16441,
+        "threshold": 0.09555836766958237,
+        "accuracy": 0.10960666666666667,
+        "precision": 0.10960666666666667,
+        "recall": 1.0,
+        "f1": 0.19755949555698418,
+        "predicted_positives": 150000,
+        "auc": 0.484973217586083
+      }
+    ]
+  },
+  "scale_pos_weight": 9.00225056264066,
+  "features_before_pruning": 426,
+  "features_after_pruning": 20
+}

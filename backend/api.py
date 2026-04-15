@@ -24,8 +24,10 @@ from backend.data_access import (
     get_recent_window, 
     get_available_machines,
     get_audit_validation_results,
-    _normalize_machine_id
+    _normalize_machine_id,
+    unified_predict_scrap # Now using V9 directly
 )
+from backend.ml_inference_v9 import get_production_features
 from backend.forecasting import generate_forecast
 from backend.config_limits import SAFE_LIMITS
 from backend.ingestion_service import (
@@ -186,11 +188,12 @@ def get_all_machine_statuses():
 
     def _safe_run(machine):
         try:
-            decision = run(machine["id"])
+            # Senior Pro: Use the unified V9 inference point
+            risk = unified_predict_scrap(machine["id"], {}) 
             return {
                 "id": machine["id"],
-                "status": decision.get("alert_level", "UNKNOWN"),
-                "risk": decision.get("ml_risk_probability", 0.0)
+                "status": "HEALTHY" if risk < 0.5 else "CRITICAL",
+                "risk": risk
             }
         except Exception:
             return {"id": machine["id"], "status": "OFFLINE", "risk": 0.0}

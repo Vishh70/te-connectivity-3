@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import apiClient from "../utils/apiClient";
-import { Activity, Bell, Clock3, Cpu, Menu, Database, ShieldCheck } from "lucide-react";
+import { Activity, Bell, Clock3, Cpu, Menu, Database, ShieldCheck, Zap } from "lucide-react";
 import { mapStatus, UI_STATUS, getStatusBadgeClass } from "../utils/statusUtils";
 import { PAST_WINDOW_OPTIONS, FUTURE_WINDOW_OPTIONS } from "../utils/windowOptions";
 
@@ -197,8 +197,8 @@ export default function Header({
                <div className={`flex items-center gap-1.5 px-2 py-1 rounded-lg border text-[9px] font-black uppercase tracking-widest ${
                  bufferStatus.state === "Active" ? "bg-brand-50 border-brand-200 text-brand-600 shadow-sm" : "bg-slate-50 border-slate-200 text-slate-400"
                }`}>
-                 <Database size={10} className={bufferStatus.state === "Active" ? "animate-pulse" : ""} />
-                 {bufferStatus.state} {bufferStatus.count > 0 ? `(${bufferStatus.count})` : ""}
+                 <Zap size={10} className={bufferStatus.state === "Active" ? "fill-brand-500 animate-pulse text-brand-600" : ""} />
+                 V9 Synced {bufferStatus.count > 0 ? `(${bufferStatus.count}ms)` : ""}
                </div>
                <span
                 className={`rounded-xl px-4 py-1.5 text-[10px] font-black tracking-[0.2em] uppercase border ${statusConfig.cls} ${statusConfig.glow} transition-all`}

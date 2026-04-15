@@ -40,17 +40,13 @@ apiClient.interceptors.response.use(
 
 export default apiClient;
 
-// Helper to get the WebSocket URL (always uses the browser's current origin)
 export const getWsUrl = (path) => {
   const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
   const token = localStorage.getItem("jwt_token");
-  
-  // Senior Pro Fix: Synchronize with strict 127.0.0.1:8000 backend binding
-  let host = window.location.host;
-  if (host.includes("localhost") || host.includes("127.0.0.1")) {
-    host = "127.0.0.1:8000";
-  }
 
+  // Senior Pro Fix: Use relative origin to leverage the Vite proxy (stabilizes WebSocket connectivity)
+  const host = window.location.host;
+  
   if (!token) return `${wsProtocol}//${host}${path}`;
   
   const separator = path.includes("?") ? "&" : "?";
