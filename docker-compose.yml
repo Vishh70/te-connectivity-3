@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - JWT_SECRET=te-connectivity-production-key-2026
+      - ALLOWED_ORIGINS=http://localhost:80
+    volumes:
+      - ./new_processed_data:/app/new_processed_data
+      - ./models:/app/models
+      - ./metrics:/app/metrics
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

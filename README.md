@@ -4,21 +4,22 @@
 [![Version](https://img.shields.io/badge/Release-v5.1.0--Senior--Pro-7916ff?style=for-the-badge&logo=rocket)](https://github.com/Vishh70/te-connectivity-3)
 [![Status](https://img.shields.io/badge/Status-Deployment--Ready-2ea44f?style=for-the-badge&logo=checkmarx)](https://github.com/Vishh70/te-connectivity-3)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005863?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
 The TE Connectivity Predictive Maintenance system is a state-of-the-art solution designed to monitor, predict, and explain scrap risks across mechanical production fleets. By leveraging high-precision machine learning and fleet-wide normalization, we provide operators with a **30-minute intervention window** before hardware failures occur.
 
 ---
 
-## 🏛️ System Architecture
+## 🏛️ Advanced Architecture
 
-Our decoupled architecture ensures that 10GB+ of telemetry can be processed in real-time without dashboard lag.
+Our architecture is optimized for high-performance telemetry processing and explainable AI insights.
 
 ```mermaid
 graph TD
     classDef machine fill:#f9f,stroke:#333,stroke-width:2px;
     classDef backend fill:#bbf,stroke:#333,stroke-width:2px;
     classDef frontend fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef data fill:#eee,stroke:#999,stroke-dasharray: 5 5;
 
     subgraph "Production Fleet (200+ Assets)"
         M1["🏭 Machine 231"]:::machine
@@ -26,11 +27,18 @@ graph TD
         Mn["🏭 Machine N"]:::machine
     end
 
-    subgraph "Intelligent Backend (FastAPI)"
+    subgraph "Data Storage"
+        PQT[(".parquet Telemetry")]:::data
+        PKL[(".pkl Model Weights")]:::data
+        JSON[("Config & Limits")]:::data
+    end
+
+    subgraph "Senior Pro Backend (FastAPI)"
         DA["💾 Data Access Layer"]:::backend
+        NORM["⚖️ Z-Score Normalization"]:::backend
         INF["🧠 Senior Pro V5 Engine"]:::backend
-        VAL["⚖️ Audit Hub"]:::backend
-        API["📡 REST API"]:::backend
+        SHAP["🔍 SHAP Processor"]:::backend
+        API["📡 REST / WebSocket API"]:::backend
     end
 
     subgraph "Digital Twin Dashboard"
@@ -40,9 +48,12 @@ graph TD
     end
 
     M1 & M2 & Mn --> DA
-    DA --> INF
-    INF --> API
-    VAL --> API
+    PQT --> DA
+    DA --> NORM
+    NORM --> INF
+    INF --> SHAP
+    SHAP --> API
+    PKL & JSON -.-> INF
     API --> DR
     API --> AH
     API --> XAI
@@ -50,84 +61,58 @@ graph TD
 
 ---
 
-## 🌟 Core Innovations
+## 📡 API Specification (V5)
 
-### 🧠 Senior Pro (V5) Inference
-Built on **LightGBM**, our engine is tuned specifically for the extreme conditions of manufacturing.
-*   **55%+ Precision**: Unmatched signal-to-noise ratio in high-vibration environments.
-*   **30m Lead Time**: Proactive maintenance alerts for the entire fleet.
-
-### ⚖️ Fleet-Wide Normalization
-Each machine is a unique hardware ecosystem. We use **Machine-Contextual Z-Scores** to eliminate bias.
-*   `Normalized_Value = (Sensor_Value - Machine_Mean) / Machine_Std`
-*   Instant scalability to new machines without retraining.
-
-### 🔍 Explainable AI (SHAP)
-The system tells you **WHY** a machine is at risk.
-*   **Root Cause**: Directly identifies at-risk components like injection valves or cycle timers.
-*   **Confidence Scores**: Provides transparency into the model's decision-making process.
+| Endpoint | Method | Description | Payload / Query |
+| :--- | :--- | :--- | :--- |
+| `/api/login` | `POST` | Authenticates user and issues JWT. | `{username, password}` |
+| `/api/machines` | `GET` | Lists all available 200+ fleet assets. | - |
+| `/api/status/{id}`| `GET` | Fetches real-time alert level and probability. | `machine_id` |
+| `/api/control-room/{id}`| `GET/WS` | High-fidelity digital twin payload. | `time_window`, `future_window` |
+| `/api/trend/{id}/{p}`| `GET` | Historic sensor trend + safety limits. | `machine_id`, `parameter` |
+| `/api/audit/validation`| `GET` | Ground-truth verification results. | - |
 
 ---
 
-## 🛠️ Tech Stack & Requirements
-
-| Layer | Technologies |
-| :--- | :--- |
-| **Language** | ![Python](https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E) |
-| **Backend** | **FastAPI**, Uvicorn, Pandas, LightGBM, SHAP |
-| **Frontend** | **Vite**, React 18, Framer Motion, Recharts, TailwindCSS |
-| **OS Support** | Windows / Linux / MacOS |
-
----
-
-## 🔧 Installation & Deployment
-
-> [!IMPORTANT]
-> Ensure you have **Node.js 18+** and **Python 3.12+** installed before proceeding.
-
-### 1️⃣ Environment Setup
-```powershell
-# Create & Activate Virtual Environment
-python -m venv .venv
-.\.venv\Scripts\Activate
-
-# Install Production Dependencies
-pip install -r requirements.txt
-```
-
-### 2️⃣ Frontend Initialization
-```powershell
-cd frontend
-npm install
-```
-
----
-
-## 🚀 Execution Guide
+## 🐋 Production Deployment (Docker)
 
 > [!TIP]
-> Use the included PowerShell script for the fastest one-click deployment.
+> This project is containerized for professional, one-click deployment.
 
-### 🖥️ Option A: Automated (Fastest)
+### ⛴️ Unified Deployment (Quickstart)
+To launch the entire Senior Pro suite (Backend + Frontend + Nginx):
+```bash
+docker-compose up --build
+```
+
+### 📦 Individual Containers
+- **Backend Only**: `docker build -t te-backend .`
+- **Frontend Only**: `docker build -t te-frontend ./frontend`
+
+---
+
+## 🔧 Local Development & Execution
+
+> [!IMPORTANT]
+> Ensure you have **Node.js 18+** and **Python 3.12+** installed for local execution.
+
+### 1️⃣ Automated Startup (Windows)
 ```powershell
 ./run-dev.ps1
 ```
 
-### ⌨️ Option B: Manual
-*   **Backend**: `uvicorn api:app --reload` (from `/backend`)
-*   **Frontend**: `npm run dev` (from `/frontend`)
-
-Access the dashboard at **`http://localhost:5173`**.
+### 2️⃣ Manual Startup
+*   **Backend**: `uvicorn backend.api:app --reload`
+*   **Frontend**: `cd frontend && npm run dev`
 
 ---
 
 ## 📂 Project Structure
 
-*   `backend/` - API, Logic, and Inference Pipeline.
-*   `frontend/` - Interactive Digital Twin Control Room.
-*   `models/` - Senior Pro V5 production weights.
-*   `scripts/` - R&D, EDA, and Model Sweeping tools.
-*   `tests/` - System validation and smoke tests.
+- `backend/` - Core API, Normalization Engine, and Inference.
+- `frontend/` - React Source, Visual Analytics, and XAI Dashboard.
+- `models/` - Production Weights for Senior Pro model.
+- `metrics/` - Fleet-wide thresholds and normalization calibration.
 
 ---
-**Status:** ✅ 100% Finalized | **Designed For:** TE Connectivity AI Cup 🏆
+**Status:** ✅ 100% Finalized & Perfected | **Designed For:** TE Connectivity AI Cup 🏆
