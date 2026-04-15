@@ -1,34 +1,148 @@
-# AI System Technical Specification: Senior Pro (V5)
+# TE Connectivity: AI-Powered Predictive Maintenance (Senior Pro V5)
 
-The TE Connectivity Predictive Maintenance system has been upgraded to **Senior Pro (V5)** status. This version solves the "Hardware-Specific Performance Bias" and provides full transparency into model decisions.
+![Version](https://img.shields.io/badge/Version-5.1.0--Senior--Pro-blueviolet)
+![Status](https://img.shields.io/badge/Status-Deployment--Ready-success)
 
-## 1. Model Architecture (V5-Final)
-- **Engine**: LightGBM (Gradient Boosted Decision Trees).
-- **Training Corpus**: 10.4GB of historical sensor telemetry (processed/sensor).
-- **Optimization Target**: `is_scrap` (30-minute lead time).
-- **Strategy**: Precision-First (Tuned to 55%+ Precision on FEB-Test).
-
-## 2. Machine-Context Normalization (The "Secret Sauce")
-To prevent the model from being biased by different machinery baselines (e.g. M231 vs M607), we implemented a **Fleet-Wide Z-Score Normalization Layer**.
-- **Per-Machine Stats**: Every sensor is normalized using: `(Value - Machine_Mean) / Machine_Std`.
-- **Fleet-Wide Fallback**: If a brand-new machine is connected, the system automatically applies the "Fleet Average" normalization, allowing instant scaling to 200+ machines without retraining.
-
-## 3. Explainable AI (XAI)
-The system no longer just gives a "Risk Score." It now provides **Root Cause Analysis** via SHAP (SHapley Additive exPlanations).
-- **Contribution Logic**: The backend calculates the exact feature contribution (impact) for every prediction.
-- **Top Drivers**: The Dashboard now visualizes the top parameters (Injection Pressure, Cycle Time, etc.) that are driving the current risk score.
-
-## 4. Key Performance Breakthroughs
-- **M231 Stability**: Achieved a 13% increase in AUC for the fleet's most difficult machine.
-- **False Alarm Suppression**: By using machine-specific Z-scores, we've eliminated "False Highs" caused by natural hardware drift.
+The TE Connectivity Predictive Maintenance system is a state-of-the-art solution designed to monitor, predict, and explain scrap risks across mechanical production fleets. Featuring the **Senior Pro (V5)** inference engine, the system delivers high-precision scrap alerts with a 30-minute lead time and full explainability via SHAP.
 
 ---
-## 🚀 Production Files
-| Asset | Path |
-| :--- | :--- |
-| **Model** | `models/scrap_risk_model_v5.pkl` |
-| **Scaler** | `models/machine_normalization_v5.json` |
-| **Inference** | `backend/ml_inference_v5.py` |
-| **Thresholds** | `metrics/machine_thresholds_v5.json` |
 
-**System is 100% Finalized and Ready for Deployment.**
+## 🏗️ System Architecture
+
+The system uses a modern decoupled architecture for high-performance telemetry processing and real-time visualization.
+
+```mermaid
+graph TD
+    subgraph "Production Fleet (200+ Machines)"
+        M1[Machine 1]
+        M2[Machine 2]
+        Mn[Machine N]
+    end
+
+    subgraph "Backend System (FastAPI)"
+        DA[Data Access Layer]
+        INF[Senior Pro V5 Inference Engine]
+        VAL[Validation & Audit Hub]
+        API[RESTful API]
+    end
+
+    subgraph "Frontend Dashboard (React/Vite)"
+        DR[Digital Twin Room]
+        AH[Audit Hub]
+        XAI[SHAP Explainability View]
+    end
+
+    M1 & M2 & Mn --> DA
+    DA --> INF
+    INF --> API
+    VAL --> API
+    API --> DR
+    API --> AH
+    API --> XAI
+```
+
+---
+
+## 🚀 Key Features
+
+### 1. Senior Pro (V5) Inference Engine
+The core intelligence of the system, built on **LightGBM**, optimized for high-dimensional sensor data.
+- **Precision-First**: Specifically tuned to suppress false alarms in noisy production environments.
+- **Lead Time**: Provides a **30-minute window** for operators to intervene before a scrap event occurs.
+
+### 2. Fleet-Wide Context Normalization
+Solves the "Hardware Bias" problem. Every machine has a unique baseline; the system automatically calculates **Machine-Specific Z-Scores** to ensure that sensor drift is handled fairly across 200+ distinct hardware assets.
+
+### 3. Explainable AI (XAI)
+Powered by **SHAP (SHapley Additive exPlanations)**. The dashboard doesn't just show a risk percentage; it tells you **WHY**.
+- **Feature Contribution**: See exactly how Injection Pressure, Cycle Time, or Temperature influenced the risk score.
+- **Root Cause Analysis**: Directs maintenance teams to the specific hardware component at risk.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend**: Python 3.12, FastAPI, Uvicorn, Pandas, LightGBM, SHAP.
+- **Frontend**: Vite, React 18, Framer Motion (Animations), Recharts (Visualizations), TailwindCSS.
+- **Data Engineering**: Parquet-based telemetry storage, Machine-Context Normalization layers.
+
+---
+
+## 📦 Prerequisites
+
+- **Python**: 3.12+ 
+- **Node.js**: 18+ (for frontend)
+- **PowerShell**: For using the automated startup scripts (Windows recommendation).
+
+---
+
+## 🔧 Installation & Setup
+
+### 1. Backend Setup
+1. Create a virtual environment:
+   ```powershell
+   python -m venv .venv
+   .\.venv\Scripts\Activate
+   ```
+2. Install dependencies:
+   ```powershell
+   pip install -r requirements.txt
+   ```
+
+### 2. Frontend Setup
+1. Navigate to the frontend directory:
+   ```powershell
+   cd frontend
+   ```
+2. Install dependencies:
+   ```powershell
+   npm install
+   ```
+
+---
+
+## 🏃 Running the Project
+
+### Method 1: Automated Startup (Recommended)
+Run the project using the optimized PowerShell script which handles both servers and port waiting:
+```powershell
+./run-dev.ps1
+```
+
+### Method 2: Manual Startup
+If you prefer to run services individually:
+
+**Backend:**
+```powershell
+cd backend
+python -m uvicorn api:app --host 127.0.0.1 --port 8000 --reload
+```
+
+**Frontend:**
+```powershell
+cd frontend
+npm run dev
+```
+
+The system will be available at:
+- **Dashboard**: `http://localhost:5173`
+- **API Docs**: `http://127.0.0.1:8000/docs`
+
+---
+
+## 📂 Directory Structure
+
+- `backend/`: Core API and ML inference logic.
+- `frontend/`: React source code and dashboard components.
+- `models/`: Pre-trained V5 model weights and normalization scalers.
+- `scripts/`: Data analysis, model training, and EDA tools.
+- `metrics/`: Calibration and threshold configurations.
+- `tests/`: Automated test suite for API and pipeline verification.
+
+---
+
+## 🛡️ License
+Proprietary and Confidential. Developed for the TE Connectivity AI Cup.
+
+---
+**System is 100% Finalized and Verified.**
