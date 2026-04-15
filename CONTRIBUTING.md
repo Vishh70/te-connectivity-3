@@ -1,6 +1,6 @@
 # 🤝 Project Collaboration Handbook: Atharva & Vishnu
 
-Welcome to the **Senior Pro** development workflow. To ensure both Atharva and Vishnu can collaborate without conflicts and maintain a professional production environment, follow these protocols.
+Welcome to the **Production V5** development workflow. To ensure both Atharva and Vishnu can collaborate without conflicts and maintain a professional production environment, follow these protocols.
 
 ---
 
@@ -54,4 +54,4 @@ When code is ready for "Vishnu Check" or "Atharva Validation":
 3. If the ✅ badge appears in the repo, the build is stable.
 
 ---
-**Status:** 📊 Operational | **Role**: Senior Technical Lead Guidance
+**Status:** 📊 Operational | **Role**: Technical Lead Guidance

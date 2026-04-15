@@ -1,7 +1,7 @@
 # 🏭 TE Connectivity: AI-Powered Predictive Maintenance
-### *The "Senior Pro (V5)" Fleet Monitoring Solution*
+### *The "V5" Fleet Monitoring Solution*
 
-[![Version](https://img.shields.io/badge/Release-v5.1.0--Senior--Pro-7916ff?style=for-the-badge&logo=rocket)](https://github.com/Vishh70/te-connectivity-3)
+[![Version](https://img.shields.io/badge/Release-v5.1.0--V5--Full-7916ff?style=for-the-badge&logo=rocket)](https://github.com/Vishh70/te-connectivity-3)
 [![Status](https://img.shields.io/badge/Status-Deployment--Ready-2ea44f?style=for-the-badge&logo=checkmarx)](https://github.com/Vishh70/te-connectivity-3)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005863?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Collaboration](https://img.shields.io/badge/Team-Atharva%20&%20Vishnu-orange?style=for-the-badge&logo=github)](./CONTRIBUTING.md)
@@ -33,10 +33,10 @@ graph LR
         JSON[("Config & Limits")]:::data
     end
 
-    subgraph "Senior Pro Backend"
+    subgraph "Production Backend"
         DA["💾 Data Access Layer"]:::backend
         NORM["⚖️ Z-Score Normalization"]:::backend
-        INF["🧠 Senior Pro V5 Engine"]:::backend
+        INF["🧠 V5 Inference Engine"]:::backend
         SHAP["🔍 SHAP Processor"]:::backend
         API["📡 REST / WebSocket API"]:::backend
     end
@@ -91,7 +91,7 @@ graph LR
 > This project is containerized for professional, one-click deployment.
 
 ### ⛴️ Unified Deployment (Quickstart)
-To launch the entire Senior Pro suite (Backend + Frontend + Nginx):
+To launch the entire V5 suite (Backend + Frontend + Nginx):
 ```bash
 docker-compose up --build
 ```
@@ -102,7 +102,7 @@ docker-compose up --build
 
 - `backend/` - Core API, Normalization Engine, and Inference.
 - `frontend/` - React Source, Visual Analytics, and XAI Dashboard.
-- `models/` - Production Weights for Senior Pro model.
+- `models/` - Production Weights for V5 model.
 - `metrics/` - Fleet-wide thresholds and normalization calibration.
 
 ---

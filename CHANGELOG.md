@@ -1,4 +1,4 @@
-# Changelog: Senior Pro V5 Evolution
+# Changelog: V5 Evolution
 
 All notable changes to the TE Connectivity Predictive Maintenance system will be documented in this file.
 
@@ -17,10 +17,9 @@ All notable changes to the TE Connectivity Predictive Maintenance system will be
 - **Collaboration Handbook**: Launched `CONTRIBUTING.md` to define team sync rituals.
 
 ---
+## [v5.0.0] - 2026-04-14 (The Production V5 Engine)
 
-## [v5.0.0] - 2026-04-14 (The Senior Pro Engine)
-
-### 🧠 Machine Learning (Senior Pro V5)
+### 🧠 Machine Learning (V5 Engine)
 - **Engine**: Switched to **LightGBM** optimized for high-vibration sensor telemetry.
 - **Explainability**: Integrated **SHAP** (Shapley Additive Explanations) for per-machine root cause analysis.
 - **Normalization**: Implemented **Fleet-Wide Z-Score Normalization** across 200+ unique machine contexts.
