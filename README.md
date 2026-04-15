@@ -15,13 +15,13 @@ The TE Connectivity Predictive Maintenance system is a state-of-the-art solution
 Our architecture is optimized for high-performance telemetry processing and explainable AI insights.
 
 ```mermaid
-graph TD
-    classDef machine fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef backend fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef frontend fill:#bfb,stroke:#333,stroke-width:2px;
-    classDef data fill:#eee,stroke:#999,stroke-dasharray: 5 5;
+graph LR
+    classDef machine fill:#ff99cc,stroke:#333,stroke-width:2px,color:#000;
+    classDef backend fill:#99ccff,stroke:#333,stroke-width:2px,color:#000;
+    classDef frontend fill:#99ffcc,stroke:#333,stroke-width:2px,color:#000;
+    classDef data fill:#ffffff,stroke:#333,stroke-width:2px,color:#000,stroke-dasharray: 5 5;
 
-    subgraph "Production Fleet (200+ Assets)"
+    subgraph "Production Fleet"
         M1["🏭 Machine 231"]:::machine
         M2["🏭 Machine 607"]:::machine
         Mn["🏭 Machine N"]:::machine
@@ -33,7 +33,7 @@ graph TD
         JSON[("Config & Limits")]:::data
     end
 
-    subgraph "Senior Pro Backend (FastAPI)"
+    subgraph "Senior Pro Backend"
         DA["💾 Data Access Layer"]:::backend
         NORM["⚖️ Z-Score Normalization"]:::backend
         INF["🧠 Senior Pro V5 Engine"]:::backend
