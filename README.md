@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/badge/Release-v5.1.0--Senior--Pro-7916ff?style=for-the-badge&logo=rocket)](https://github.com/Vishh70/te-connectivity-3)
 [![Status](https://img.shields.io/badge/Status-Deployment--Ready-2ea44f?style=for-the-badge&logo=checkmarx)](https://github.com/Vishh70/te-connectivity-3)
 [![FastAPI](https://img.shields.io/badge/FastAPI-005863?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![Docker](https://img.shields.io/badge/Docker-ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Collaboration](https://img.shields.io/badge/Team-Atharva%20&%20Vishnu-orange?style=for-the-badge&logo=github)](./CONTRIBUTING.md)
 
 The TE Connectivity Predictive Maintenance system is a state-of-the-art solution designed to monitor, predict, and explain scrap risks across mechanical production fleets. By leveraging high-precision machine learning and fleet-wide normalization, we provide operators with a **30-minute intervention window** before hardware failures occur.
 
@@ -74,6 +74,17 @@ graph LR
 
 ---
 
+## 🤝 Collaborative Workflow (Atharva & Vishnu)
+
+> [!TIP]
+> This project is designed for high-end collaboration. 
+> See the [**CONTRIBUTING.md**](./CONTRIBUTING.md) guide for details on:
+> *   Branching strategy and merge protocols.
+> *   Synchronizing local environments (Venv, Npm).
+> *   Manual data handoff (Mergedata control).
+
+---
+
 ## 🐋 Production Deployment (Docker)
 
 > [!TIP]
@@ -84,26 +95,6 @@ To launch the entire Senior Pro suite (Backend + Frontend + Nginx):
 ```bash
 docker-compose up --build
 ```
-
-### 📦 Individual Containers
-- **Backend Only**: `docker build -t te-backend .`
-- **Frontend Only**: `docker build -t te-frontend ./frontend`
-
----
-
-## 🔧 Local Development & Execution
-
-> [!IMPORTANT]
-> Ensure you have **Node.js 18+** and **Python 3.12+** installed for local execution.
-
-### 1️⃣ Automated Startup (Windows)
-```powershell
-./run-dev.ps1
-```
-
-### 2️⃣ Manual Startup
-*   **Backend**: `uvicorn backend.api:app --reload`
-*   **Frontend**: `cd frontend && npm run dev`
 
 ---
 
