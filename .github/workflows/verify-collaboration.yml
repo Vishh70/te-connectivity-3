@@ -8,7 +8,7 @@ on:
 
 jobs:
   verify-backend:
-    name: "Backend - Lint & Test"
+    name: "Backend - Smoke Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,19 +18,19 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Backend Dependencies
+      - name: Install CI Test Dependencies
         run: |
           python -m pip install --upgrade pip
-          # Install all packages except Windows-only ones
-          grep -v "pywin32" requirements.txt > requirements_ci.txt
-          pip install -r requirements_ci.txt
+          # Install only the packages needed for API smoke tests in CI
+          # (avoids heavy ML dependencies and Windows-only packages)
+          pip install fastapi[all] httpx pytest pyjwt pandas joblib lightgbm scikit-learn shap anyio
 
       - name: Run Backend Smoke Tests (Pytest)
         env:
           CI: "true"
           LOCAL_DEV: "true"
         run: |
-          pytest tests/test_api.py -v --no-header
+          pytest tests/test_api.py -v --no-header --tb=short
 
   verify-frontend:
     name: "Frontend - Build Check"
