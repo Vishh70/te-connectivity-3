@@ -6,7 +6,12 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-005863?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Collaboration](https://img.shields.io/badge/Team-Atharva%20&%20Vishnu-orange?style=for-the-badge&logo=github)](./CONTRIBUTING.md)
 
-The TE Connectivity Predictive Maintenance system is a state-of-the-art solution designed to monitor, predict, and explain scrap risks across mechanical production fleets. By leveraging high-precision machine learning and fleet-wide normalization, we provide operators with a **30-minute intervention window** before hardware failures occur.
+The TE Connectivity Predictive Maintenance system is a state-of-the-art solution designed to monitor, predict, and explain scrap risks across mechanical production fleets. By leveraging the **V9 Universal Oracle** and the new **Time Machine Replay Engine**, we provide operators with high-precision forecasting and the ability to audit historical scrap events with surgical precision.
+
+### 🌟 New in V5.5: "The Time Machine"
+- **Historical Replay Mode**: Anchor the dashboard to any past timestamp to verify AI predictions against actual scrap outcomes.
+- **Unified V9 Oracle**: One high-fidelity model serving the entire fleet with 75% precision alignment.
+- **Seamless WebSockets**: Stabilized real-time streaming with intelligent HTTP fallback.
 
 ---
 
@@ -72,6 +77,7 @@ graph LR
 | `/api/trend/{id}/{p}`| `GET` | Historic sensor trend + safety limits. | `machine_id`, `parameter` |
 | `/api/audit/validation`| `GET` | Ground-truth verification results. | - |
 | `/api/analytics/fleet`| `GET` | Aggregated fleet performance metrics. | - |
+| `/ws/control-room/{id}`| `WS` | Stable real-time telemetry stream. | `anchor_time` (optional) |
 
 ---
 

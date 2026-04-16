@@ -903,7 +903,7 @@ def _resolve_machine_data_path(machine_norm: str) -> Path:
     return p3
 
 @lru_cache(maxsize=4) # Reduced from 16 to prevent OOM
-def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 1440):
+def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 1440, anchor_time: str | None = None):
     machine_path = _resolve_machine_data_path(machine_norm)
     if not machine_path.exists():
         raise FileNotFoundError(f"Machine test parquet not found for {machine_norm} at {machine_path}")
@@ -914,9 +914,14 @@ def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 144
     
     # MEMORY OPTIMIZATION: Filter by time window BEFORE pivoting
     if not raw.empty and time_window_minutes is not None:
-        max_ts = raw["timestamp"].max()
-        cutoff = max_ts - pd.Timedelta(minutes=time_window_minutes + 15) # 15m buffer for rolling stats
-        raw = raw[raw["timestamp"] >= cutoff].copy()
+        if anchor_time:
+            reference_ts = pd.to_datetime(anchor_time, utc=True)
+        else:
+            reference_ts = raw["timestamp"].max()
+        
+        # We need a small lookback buffer (15m) for rolling features calculation
+        cutoff = reference_ts - pd.Timedelta(minutes=time_window_minutes + 15)
+        raw = raw[(raw["timestamp"] >= cutoff) & (raw["timestamp"] <= reference_ts)].copy()
     
     machine_definition = "UNKNOWN"
     if not raw.empty:
@@ -947,11 +952,11 @@ def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 144
 
     return pivot, machine_definition
 
-def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | None = 60):
+def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | None = 60, anchor_time: str | None = None):
     # FAST-TRACK Optimization: Prioritize dedicated machine files (User Requested NEW_MXXX CSVs)
     local_path = _resolve_machine_data_path(machine_norm)
     if local_path.exists() and ("CSV FILE_TRAIN" in local_path.name or "TRAIN" in local_path.name or "TEST" in local_path.name):
-        pivot, machine_definition = _load_machine_pivot(machine_norm, time_window_minutes=time_window_minutes)
+        pivot, machine_definition = _load_machine_pivot(machine_norm, time_window_minutes=time_window_minutes, anchor_time=anchor_time)
         # Add required baseline columns that might be missing in training-only pivots
         history = pivot.copy()
         if "scrap_probability" not in history.columns:
@@ -961,7 +966,7 @@ def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | Non
         return history, {"machine_id": machine_norm, "machine_definition": machine_definition}
 
     file_path = get_latest_data_file()
-    cache_key = ("feb_history", machine_norm, str(file_path), file_path.stat().st_mtime if file_path.exists() else 0)
+    cache_key = ("feb_history", machine_norm, str(file_path), file_path.stat().st_mtime if file_path.exists() else 0, time_window_minutes, anchor_time)
     cached = _get_cached(cache_key)
     if cached is not None:
         return cached
@@ -989,7 +994,7 @@ def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | Non
     
     # If using the demo file, we need the old pivot+merge logic
     if "rolling_features_demo" in str(file_path):
-        pivot, machine_definition = _load_machine_pivot(machine_norm, time_window_minutes=time_window_minutes)
+        pivot, machine_definition = _load_machine_pivot(machine_norm, time_window_minutes=time_window_minutes, anchor_time=anchor_time)
         feb = _load_feb_results()
         
         join_cols = ["timestamp", "Injection_pressure", "Cycle_time"]
@@ -1351,7 +1356,7 @@ def build_control_room_payload(
     machines = get_available_machines()
     machine_info = next((m for m in machines if m.get("machine_id_normalized") == machine_norm), {})
     try:
-        history, _ = _build_machine_feb_history(machine_norm, time_window_minutes=effective_time_window)
+        history, _ = _build_machine_feb_history(machine_norm, time_window_minutes=effective_time_window, anchor_time=anchor_time)
 
         if history.empty:
             raise ValueError("No history found")
@@ -1370,6 +1375,11 @@ def build_control_room_payload(
             (history["timestamp"] >= cutoff) & (history["timestamp"] <= anchor)
         ].copy()
         if past_window.empty:
+            # Senior Pro Improvement: Help the user find where the data is
+            data_min = history["timestamp"].min()
+            data_max = history["timestamp"].max()
+            print(f"[DATA GAP] {machine_norm}: Requested {anchor} is outside range [{data_min} to {data_max}]")
+            
             return {
                 "machine_info": {
                     "id": machine_info.get("id", machine_id),
@@ -1379,11 +1389,20 @@ def build_control_room_payload(
                     "part_number": machine_info.get("part_number", "UNKNOWN"),
                 },
                 "summary_stats": {"past_scrap_detected": 0, "future_scrap_predicted": 0},
-                "current_health": {"status": "OFFLINE", "risk_score": 0.0, "root_causes": []},
+                "current_health": {
+                    "status": "OFFLINE", 
+                    "risk_score": 0.0, 
+                    "root_causes": [],
+                    "message": f"No data at selected time. Machine range: {data_min.strftime('%Y-%m-%d %H:%M')} to {data_max.strftime('%Y-%m-%d %H:%M')}"
+                },
                 "root_causes": [],
                 "telemetry_grid": [],
                 "timeline": [],
                 "safe_limits": {},
+                "available_range": {
+                    "min": data_min.isoformat(),
+                    "max": data_max.isoformat()
+                }
             }
 
         numeric_cols = past_window.select_dtypes(include=[np.number]).columns.tolist()

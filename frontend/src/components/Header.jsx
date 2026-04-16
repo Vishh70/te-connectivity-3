@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import apiClient from "../utils/apiClient";
 import { Activity, Bell, Clock3, Cpu, Menu, Database, ShieldCheck, Zap } from "lucide-react";
 import { mapStatus, UI_STATUS, getStatusBadgeClass } from "../utils/statusUtils";
+import HistoricalSelector from "./HistoricalSelector";
 import { PAST_WINDOW_OPTIONS, FUTURE_WINDOW_OPTIONS } from "../utils/windowOptions";
 
 export { PAST_WINDOW_OPTIONS, FUTURE_WINDOW_OPTIONS } from "../utils/windowOptions";
@@ -22,6 +23,8 @@ export default function Header({
   isSensorFrozen,
   machineInfo,
   lastUpdatedLabel,
+  anchorTime,
+  onAnchorTimeChange,
 }) {
   const [machines, setMachines] = useState([]);
   const [bufferStatus, setBufferStatus] = useState({ state: "Standby", count: 0 });
@@ -166,6 +169,15 @@ export default function Header({
               <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
+        </div>
+        
+        {/* Manual Time Machine Selector */}
+        <div className="flex items-center gap-3 pl-4 border-l border-slate-200/60">
+           <HistoricalSelector 
+              currentAnchor={anchorTime}
+              onApply={onAnchorTimeChange}
+              onClear={() => onAnchorTimeChange(null)}
+           />
         </div>
 
         <button

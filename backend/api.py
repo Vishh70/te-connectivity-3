@@ -181,21 +181,6 @@ def get_audit_validation():
     """
     return get_audit_validation_results()
 
-@app.websocket("/ws/machines/status")
-async def websocket_machine_status(websocket: WebSocket, token: Optional[str] = Query(None)):
-    """WebSocket endpoint for machine status updates."""
-    await websocket.accept()
-    try:
-        while True:
-            # Production: Unified status logic
-            status = get_all_machine_statuses()
-            await websocket.send_json(status)
-            await asyncio.sleep(5) # 5s refresh
-    except WebSocketDisconnect:
-        pass
-    except Exception as e:
-        print(f"WS Machine Status Error: {e}")
-
 @app.post("/api/audit/cases", dependencies=[Depends(verify_token)])
 async def add_audit_case(case: Dict[str, Any]):
     """Add a new ground-truth record."""
@@ -235,26 +220,28 @@ async def delete_audit_case(index: int):
 
 @app.get("/api/machines/status", dependencies=[Depends(verify_token)])
 def get_all_machine_statuses():
+    """Returns a high-speed summary of all machines using the unified V9 inference point."""
     from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
     machines = get_available_machines()
     results = []
 
     def _safe_run(machine):
         try:
-            # Production: Use the unified V9 inference point
-            risk = unified_predict_scrap(machine["id"], {}) 
+            # Senior Pro: Use the same unified check as the dashboard to ensure consistency
+            decision = run(machine["id"])
             return {
                 "id": machine["id"],
-                "status": "HEALTHY" if risk < 0.5 else "CRITICAL",
-                "risk": risk
+                "status": decision.get("alert_level", "UNKNOWN"),
+                "risk": decision.get("ml_risk_probability", 0.0)
             }
         except Exception:
             return {"id": machine["id"], "status": "OFFLINE", "risk": 0.0}
+            
     with ThreadPoolExecutor(max_workers=max(1, min(len(machines), 5))) as pool:
         futures = {pool.submit(_safe_run, m): m for m in machines}
         for future, machine in futures.items():
             try:
-                results.append(future.result(timeout=8))
+                results.append(future.result(timeout=10))
             except (FuturesTimeout, Exception):
                 results.append({"id": machine["id"], "status": "OFFLINE", "risk": 0.0})
 
@@ -262,6 +249,7 @@ def get_all_machine_statuses():
 
 @app.websocket("/ws/machines/status")
 async def websocket_machines_status(websocket: WebSocket):
+    """Real-time broadcast of fleet machine statuses."""
     await websocket.accept()
     token = websocket.query_params.get("token")
     try:
@@ -271,33 +259,20 @@ async def websocket_machines_status(websocket: WebSocket):
         await websocket.close(code=1008)
         return
 
-    print("[WS CONNECTED] Machines Status", flush=True)
+    print("[WS CONNECTED] Fleet Status Stream", flush=True)
     try:
         while True:
-            machines = get_available_machines()
-            results = []
-            for m in machines:
-                try:
-                    # Offload to threadpool to avoid blocking event loop
-                    decision = await run_in_threadpool(run, m["id"])
-                    results.append({
-                        "id": m["id"],
-                        "status": decision.get("alert_level", "UNKNOWN"),
-                        "risk": decision.get("ml_risk_probability", 0.0)
-                    })
-                except:
-                    results.append({"id": m["id"], "status": "OFFLINE", "risk": 0.0})
-            
+            # Fetch all statuses in parallel
+            results = await run_in_threadpool(get_all_machine_statuses)
             await websocket.send_json(results)
-            await asyncio.sleep(5)  # Broadcast every 5 seconds
+            await asyncio.sleep(5) 
     except WebSocketDisconnect:
-        print("[WS DISCONNECTED] Machines Status", flush=True)
+        print("[WS DISCONNECTED] Fleet Status Stream", flush=True)
     except Exception as e:
         import traceback
-        print(f"[WS ERROR - MACHINES] {e}\n{traceback.format_exc()}", flush=True)
+        print(f"[WS ERROR - FLEET] {e}\n{traceback.format_exc()}", flush=True)
         try:
-            await websocket.send_json({"error": "Internal Server Error"})
-            await websocket.close(code=1011)
+            await websocket.close()
         except:
             pass
 
@@ -370,19 +345,30 @@ async def websocket_control_room(
 
     # Production Fix: Normalize machine ID early to prevent NameError in logging
     machine_norm = _normalize_machine_id(machine_id)
-    print(f"[WS CONNECTED] Machine: {machine_norm} (Orig: {machine_id}) | Time Window: {time_window}m", flush=True)
+    anchor_time = websocket.query_params.get("anchor_time")
+    
+    print(f"[WS CONNECTED] Machine: {machine_norm} | Anchor: {anchor_time}", flush=True)
     try:
         while True:
-            # Offload heavy pandas processing to a background thread to prevent blocking event loop
+            # Offload heavy pandas processing to a background thread
             payload = await run_in_threadpool(
                 build_control_room_payload,
                 machine_norm,
                 time_window,
-                future_window
+                future_window,
+                anchor_time
             )
             await websocket.send_json(payload)
-            print(f"[WS STREAM] Pushed live update to {machine_norm} | Time: {datetime.now().strftime('%H:%M:%S')}", flush=True)
-            await asyncio.sleep(5)  # Fluid 5-second streaming updates instead of 15s polling
+            
+            # If we have an anchor time, we are in "Replay Mode"
+            # We serve the static slice once and then wait, or serve periodically if windows change
+            # But usually for history, live streaming is disabled. 
+            # We'll sleep longer or just serve once and keep connection open.
+            if anchor_time:
+                # In Replay mode, we don't need high frequency updates
+                await asyncio.sleep(30) 
+            else:
+                await asyncio.sleep(5)  # Live mode: 5s streaming
     except WebSocketDisconnect:
         print(f"[WS DISCONNECTED] Machine: {machine_id}", flush=True)
     except Exception as e:

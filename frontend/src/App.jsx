@@ -158,8 +158,24 @@ function App() {
     };
   }, [isAuthenticated, machineId]);
 
+  // Handle Manual Historical Replay Trigger
   useEffect(() => {
-    if (!isAuthenticated) return;
+    if (isAuthenticated && machineId && anchorTime) {
+      const requestId = controlRoomRequestRef.current + 1;
+      controlRoomRequestRef.current = requestId;
+      
+      fetchControlRoom({
+        showFullLoading: true,
+        requestId,
+        targetMachineId: machineId,
+        targetPastWindowMinutes: pastWindowMinutes,
+        targetAnchorTime: anchorTime,
+      });
+    }
+  }, [anchorTime, machineId, isAuthenticated, fetchControlRoom, pastWindowMinutes]);
+
+  useEffect(() => {
+    if (!isAuthenticated || anchorTime) return;
     const requestId = controlRoomRequestRef.current + 1;
     controlRoomRequestRef.current = requestId;
 
@@ -182,7 +198,8 @@ function App() {
 
     // Normalize machineId (remove dashes) to ensure 100% backend route matching
     const normalizedMachineId = machineId.replace(/[^A-Z0-9]/gi, "");
-    const wsPath = `/ws/control-room/${normalizedMachineId}?time_window=${pastWindowMinutes}&future_window=${futureWindowMinutes}`;
+    let wsPath = `/ws/control-room/${normalizedMachineId}?time_window=${pastWindowMinutes}&future_window=${futureWindowMinutes}`;
+    if (anchorTime) wsPath += `&anchor_time=${anchorTime}`;
     const wsUrl = getWsUrl(wsPath);
 
     let socket = null;
@@ -265,7 +282,7 @@ function App() {
         socket.close();
       }
     };
-  }, [machineId, pastWindowMinutes, futureWindowMinutes, fetchControlRoom, isAuthenticated]);
+  }, [machineId, pastWindowMinutes, futureWindowMinutes, fetchControlRoom, isAuthenticated, anchorTime]);
 
   const handleApplyWindows = useCallback(() => {
     setPastWindowMinutes(draftPastWindowMinutes);
@@ -630,6 +647,8 @@ function App() {
                 isSensorFrozen={isSensorFrozen}
                 machineInfo={controlRoomData?.machine_info || {}}
                 lastUpdatedLabel={latestTimestampLabel}
+                anchorTime={anchorTime}
+                onAnchorTimeChange={setAnchorTime}
               />
             </div>
           )}
