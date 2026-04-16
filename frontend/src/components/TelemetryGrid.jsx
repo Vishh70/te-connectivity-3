@@ -238,11 +238,11 @@ export default function TelemetryGrid({ telemetryRows, selectedSensor, onSelectS
                     "group transition-all duration-300 cursor-pointer relative",
                     isRoot
                       ? "bg-amber-50/50 hover:bg-amber-50/80"
-                      : status === "EXCEEDED"
+                      : status === UI_STATUS.CRITICAL
                         ? "bg-red-50/50 hover:bg-red-50/80"
-                        : status === "WARNING"
+                        : (status === UI_STATUS.WARNING || status === UI_STATUS.WATCH || status === UI_STATUS.HIGH)
                           ? "bg-amber-50/20 hover:bg-amber-50/50"
-                          : "hover:bg-white/80 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_4px_20px_-4px_rgba(0,0,0,0.05)] z-0 hover:z-10",
+                          : "hover:bg-white/80 z-0 hover:z-10",
                     isSelected ? "bg-brand-50/80 border-l-4 border-l-brand-500 shadow-sm z-20" : "border-l-4 border-l-transparent",
                   ]
                     .filter(Boolean)

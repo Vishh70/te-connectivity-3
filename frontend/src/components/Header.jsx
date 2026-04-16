@@ -91,7 +91,7 @@ export default function Header({
 
   return (
     <header
-      className="glass-card flex flex-wrap items-center justify-between gap-6 px-8 py-6 animate-fade-in border-white/60 bg-white/40"
+      className="sticky top-0 z-50 flex flex-wrap items-center justify-between gap-6 py-4 px-6 -mx-6 bg-white/95 backdrop-blur-xl border-b border-slate-100/80 shadow-sm animate-fade-in"
       style={{ animationDelay: "0.1s" }}
     >
       <div className="flex-1 min-w-[300px]">
@@ -118,13 +118,13 @@ export default function Header({
           </div>
         </div>
         
-        <div className="mt-4 flex flex-wrap items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
           {machineMeta.map((item) => (
             <span
               key={item.label}
-              className="inline-flex items-center gap-1.5 rounded-xl border border-white/80 bg-white/60 backdrop-blur-md px-3 py-1.5 text-[10px] font-black text-slate-600 shadow-sm border-slate-100 transition-all hover:bg-white"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200/60 bg-white/50 px-2.5 py-1 text-[9px] font-black text-slate-500 uppercase tracking-wider transition-all hover:bg-white"
             >
-              <div className="w-1 h-1 rounded-full bg-brand-400 group-hover:scale-150 transition-transform" />
+              <div className="w-1 h-1 rounded-full bg-brand-400" />
               {item.label}
             </span>
           ))}
@@ -193,19 +193,19 @@ export default function Header({
           </button>
 
           <div className="flex flex-col items-end">
-            <div className="flex items-center gap-2 mb-1.5">
-               <div className={`flex items-center gap-1.5 px-2 py-1 rounded-lg border text-[9px] font-black uppercase tracking-widest ${
-                 bufferStatus.state === "Active" ? "bg-brand-50 border-brand-200 text-brand-600 shadow-sm" : "bg-slate-50 border-slate-200 text-slate-400"
-               }`}>
-                 <Zap size={10} className={bufferStatus.state === "Active" ? "fill-brand-500 animate-pulse text-brand-600" : ""} />
-                 V9 Synced {bufferStatus.count > 0 ? `(${bufferStatus.count}ms)` : ""}
-               </div>
-               <span
-                className={`rounded-xl px-4 py-1.5 text-[10px] font-black tracking-[0.2em] uppercase border ${statusConfig.cls} ${statusConfig.glow} transition-all`}
-              >
-                {uiStatus}
-              </span>
-            </div>
+             <div className="flex items-center gap-2 mb-1">
+                <div className={`flex items-center gap-1.5 px-2 py-1 rounded-lg border text-[9px] font-black uppercase tracking-widest transition-all ${
+                  bufferStatus.state === "Active" ? "bg-brand-50 border-brand-200 text-brand-600 shadow-sm" : "bg-slate-50 border-slate-100 text-slate-400"
+                }`}>
+                  <div className={`w-1.5 h-1.5 rounded-full ${bufferStatus.state === "Active" ? "bg-brand-500 animate-pulse" : "bg-slate-300"}`} />
+                  V9 SYNCED {bufferStatus.count > 0 ? `[${bufferStatus.count}ms]` : ""}
+                </div>
+                <span
+                 className={`rounded-lg px-3 py-1 text-[9px] font-black tracking-[0.2em] uppercase border ${statusConfig.cls} ${statusConfig.glow} transition-all`}
+               >
+                 {uiStatus}
+               </span>
+             </div>
             {lastUpdatedLabel && (
               <p className="text-[9px] font-black text-slate-400 mt-0.5 uppercase tracking-widest flex items-center gap-1 opacity-70">
                 <Clock3 size={10} />

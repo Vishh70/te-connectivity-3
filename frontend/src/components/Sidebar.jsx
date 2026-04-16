@@ -9,8 +9,10 @@ import {
   HelpCircle,
   Database,
   CloudUpload,
-  Cpu
+  Cpu,
+  ChevronRight
 } from "lucide-react";
+import { mapStatus, UI_STATUS } from "../utils/statusUtils";
 
 const NAV_ITEMS = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -18,11 +20,6 @@ const NAV_ITEMS = [
   { id: "ingestion", label: "Data Ingest", icon: Database },
   { id: "audit", label: "Performance Audit", icon: AlertTriangle },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
-];
-
-const BOTTOM_ITEMS = [
-  { id: "settings", label: "Settings", icon: Settings },
-  { id: "help", label: "Help", icon: HelpCircle },
 ];
 
 const NAV_TARGETS = {
@@ -105,14 +102,14 @@ export default function Sidebar({ activeMachine, onSelectMachine, activeView, on
   }, []);
 
   const getStatusColor = (status) => {
-    switch (status) {
-      case "NORMAL": return "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]";
-      case "WARNING":
-      case "LOW":
-      case "MEDIUM": return "bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]";
-      case "CRITICAL":
-      case "HIGH": return "bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.6)]";
-      default: return "bg-slate-300";
+    const uiStatus = mapStatus(status);
+    switch (uiStatus) {
+      case UI_STATUS.NORMAL: return "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]";
+      case UI_STATUS.WARNING:
+      case UI_STATUS.WATCH: return "bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]";
+      case UI_STATUS.CRITICAL:
+      case UI_STATUS.HIGH: return "bg-red-500 animate-pulse shadow-[0_0_12px_rgba(239,68,68,0.6)]";
+      default: return "bg-slate-600";
     }
   };
 
@@ -130,26 +127,26 @@ export default function Sidebar({ activeMachine, onSelectMachine, activeView, on
   };
 
   return (
-    <aside className="hidden lg:flex flex-col w-[260px] shrink-0 h-screen sticky top-0 z-30 bg-white/40 backdrop-blur-2xl border-r border-white/40 animate-slide-in-left shadow-[4px_0_24px_-12px_rgba(15,23,42,0.1)]">
-      {/* Premium Branding Area */}
-      <div className="relative group px-6 py-8 border-b border-slate-100/50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+    <aside className="hidden lg:flex flex-col w-[280px] shrink-0 h-screen sticky top-0 z-40 bg-slate-900 shadow-2xl animate-slide-in-left">
+      {/* Dark Premium Branding Area */}
+      <div className="relative group px-6 py-8 border-b border-slate-800/80 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         <div className="relative flex items-center gap-4">
-          <div className="relative w-11 h-11 rounded-2xl bg-brand-600 flex items-center justify-center shadow-xl shadow-brand-200 border border-brand-400/20 group-hover:scale-105 transition-transform duration-500">
-            <div className="absolute inset-0 rounded-2xl bg-white/20 animate-pulse" />
+          <div className="relative w-11 h-11 rounded-2xl bg-brand-600 flex items-center justify-center shadow-xl shadow-brand-900/50 border border-brand-400/20 group-hover:scale-105 transition-transform duration-500">
+            <div className="absolute inset-0 rounded-2xl bg-white/10 animate-pulse" />
             <span className="relative text-white font-black text-sm tracking-tight">TE</span>
           </div>
           <div>
-            <p className="text-[13px] font-black text-slate-800 leading-tight tracking-tight uppercase">Control Center</p>
-            <p className="text-[9px] text-brand-600 font-bold uppercase tracking-[0.2em] mt-0.5">Predictive AI</p>
+            <p className="text-[13px] font-black text-white leading-tight tracking-tight uppercase">Control Center</p>
+            <p className="text-[9px] text-brand-400 font-bold uppercase tracking-[0.2em] mt-0.5">V3 Production AI</p>
           </div>
         </div>
       </div>
 
-      {/* Navigation Ecosystem */}
+      {/* Navigation Ecosystem - Dark Mode */}
       <nav className="flex-1 px-4 py-6 space-y-8 overflow-y-auto custom-scrollbar">
         <div>
-          <p className="px-4 mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400/80">Main Control</p>
+          <p className="px-4 mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Navigation</p>
           <div className="space-y-1.5">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
@@ -157,69 +154,58 @@ export default function Sidebar({ activeMachine, onSelectMachine, activeView, on
               return (
                 <button
                   key={item.id}
-                  onClick={() => {
-                    handleNavClick(item.id);
-                  }}
-                  className={`group relative flex items-center gap-3 w-full px-4 py-3 text-[13px] font-bold rounded-2xl transition-all duration-300 ${
+                  onClick={() => handleNavClick(item.id)}
+                  className={`group relative flex items-center gap-3 w-full px-4 py-2.5 text-[11px] font-black uppercase tracking-wider rounded-xl transition-all duration-300 ${
                     isActive 
-                    ? "bg-white text-brand-600 shadow-sm border border-slate-100" 
-                    : "text-slate-500 hover:bg-white/60 hover:text-slate-900"
+                    ? "bg-brand-600 text-white shadow-lg shadow-brand-900 border-brand-500" 
+                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
                   }`}
                 >
-                  {isActive && (
-                    <div className="absolute left-0 w-1 h-5 bg-brand-500 rounded-r-full shadow-[2px_0_8px_rgba(59,130,246,0.6)]" />
-                  )}
-                  <Icon size={18} className={`transition-transform duration-500 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
+                  <Icon size={16} className={`transition-transform duration-500 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
                   {item.label}
+                  {isActive && <div className="ml-auto w-1 h-4 bg-white/40 rounded-full" />}
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Machine Selection Grid */}
+        {/* Machine Selection Grid - High Contrast */}
         <div>
-          <p className="px-4 mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400/80">Active Assets</p>
+          <p className="px-4 mb-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Fleet Assets</p>
           <div className="space-y-1">
             {loading ? (
-              <div className="px-4 py-4 text-[10px] text-slate-400 font-bold animate-pulse">Initializing Assets...</div>
+              <div className="px-4 py-4 text-[10px] text-slate-500 font-bold animate-pulse">Scanning Network...</div>
             ) : machines.length ? machines.map((opt) => {
               const isActive = activeMachine === opt.id;
               const status = statuses[opt.id] || "UNKNOWN";
               const displayId = opt.display_id || opt.id;
-              const machineName = opt.name || `Injection Molder ${displayId}`;
+              const machineName = opt.name || `Asset ${displayId}`;
               return (
                 <button
                   key={opt.id}
                   onClick={() => onSelectMachine && onSelectMachine(opt.id)}
-                  className={`group relative flex items-center justify-between w-full px-4 py-2.5 rounded-xl transition-all duration-300 ${
+                  className={`group relative flex items-center justify-between w-full px-4 py-2 rounded-lg transition-all duration-300 border border-transparent ${
                     isActive 
-                    ? "bg-brand-50/50 text-brand-700" 
-                    : "text-slate-500 hover:bg-slate-50/50 hover:text-slate-900"
+                    ? "bg-slate-800 border-slate-700 text-brand-400 shadow-sm" 
+                    : "text-slate-400 hover:bg-slate-800/50 hover:text-slate-200"
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full transition-all duration-500 ${getStatusColor(status)} ${isActive ? 'scale-125' : ''}`} />
-                    <div className="flex min-w-0 flex-col items-start">
-                      <span className="text-xs font-bold leading-tight">{displayId}</span>
-                      <span className="max-w-[160px] truncate text-[10px] font-medium text-slate-400 leading-tight">
-                        {machineName}
+                    <div className={`w-2 h-2 rounded-full ring-2 ring-slate-900/50 transition-all duration-500 ${getStatusColor(status)} ${isActive ? 'scale-110 ring-brand-900/40' : ''}`} />
+                    <div className="flex min-w-0 flex-col items-start pt-0.5">
+                      <span className="text-[11px] font-black leading-none">{displayId}</span>
+                      <span className="max-w-[170px] truncate text-[9px] font-bold text-slate-600 mt-1 uppercase tracking-tighter">
+                        {machineName.replace('Injection Molder ', '')}
                       </span>
                     </div>
                   </div>
-                  {isActive && (
-                    <div className="flex gap-0.5">
-                      <div className="w-1 h-3 bg-brand-400/30 rounded-full animate-pulse [animation-delay:-0.2s]" />
-                      <div className="w-1 h-3 bg-brand-400/30 rounded-full animate-pulse [animation-delay:-0.1s]" />
-                      <div className="w-1 h-3 bg-brand-400/30 rounded-full animate-pulse" />
-                    </div>
-                  )}
+                  {isActive && <ChevronRight size={14} className="text-brand-500" />}
                 </button>
               );
             }) : (
-              <div className="rounded-2xl border border-dashed border-slate-200 bg-white/40 px-4 py-4">
-                <div className="text-xs font-bold text-slate-700">{activeMachine || "No machines found"}</div>
-                <div className="mt-1 text-[10px] font-medium text-slate-400">Backend may still be scanning files</div>
+              <div className="rounded-2xl border border-dashed border-slate-800 bg-slate-900/40 px-4 py-4">
+                <div className="text-xs font-bold text-slate-500">Awaiting Discovery</div>
               </div>
             )}
           </div>
@@ -227,19 +213,11 @@ export default function Sidebar({ activeMachine, onSelectMachine, activeView, on
       </nav>
 
       {/* Persistence Controls */}
-      <div className="px-4 py-6 border-t border-slate-100/50 bg-slate-50/30">
-        <div className="space-y-1">
-          {BOTTOM_ITEMS.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.id} className="flex items-center gap-3 w-full px-4 py-2.5 text-xs font-bold text-slate-400 transition-colors group opacity-75">
-                <Icon size={16} className="group-hover:rotate-12 transition-transform" />
-                {item.label}
-                <span className="ml-auto text-[9px] font-black uppercase tracking-[0.2em] text-slate-300">Soon</span>
-              </div>
-            );
-          })}
-        </div>
+      <div className="px-4 py-6 border-t border-slate-800 bg-slate-950/50">
+          <div className="flex items-center gap-3 w-full px-4 py-3 text-[10px] font-black uppercase text-slate-500 tracking-widest bg-slate-900/50 rounded-xl border border-slate-800">
+             <Settings size={14} className="text-brand-500" />
+             System Console
+          </div>
       </div>
     </aside>
   );

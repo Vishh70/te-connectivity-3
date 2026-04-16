@@ -15,7 +15,7 @@ import { Activity } from "lucide-react";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
-import { mapStatus, UI_STATUS, getStatusBadgeClass } from "../utils/statusUtils";
+import { mapStatus, UI_STATUS, getStatusBadgeClass, getStatusColorClass } from "../utils/statusUtils";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -25,7 +25,7 @@ const toNumber = (value) => {
   return Number.isFinite(numeric) ? numeric : null;
 };
 
-export default function HealthMonitor({ timeline, riskScore }) {
+export default function HealthMonitor({ timeline, riskScore, auditAreas = [] }) {
   const chartData = useMemo(
     () =>
       (timeline || [])
@@ -74,7 +74,8 @@ export default function HealthMonitor({ timeline, riskScore }) {
   }, [chartData]);
 
   const riskBand = useMemo(() => {
-    const status = mapStatus(riskScore);
+    // Explicitly pass riskScore to the second argument for robust mapping
+    const status = mapStatus(null, riskScore);
     return { 
       label: status, 
       tone: getStatusBadgeClass(status) 
@@ -122,13 +123,7 @@ export default function HealthMonitor({ timeline, riskScore }) {
               Current Risk
             </span>
             <span
-              className={`text-2xl font-extrabold ${
-                riskScore >= 0.8
-                  ? "text-red-600"
-                  : riskScore >= 0.6
-                    ? "text-orange-600"
-                    : "text-emerald-600"
-              }`}
+              className={`text-2xl font-extrabold ${getStatusColorClass(mapStatus(null, riskScore))}`}
             >
               {riskPercent}%
             </span>
@@ -168,6 +163,27 @@ export default function HealthMonitor({ timeline, riskScore }) {
             <ReferenceArea y1={0.35} y2={0.6} fill="#f59e0b" fillOpacity={0.05} strokeOpacity={0} />
             <ReferenceArea y1={0.6} y2={0.8} fill="#f97316" fillOpacity={0.05} strokeOpacity={0} />
             <ReferenceArea y1={0.8} y2={1} fill="#ef4444" fillOpacity={0.05} strokeOpacity={0} />
+            
+            {/* Senior Feature: Ground-Truth Scrap Events Overlays */}
+            {auditAreas.map((area, idx) => (
+              <ReferenceArea 
+                key={`audit-${idx}`} 
+                x1={area.start} 
+                x2={area.end} 
+                fill="#ec4899" 
+                fillOpacity={0.12} 
+                strokeOpacity={0} 
+                label={{ 
+                  value: area.id, 
+                  position: 'insideTopLeft', 
+                  fill: '#be185d', 
+                  fontSize: 10, 
+                  fontWeight: '900', 
+                  opacity: 0.8,
+                  offset: 15
+                }} 
+              />
+            ))}
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
             <XAxis
               dataKey="time"

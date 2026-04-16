@@ -16,9 +16,18 @@ export const UI_STATUS = {
  * @param {number} riskScore - Optional risk probability to derive status if missing
  */
 export const mapStatus = (rawStatus, riskScore = null) => {
-  if (!rawStatus && riskScore === null) return UI_STATUS.NORMAL;
+  let effectiveStatus = rawStatus;
+  let effectiveRisk = riskScore;
+
+  // Polymorphic fix: If first arg is a number, treat as riskScore
+  if (typeof rawStatus === 'number' && riskScore === null) {
+    effectiveStatus = null;
+    effectiveRisk = rawStatus;
+  }
+
+  if (!effectiveStatus && effectiveRisk === null) return UI_STATUS.NORMAL;
   
-  const status = String(rawStatus || "").toUpperCase().trim();
+  const status = String(effectiveStatus || "").toUpperCase().trim();
   
   if (status === "EXCEEDED" || status === "CRITICAL" || status === "ERROR") return UI_STATUS.CRITICAL;
   if (status === "WARNING" || status === "ALERT") return UI_STATUS.WARNING;
@@ -26,8 +35,8 @@ export const mapStatus = (rawStatus, riskScore = null) => {
   if (status === "HIGH") return UI_STATUS.HIGH;
   
   // Fallback to risk score if status is normal, missing, or unrecognized
-  const numericRisk = Number(riskScore);
-  if (riskScore !== null && !Number.isNaN(numericRisk)) {
+  const numericRisk = Number(effectiveRisk);
+  if (effectiveRisk !== null && !Number.isNaN(numericRisk)) {
     if (numericRisk >= 0.8) return UI_STATUS.CRITICAL;
     if (numericRisk >= 0.6) return UI_STATUS.HIGH;
     if (numericRisk >= 0.35) return UI_STATUS.WATCH;

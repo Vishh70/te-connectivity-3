@@ -1,11 +1,83 @@
 [
-  { "id": "SC-1", "machine": "M356", "date": "2026-03-30", "start": "17:35", "end": "18:28" },
-  { "id": "SC-2", "machine": "M356", "date": "2026-03-30", "start": "19:21", "end": "19:24" },
-  { "id": "SC-3", "machine": "M356", "date": "2026-03-30", "start": "20:28", "end": "20:37" },
-  { "id": "SC-4", "machine": "M607", "date": "2026-03-14", "start": "07:16", "end": "07:26" },
-  { "id": "SC-5", "machine": "M607", "date": "2026-03-14", "start": "11:40", "end": "11:42" },
-  { "id": "SC-6", "machine": "M607", "date": "2026-03-14", "start": "20:34", "end": "20:36" },
-  { "id": "SC-7", "machine": "M612", "date": "2026-04-01", "start": "06:41", "end": "08:29" },
-  { "id": "SC-8", "machine": "M612", "date": "2026-04-01", "start": "09:59", "end": "13:22" },
-  { "id": "SC-9", "machine": "M612", "date": "2026-04-01", "start": "14:42", "end": "17:03" }
+  {
+    "id": "N/A",
+    "machine": "M231",
+    "date": "N/A",
+    "start": "N/A",
+    "end": "N/A",
+    "comment": "Ignore the M231 data since now significant data/scrap"
+  },
+  {
+    "id": "N/A",
+    "machine": "M471",
+    "date": "N/A",
+    "start": "N/A",
+    "end": "N/A",
+    "comment": "Ignore the M471 data since now significant data/scrap"
+  },
+  {
+    "id": "Scrap Case 1",
+    "machine": "M356",
+    "date": "2026-03-30",
+    "start": "17:35",
+    "end": "18:28",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 2",
+    "machine": "M356",
+    "date": "2026-03-30",
+    "start": "19:21",
+    "end": "19:24",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 3",
+    "machine": "M356",
+    "date": "2026-03-30",
+    "start": "20:28",
+    "end": "20:37",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 4",
+    "machine": "M607",
+    "date": "2026-03-14",
+    "start": "07:16",
+    "end": "07:26",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 5",
+    "machine": "M607",
+    "date": "2026-03-14",
+    "start": "11:40",
+    "end": "11:42",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 6",
+    "machine": "M607",
+    "date": "2026-03-14",
+    "start": "20:34",
+    "end": "20:38",
+    "comment": ""
+  },
+  {
+    "id": "Scrap Case 7",
+    "machine": "M612",
+    "date": "2026-04-01",
+    "start": "06:41",
+    "end": "08:29",
+    "comment": "We had issues with machine constantly during entire day until 05:03pm having scrap going up and down."
+  },
+  {
+    "machine": "M612",
+    "date": "2026-04-01",
+    "id": "Scrap Case 8",
+    "start": "09:59",
+    "end": "13:23",
+    "comment": "We had issues with machine constantly during entire day until 05:03pm having scrap going up and down.",
+    "ignore": true
+  }
 ]

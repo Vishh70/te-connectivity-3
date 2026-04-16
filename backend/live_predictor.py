@@ -14,8 +14,7 @@ from typing import Any, Dict, Optional
 
 import pandas as pd
 
-from backend.data_access import build_realtime_model_vector, _normalize_machine_id
-from backend.ml_inference_v4 import predict_scrap_probability
+from backend.data_access import build_realtime_model_vector, _normalize_machine_id, get_oracle
 
 # ── Model & feature list ────────────────────────────────────────────
 
@@ -80,7 +79,7 @@ def predict_from_raw(machine_id: str, raw_data: Dict[str, Any]) -> dict:
     feature_vector = build_realtime_model_vector(window_df, machine_norm=machine_key, strict=False)
 
     # Predict using the fully expanded vector from the shared runtime builder.
-    risk_score = float(predict_scrap_probability(feature_vector))
+    risk_score = float(get_oracle().predict_adaptive_risk(machine_key, feature_vector))
 
     return {
         "machine_id": machine_id,

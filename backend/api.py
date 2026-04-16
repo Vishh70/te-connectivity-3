@@ -24,6 +24,7 @@ from backend.data_access import (
     get_recent_window, 
     get_available_machines,
     get_audit_validation_results,
+    save_audit_cases,
     _normalize_machine_id,
     unified_predict_scrap # Now using V9 directly
 )
@@ -180,6 +181,58 @@ def get_audit_validation():
     """
     return get_audit_validation_results()
 
+@app.websocket("/ws/machines/status")
+async def websocket_machine_status(websocket: WebSocket, token: Optional[str] = Query(None)):
+    """WebSocket endpoint for machine status updates."""
+    await websocket.accept()
+    try:
+        while True:
+            # Senior Pro: Unified status logic
+            status = get_all_machine_statuses()
+            await websocket.send_json(status)
+            await asyncio.sleep(5) # 5s refresh
+    except WebSocketDisconnect:
+        pass
+    except Exception as e:
+        print(f"WS Machine Status Error: {e}")
+
+@app.post("/api/audit/cases", dependencies=[Depends(verify_token)])
+async def add_audit_case(case: Dict[str, Any]):
+    """Add a new ground-truth record."""
+    print(f"DEBUG: Received audit case: {case}")
+    current = get_audit_validation_results().get("results", [])
+    current.append(case)
+    if save_audit_cases(current):
+        print("DEBUG: Audit case saved successfully")
+        return {"status": "success", "message": "Case added successfully"}
+    print("DEBUG: Failed to save audit case")
+    raise HTTPException(status_code=500, detail="Failed to persist audit case")
+
+@app.put("/api/audit/cases/{index}", dependencies=[Depends(verify_token)])
+async def update_audit_case(index: int, case: Dict[str, Any]):
+    """Update an existing ground-truth record."""
+    results = get_audit_validation_results().get("results", [])
+    if index < 0 or index >= len(results):
+        raise HTTPException(status_code=404, detail="Audit case index out of range")
+    
+    # Standardize the case input to match storage format
+    results[index] = case
+    if save_audit_cases(results):
+        return {"status": "success", "message": "Case updated successfully"}
+    raise HTTPException(status_code=500, detail="Failed to persist audit case")
+
+@app.delete("/api/audit/cases/{index}", dependencies=[Depends(verify_token)])
+async def delete_audit_case(index: int):
+    """Remove a ground-truth record."""
+    results = get_audit_validation_results().get("results", [])
+    if index < 0 or index >= len(results):
+        raise HTTPException(status_code=404, detail="Audit case index out of range")
+    
+    results.pop(index)
+    if save_audit_cases(results):
+        return {"status": "success", "message": "Case deleted successfully"}
+    raise HTTPException(status_code=500, detail="Failed to persist audit case")
+
 @app.get("/api/machines/status", dependencies=[Depends(verify_token)])
 def get_all_machine_statuses():
     from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
@@ -197,8 +250,7 @@ def get_all_machine_statuses():
             }
         except Exception:
             return {"id": machine["id"], "status": "OFFLINE", "risk": 0.0}
-
-    with ThreadPoolExecutor(max_workers=min(len(machines), 5)) as pool:
+    with ThreadPoolExecutor(max_workers=max(1, min(len(machines), 5))) as pool:
         futures = {pool.submit(_safe_run, m): m for m in machines}
         for future, machine in futures.items():
             try:
@@ -254,12 +306,13 @@ def get_control_room_data(
     machine_id: str,
     time_window: int = Query(default=60, ge=30, le=1440),
     future_window: int = Query(default=30, ge=5, le=60),
+    anchor_time: str = Query(default=None)
 ):
     try:
         # Senior Pro Fix: Normalize machine ID for hyphenated frontend requests (M-231 -> M231)
         machine_norm = _normalize_machine_id(machine_id)
-        print(f"[REQUEST] Machine: {machine_norm} (Orig: {machine_id}) | Time: {datetime.now().strftime('%H:%M:%S')} | Future: {future_window}m", flush=True)
-        result = build_control_room_payload(machine_id=machine_norm, time_window=time_window, future_window=future_window)
+        print(f"[REQUEST] Machine: {machine_norm} (Orig: {machine_id}) | Time: {datetime.now().strftime('%H:%M:%S')} | Future: {future_window}m | Anchor: {anchor_time}", flush=True)
+        result = build_control_room_payload(machine_id=machine_norm, time_window=time_window, future_window=future_window, anchor_time=anchor_time)
         return result
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
@@ -454,7 +507,97 @@ async def get_maintenance_log(machine_id: Optional[str] = None, limit: int = 50)
         entries = [e for e in entries if e.get("machine_id") == machine_id]
     return entries[:limit]
 
+
+@app.get("/api/analytics/fleet", dependencies=[Depends(verify_token)])
+def get_fleet_analytics():
+    """
+    Returns a comprehensive fleet-wide analytics summary:
+    - Per-machine risk scores, status, alert counts
+    - Model accuracy from audit validation
+    - Scrap event distribution across machines
+    """
+    from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
+    from backend.data_access import _normalize_machine_id
+
+    machines = get_available_machines()
+
+    def _safe_payload(machine):
+        mid = machine.get("id", "")
+        try:
+            payload = build_control_room_payload(machine_id=mid, time_window=240, future_window=30)
+            health = payload.get("current_health", {})
+            stats = payload.get("summary_stats", {})
+            tg = payload.get("telemetry_grid", [])
+            warnings = sum(1 for r in tg if r.get("status") in ("WARNING", "HIGH", "CRITICAL"))
+            return {
+                "id": mid,
+                "display_id": payload.get("machine_info", {}).get("display_id", mid),
+                "machine_type": payload.get("machine_info", {}).get("machine_type", "UNKNOWN"),
+                "status": health.get("status", "UNKNOWN"),
+                "risk_score": round(float(health.get("risk_score", 0.0)), 3),
+                "active_alerts": warnings,
+                "past_scrap_detected": stats.get("past_scrap_detected", 0),
+                "future_scrap_predicted": stats.get("future_scrap_predicted", 0),
+                "root_causes": health.get("root_causes", [])[:3],
+            }
+        except Exception as e:
+            print(f"[Analytics] Skipped {mid}: {e}")
+            return {
+                "id": mid,
+                "display_id": mid,
+                "machine_type": "UNKNOWN",
+                "status": "OFFLINE",
+                "risk_score": 0.0,
+                "active_alerts": 0,
+                "past_scrap_detected": 0,
+                "future_scrap_predicted": 0,
+                "root_causes": [],
+            }
+
+    machine_stats = []
+    with ThreadPoolExecutor(max_workers=min(len(machines), 4)) as pool:
+        futures = {pool.submit(_safe_payload, m): m for m in machines}
+        for future in futures:
+            try:
+                machine_stats.append(future.result(timeout=20))
+            except (FuturesTimeout, Exception) as e:
+                m = futures[future]
+                machine_stats.append({
+                    "id": m.get("id", ""), "display_id": m.get("id", ""),
+                    "machine_type": "UNKNOWN", "status": "OFFLINE",
+                    "risk_score": 0.0, "active_alerts": 0,
+                    "past_scrap_detected": 0, "future_scrap_predicted": 0, "root_causes": [],
+                })
+
+    # Audit model accuracy
+    audit = get_audit_validation_results()
+    accuracy = audit.get("accuracy", 0.0)
+    total_cases = audit.get("total_cases", 0)
+    matched = audit.get("matched_count", 0)
+
+    # Fleet-wide aggregation
+    total_alerts = sum(m["active_alerts"] for m in machine_stats)
+    total_scrap = sum(m["past_scrap_detected"] for m in machine_stats)
+    critical_machines = [m for m in machine_stats if m["status"] in ("CRITICAL", "HIGH")]
+    avg_risk = round(sum(m["risk_score"] for m in machine_stats) / max(len(machine_stats), 1), 3)
+
+    return {
+        "machines": machine_stats,
+        "fleet_summary": {
+            "total_machines": len(machine_stats),
+            "critical_count": len(critical_machines),
+            "average_risk": avg_risk,
+            "total_active_alerts": total_alerts,
+            "total_scrap_events": total_scrap,
+            "model_accuracy": round(accuracy * 100, 1),
+            "audit_total_cases": total_cases,
+            "audit_matched": matched,
+        }
+    }
+
+
 if __name__ == "__main__":
     import uvicorn
     runtime_port = int(os.environ.get("BACKEND_PORT", os.environ.get("PORT", "8000")))
     uvicorn.run(app, host="0.0.0.0", port=runtime_port)
+

@@ -95,11 +95,15 @@ try:
             )
         )
     elif isinstance(_threshold_payload, dict):
-        PER_MACHINE_THRESHOLDS = {
+        parsed = {
             str(k): float(v)
             for k, v in _threshold_payload.items()
-            if isinstance(v, (int, float))
+            if isinstance(v, (int, float)) and str(k).upper().startswith("M")
         }
+        if parsed:
+            PER_MACHINE_THRESHOLDS = parsed
+        else:
+            PER_MACHINE_THRESHOLDS = dict(_FALLBACK_MACHINE_THRESHOLDS)
         DEFAULT_MACHINE_THRESHOLD = float(
             _threshold_payload.get("default_threshold", DEFAULT_MACHINE_THRESHOLD)
         )
@@ -130,8 +134,8 @@ def get_latest_data_file():
 
 FEB_RESULTS_FILE = PROJECT_ROOT / "new_processed_data" / "FEB_TEST_RESULTS.parquet"
 MACHINE_TESTS_DIR = PROJECT_ROOT / "new_processed_data"
-CONTROL_MODEL_PATH = PROJECT_ROOT / "models" / "scrap_risk_model_v8.pkl"
-MODEL_FEATURES_PATH = PROJECT_ROOT / "models" / "model_features_v8.pkl"
+CONTROL_MODEL_PATH = PROJECT_ROOT / "models" / "production_scrap_model.pkl"
+MODEL_FEATURES_PATH = PROJECT_ROOT / "models" / "production_features.pkl"
 FORECASTER_MODEL_PATH = PROJECT_ROOT / "models" / "sensor_forecaster_lagged.pkl"
 FUTURE_RISK_THRESHOLD = float(ML_THRESHOLDS.get("MEDIUM", 0.60))
 CONTROL_ROOM_PAST_WINDOW_MINUTES = 60
@@ -419,12 +423,19 @@ def build_realtime_model_vector(window_df: pd.DataFrame, machine_norm: str = "",
     base_df = pd.DataFrame(index=df.index)
     for col in _BASE_SENSOR_FEATURES:
         if col in df.columns:
-            base_df[col] = pd.to_numeric(df[col], errors="coerce")
+            col_data = df[col]
+            # Duplicate column names produce a DataFrame instead of a Series — take first column
+            if isinstance(col_data, pd.DataFrame):
+                col_data = col_data.iloc[:, 0]
+            base_df[col] = pd.to_numeric(col_data, errors="coerce")
         else:
             base_df[col] = 0.0
     base_df = base_df.ffill().fillna(0.0)
     base_df = augment_safety_signal_features(base_df)
     base_df = augment_temporal_signal_features(base_df)
+    # CRITICAL: de-duplicate columns after every augmentation pass so that
+    # base_df[name] always returns a 1-D Series, never a DataFrame.
+    base_df = base_df.loc[:, ~base_df.columns.duplicated(keep="last")]
 
     machine_code = float(get_machine_code(machine_norm))
     computed = {}
@@ -501,7 +512,11 @@ def build_realtime_model_vector(window_df: pd.DataFrame, machine_norm: str = "",
             return series
 
         if name in base_df.columns:
-            series = base_df[name].astype(float)
+            col_data = base_df[name]
+            # Squeeze DataFrame → Series in case duplicate columns slipped through
+            if isinstance(col_data, pd.DataFrame):
+                col_data = col_data.iloc[:, 0]
+            series = col_data.astype(float)
             computed[name] = series
             return series
 
@@ -543,10 +558,18 @@ def build_realtime_model_vector(window_df: pd.DataFrame, machine_norm: str = "",
         return series
 
     latest = {}
-    model_features = _MODEL_CACHE.get('features', [])
+    _, model_features = unified_get_model_and_features(machine_norm)
     for feature in model_features:
-        s = _feature_series(feature).replace([np.inf, -np.inf], np.nan).ffill().fillna(0.0)
-        latest[feature] = float(s.iloc[-1]) if len(s) else 0.0
+        raw_series = _feature_series(feature)
+        # Flatten any accidental DataFrame to a 1-D Series
+        if isinstance(raw_series, pd.DataFrame):
+            raw_series = raw_series.iloc[:, 0]
+        s = raw_series.replace([np.inf, -np.inf], np.nan).ffill().fillna(0.0)
+        last_val = _series_to_scalar(s.iloc[-1] if len(s) else 0.0, default=0.0)
+        try:
+            latest[feature] = float(last_val) if last_val is not None else 0.0
+        except (TypeError, ValueError):
+            latest[feature] = 0.0
 
     if strict:
         missing_features = [f for f in model_features if f not in latest]
@@ -907,6 +930,8 @@ def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 144
 
     pivot = raw.pivot_table(index="timestamp", columns="variable_name", values="value", aggfunc="mean").reset_index()
     pivot = pivot.sort_values("timestamp").reset_index(drop=True)
+    # Guard: pivot_table can produce duplicate column names – keep last, reset index
+    pivot = pivot.loc[:, ~pivot.columns.duplicated(keep="last")]
 
     _, model_features = _load_control_model_and_features()
     missing_features = [feature for feature in model_features if feature not in pivot.columns]
@@ -1310,12 +1335,13 @@ def build_control_room_payload(
     machine_id: str,
     time_window: int = CONTROL_ROOM_PAST_WINDOW_MINUTES,
     future_window: int = CONTROL_ROOM_FUTURE_WINDOW_MINUTES,
+    anchor_time: str = None,
 ):
     # Senior Pro Fix: Normalize immediately to handle hyphenated frontend requests
     machine_norm = _normalize_machine_id(machine_id)
     effective_time_window = time_window
     effective_future_window = future_window
-    payload_key = ("payload", machine_id, effective_time_window, effective_future_window)
+    payload_key = ("payload", machine_id, effective_time_window, effective_future_window, anchor_time)
     cached_payload = _get_cached(payload_key)
     if cached_payload is not None:
         return cached_payload
@@ -1333,8 +1359,11 @@ def build_control_room_payload(
         history = history.sort_values("timestamp").reset_index(drop=True)
         history["timestamp"] = pd.to_datetime(history["timestamp"], errors="coerce")
 
-        max_time = history["timestamp"].max()
-        anchor = max_time
+        if anchor_time:
+            anchor = pd.to_datetime(anchor_time, utc=True)
+        else:
+            anchor = history["timestamp"].max()
+
         cutoff = anchor - pd.Timedelta(minutes=effective_time_window)
 
         past_window = history[
@@ -1375,7 +1404,7 @@ def build_control_room_payload(
                 current_sensors[sensor] = float(current_value)
 
         _, breached_sensors = _compute_root_causes(current_sensors, current_safe_limits)
-        sensor_input = build_realtime_model_vector(machine_df, machine_norm=machine_norm, strict=True)
+        sensor_input = build_realtime_model_vector(machine_df, machine_norm=machine_norm, strict=False)
         
         # Use Unified Engine for Risk
         ml_risk = float(unified_predict_scrap(machine_norm, sensor_input))
@@ -1447,7 +1476,11 @@ def build_control_room_payload(
         status = "NORMAL"
 
     future_minutes = effective_future_window
-    future_horizon = _generate_future_horizon(past_window, n_steps=future_minutes)
+    try:
+        future_horizon = _generate_future_horizon(past_window, n_steps=future_minutes)
+    except Exception as _fe:
+        print(f"[Future Horizon Warn] {machine_norm}: {_fe}")
+        future_horizon = []
 
     past_scrap_detected = int((past_window["is_scrap_actual"].fillna(0) >= 1).sum())
     future_threshold = _get_machine_threshold(machine_norm)
@@ -1491,6 +1524,30 @@ def build_control_room_payload(
         for k in bad_keys:
             del point["sensors"][k]
 
+    # Senior Feature: Overlay ground-truth audit cases statically onto the dashboard graph
+    audit_areas = []
+    try:
+        audit_path = PROJECT_ROOT / "backend" / "audit_cases.json"
+        if audit_path.exists():
+            cases = json.loads(audit_path.read_text())
+            for c in cases:
+                if _normalize_machine_id(c.get("machine", "")) == machine_norm and not c.get("ignore", False):
+                    if c.get("start") not in ["", "N/A"] and c.get("end") not in ["", "N/A"]:
+                        try:
+                            # Safely parse the Date String specifically
+                            d_obj = pd.to_datetime(c.get("date"), dayfirst=True).strftime("%Y-%m-%d")
+                            start_ts = pd.to_datetime(f"{d_obj} {c.get('start')}").tz_localize("Asia/Kolkata").tz_convert("UTC").timestamp() * 1000
+                            end_ts = pd.to_datetime(f"{d_obj} {c.get('end')}").tz_localize("Asia/Kolkata").tz_convert("UTC").timestamp() * 1000
+                            audit_areas.append({
+                                "id": c.get("id", "Case"),
+                                "start": int(start_ts),
+                                "end": int(end_ts)
+                            })
+                        except Exception as e:
+                            print(f"[Audit Area Parse Warn] {e}")
+    except Exception as e:
+        print(f"[Audit Area Load Warn] {e}")
+
     payload = {
         "machine_info": machine_info,
         "summary_stats": {
@@ -1506,6 +1563,7 @@ def build_control_room_payload(
         "telemetry_grid": telemetry_grid,
         "timeline": timeline,
         "safe_limits": _clean_limit_payload(current_safe_limits),
+        "audit_reference_areas": audit_areas,
     }
     _set_cached(payload_key, payload)
     return payload
@@ -1534,7 +1592,8 @@ def get_recent_window(machine_id, minutes=60):
     ].copy()
 
     past_window["event_timestamp"] = past_window["timestamp"]
-    
+    # De-duplicate columns so that callers receive clean 1-D Series per column
+    past_window = past_window.loc[:, ~past_window.columns.duplicated(keep="last")]
     return past_window
 
 
@@ -1555,23 +1614,70 @@ def get_audit_validation_results():
 
     validation_results = []
     matches = 0
+    total_valid = 0
 
-    for case in cases:
-        machine_norm = _normalize_machine_id(case["machine"])
+    for idx, case in enumerate(cases):
+        machine_norm = _normalize_machine_id(case.get("machine", "UNKNOWN"))
+        
+        # Senior Fix: Handle N/A or Ignore cases before attempting to load telemetry
+        if case.get("start") == "N/A" or case.get("end") == "N/A" or case.get("ignore", False):
+            validation_results.append({
+                **case, 
+                "index": idx,
+                "status": "IGNORE", 
+                "predicted": "N/A",
+                "max_risk": 0.0,
+                "threshold": 0.0
+            })
+            continue
+
         date_str = case["date"]
         start_time_str = case["start"]
         end_time_str = case["end"]
 
+        # Senior Pro Fix: Use dayfirst=True to support dd-mm-yyyy natively as requested by user
+        try:
+            case_date = pd.to_datetime(date_str, dayfirst=True).date()
+        except Exception:
+            # Fallback to current date or ignore if unparseable
+            validation_results.append({
+                **case, 
+                "index": idx,
+                "status": "INVALID_DATE", 
+                "predicted": "ERROR",
+                "max_risk": 0.0,
+                "threshold": 0.0
+            })
+            continue
+
         # Parse audit windows (assuming local time Asia/Kolkata)
         # We need to find the telemetry window around this date.
         # For local dev, we use the available history.
-        history, _ = _build_machine_feb_history(machine_norm, time_window_minutes=None)
-        if history.empty:
-            validation_results.append({**case, "status": "MISSING_DATA", "predicted": "NO DATA"})
+        try:
+            history, _ = _build_machine_feb_history(machine_norm, time_window_minutes=None)
+        except Exception as e:
+            validation_results.append({
+                **case, 
+                "index": idx,
+                "status": "MISSING_DATA", 
+                "predicted": "NO DATA",
+                "max_risk": 0.0,
+                "threshold": 0.0,
+                "error": str(e)
+            })
             continue
-            
-        history["timestamp"] = pd.to_datetime(history["timestamp"], utc=True, errors="coerce")
-        
+
+        if history.empty:
+            validation_results.append({
+                **case, 
+                "index": idx,
+                "status": "MISSING_DATA", 
+                "predicted": "NO DATA",
+                "max_risk": 0.0,
+                "threshold": 0.0
+            })
+            continue
+
         # Senior Threshold: Use optimized per-machine threshold
         threshold = _get_machine_threshold(machine_norm)
         
@@ -1610,15 +1716,17 @@ def get_audit_validation_results():
             
             validation_results.append({
                 **case,
+                "index": idx,
                 "status": "MATCH" if predicted_yes else "MISSED",
                 "predicted": "YES" if predicted_yes else "NO",
                 "max_risk": round(float(max_risk), 2),
                 "threshold": round(float(threshold), 2)
             })
+            total_valid += 1
         except Exception as e:
-            validation_results.append({**case, "status": "ERROR", "error": str(e)})
+            validation_results.append({**case, "index": idx, "status": "ERROR", "error": str(e)})
 
-    accuracy = (matches / len(validation_results)) * 100 if validation_results else 0
+    accuracy = (matches / total_valid) * 100 if total_valid > 0 else 0
     
     return {
         "accuracy": round(accuracy, 1),
@@ -1626,3 +1734,23 @@ def get_audit_validation_results():
         "matches": matches,
         "results": validation_results
     }
+
+def save_audit_cases(cases: list):
+    """Senior Pro: Safely persist audit records to the ground-truth vault."""
+    audit_path = PROJECT_ROOT / "backend" / "audit_cases.json"
+    try:
+        # Optimization: Strip UI-only fields like 'max_risk', 'status', 'predicted', 'index' 
+        # that are calculated dynamically, to keep the JSON clean.
+        persistent_cases = []
+        for c in cases:
+            clean_case = {
+                k: v for k, v in c.items() 
+                if k not in ["max_risk", "status", "predicted", "index", "threshold", "error"]
+            }
+            persistent_cases.append(clean_case)
+            
+        audit_path.write_text(json.dumps(persistent_cases, indent=2), encoding="utf-8")
+        return True
+    except Exception as e:
+        print(f"[AUDIT SAVE ERR] {e}")
+        return False

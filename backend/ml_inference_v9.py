@@ -57,7 +57,11 @@ class UniversalOracleV9:
         X = X[list(features)]
         
         # 2. Base Probability
-        base_prob = float(model.predict(X)[0])
+        try:
+            base_prob = float(model.predict(X)[0])
+        except Exception as e:
+            print(f"[Oracle V9 Warn] predict failed for {machine_id}: {e}")
+            return 0.0
         
         # 3. Baseline Tracker
         if machine_id not in self.risk_histories:

@@ -22,6 +22,7 @@ const TelemetryGrid = React.lazy(() => import("./components/TelemetryGrid"));
 const PredictionStats = React.lazy(() => import("./components/PredictionStats"));
 const SensorDrawer = React.lazy(() => import("./components/SensorDrawer"));
 const IngestionHub = React.lazy(() => import("./components/ingestion/IngestionHub"));
+const AnalyticsHub = React.lazy(() => import("./components/AnalyticsHub"));
 const AuditHub = React.lazy(() => import("./components/AuditHub"));
 
 dayjs.extend(utc);
@@ -63,6 +64,7 @@ function App() {
   const [currentView, setCurrentView] = useState("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [machineId, setMachineId] = useState("M-356");
+  const [anchorTime, setAnchorTime] = useState(null);
   const [draftPastWindowMinutes, setDraftPastWindowMinutes] = useState(60);
   const [draftFutureWindowMinutes, setDraftFutureWindowMinutes] = useState(30);
   const [pastWindowMinutes, setPastWindowMinutes] = useState(60);
@@ -90,14 +92,18 @@ function App() {
     targetMachineId = machineId,
     targetPastWindowMinutes = pastWindowMinutes,
     targetFutureWindowMinutes = futureWindowMinutes,
+    targetAnchorTime = anchorTime,
   } = {}) => {
     try {
       if (showFullLoading) setLoading(true);
       else setBackgroundLoading(true);
 
-      const data = await fetchWithRetry(`/api/control-room/${targetMachineId}`, {
-        params: { time_window: targetPastWindowMinutes, future_window: targetFutureWindowMinutes },
-      });
+      const params = { time_window: targetPastWindowMinutes, future_window: targetFutureWindowMinutes };
+      if (targetAnchorTime) {
+          params.anchor_time = targetAnchorTime;
+      }
+
+      const data = await fetchWithRetry(`/api/control-room/${targetMachineId}`, { params });
       if (controlRoomRequestRef.current !== requestId) return;
       setControlRoomData(data);
       setError(null);
@@ -110,7 +116,7 @@ function App() {
         setBackgroundLoading(false);
       }
     }
-  }, [machineId, pastWindowMinutes, futureWindowMinutes]);
+  }, [machineId, pastWindowMinutes, futureWindowMinutes, anchorTime]);
 
   useEffect(() => {
     const handleUnauthorized = () => setIsAuthenticated(false);
@@ -264,7 +270,27 @@ function App() {
   const handleApplyWindows = useCallback(() => {
     setPastWindowMinutes(draftPastWindowMinutes);
     setFutureWindowMinutes(draftFutureWindowMinutes);
+    setAnchorTime(null);
   }, [draftPastWindowMinutes, draftFutureWindowMinutes]);
+
+  const handleReplayAnomaly = useCallback((machine, endTs) => {
+    // Pad 1 hour to right side so anomaly doesn't hug the edge
+    const paddedAnchor = new Date(endTs + 60 * 60 * 1000).toISOString();
+    setMachineId(machine);
+    setAnchorTime(paddedAnchor);
+    setPastWindowMinutes(240);
+    setDraftPastWindowMinutes(240);
+    setCurrentView('dashboard');
+    controlRoomRequestRef.current += 1;
+    const reqId = controlRoomRequestRef.current;
+    fetchControlRoom({
+      showFullLoading: true,
+      requestId: reqId,
+      targetMachineId: machine,
+      targetPastWindowMinutes: 240,
+      targetAnchorTime: paddedAnchor,
+    });
+  }, [fetchControlRoom]);
 
   useEffect(() => {
     setLimitOverrides({});
@@ -569,6 +595,7 @@ function App() {
           activeMachine={machineId}
           onSelectMachine={(id) => {
             setMachineId(id);
+            setAnchorTime(null);
             setSidebarOpen(false);
           }}
           activeView={currentView}
@@ -579,11 +606,14 @@ function App() {
         />
       </div>
 
-      <main className="relative z-10 flex-1 min-h-screen p-4 md:p-6 lg:p-8 pt-0 lg:pt-0">
-        <div className="mx-auto max-w-[1400px] flex flex-col gap-5 stagger-children">
-          {/* Sticky Header */}
+      <main 
+        className="relative z-10 flex-1 min-h-screen p-4 md:p-6 lg:p-8 pt-0 lg:pt-0"
+        style={{ "--container-padding": "env(safe-area-inset-left, 2rem)" }}
+      >
+        <div className="mx-auto max-w-[1440px] flex flex-col gap-4 stagger-children">
+          {/* Refined Sticky Header */}
           {currentView === "dashboard" && (
-            <div className="sticky top-0 z-20 -mx-4 px-4 py-4 md:-mx-6 md:px-6 lg:-mx-8 lg:px-8 bg-white/40 backdrop-blur-xl border-b border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.03)]">
+            <div className="sticky-header-float">
               <Header
                 machineId={machineId}
                 hasPendingWindowChanges={hasPendingWindowChanges}
@@ -624,7 +654,15 @@ function App() {
                 onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
               />
             ) : currentView === "audit" ? (
-              <AuditHub />
+              <AuditHub onReplayAnomaly={handleReplayAnomaly} />
+            ) : currentView === "analytics" ? (
+              <AnalyticsHub onViewMachine={(id) => {
+                setMachineId(id);
+                setAnchorTime(null);
+                setCurrentView('dashboard');
+                controlRoomRequestRef.current += 1;
+                fetchControlRoom({ showFullLoading: true, requestId: controlRoomRequestRef.current, targetMachineId: id, targetAnchorTime: null });
+              }} />
             ) : (
               <AnimatePresence mode="wait">
               <motion.div 
@@ -635,7 +673,7 @@ function App() {
                 transition={{ duration: 0.4, staggerChildren: 0.1 }}
                 className="flex flex-col gap-6"
               >
-                <section id="dashboard" className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 scroll-mt-28">
+                <section id="dashboard" className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5 scroll-mt-28">
                   {dashboardCards.map((card, idx) => {
                     const Icon = card.icon;
                     return (
@@ -671,14 +709,14 @@ function App() {
                   })}
                 </section>
 
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     className="lg:col-span-2 scroll-mt-28" 
                     id="health-monitor"
                   >
-                    <HealthMonitor timeline={displayTimeline} riskScore={currentHealth.risk_score} />
+                    <HealthMonitor timeline={displayTimeline} riskScore={currentHealth.risk_score} auditAreas={controlRoomData?.audit_reference_areas || []} />
                   </motion.div>
                   
                   <motion.div 
