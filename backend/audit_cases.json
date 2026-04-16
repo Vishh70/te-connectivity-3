@@ -1,21 +1,5 @@
 [
   {
-    "id": "N/A",
-    "machine": "M231",
-    "date": "N/A",
-    "start": "N/A",
-    "end": "N/A",
-    "comment": "Ignore the M231 data since now significant data/scrap"
-  },
-  {
-    "id": "N/A",
-    "machine": "M471",
-    "date": "N/A",
-    "start": "N/A",
-    "end": "N/A",
-    "comment": "Ignore the M471 data since now significant data/scrap"
-  },
-  {
     "id": "Scrap Case 1",
     "machine": "M356",
     "date": "2026-03-30",

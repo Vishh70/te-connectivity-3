@@ -92,8 +92,9 @@ export default function HealthMonitor({ timeline, riskScore, auditAreas = [] }) 
 
   const tooltipLabelFormatter = (value) => {
     if (value === null || value === undefined) return "";
-    // Default to browser local time instead of hardcoded Asia/Kolkata
-    return dayjs(value).format("MMM DD YYYY HH:mm:ss");
+    // Senior Pro Fix: Use .utc() to ensure "1 Means 1" timeline integrity, 
+    // eliminating regional shifts (like IST +5.5h) in tooltips.
+    return dayjs(value).utc().format("MMM DD YYYY HH:mm:ss");
   };
 
   const riskPercent = (riskScore * 100).toFixed(1);
@@ -190,7 +191,7 @@ export default function HealthMonitor({ timeline, riskScore, auditAreas = [] }) 
               type="number"
               scale="time"
               domain={["dataMin", "dataMax"]}
-              tickFormatter={(t) => dayjs(t).format("HH:mm")}
+              tickFormatter={(t) => dayjs(t).utc().format("HH:mm")}
               tick={{ fill: "#64748b", fontSize: 11 }}
               axisLine={{ stroke: "#cbd5e1" }}
               tickLine={{ stroke: "#cbd5e1" }}

@@ -418,13 +418,11 @@ function App() {
   const latestTimestampLabel = useMemo(() => {
     const latestPoint = latestPastPoint;
     if (!latestPoint?.timestamp) return "Searching...";
-    const parsed = dayjs(latestPoint.timestamp);
+    // Senior Pro Fix: Use .utc() to ensure "1 Means 1" timeline integrity in the Header.
+    const parsed = dayjs(latestPoint.timestamp).utc();
     if (!parsed.isValid()) return "Live sync";
-    const diffSeconds = dayjs().diff(parsed, 'second');
-    if (diffSeconds < 30) return "Just now";
-    if (diffSeconds < 60) return "30s ago";
-    const diffMinutes = Math.floor(diffSeconds / 60);
-    if (diffMinutes < 60) return `${diffMinutes}m ago`;
+    
+    // Maintain absolute formatting for "Time Machine" historic context
     return parsed.format("HH:mm");
   }, [latestPastPoint, backgroundLoading]);
 

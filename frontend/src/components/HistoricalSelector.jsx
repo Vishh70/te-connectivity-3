@@ -17,7 +17,19 @@ export default function HistoricalSelector({ onApply, onClear, currentAnchor }) 
   };
 
   if (currentAnchor) {
-    const displayDate = new Date(currentAnchor).toLocaleString();
+    // Senior Pro Fix: Use Intl.DateTimeFormat with timeZone: 'UTC' to display
+    // the machine's direct raw time without regional offsets (e.g. 5.5h IST shift).
+    const displayDate = new Intl.DateTimeFormat("en-GB", {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+      timeZone: "UTC",
+    }).format(new Date(currentAnchor));
+
     return (
       <div className="flex items-center gap-3 px-4 py-2 rounded-2xl bg-brand-600 text-white shadow-lg shadow-brand-200 animate-in fade-in zoom-in duration-300">
         <History size={16} className="animate-pulse" />

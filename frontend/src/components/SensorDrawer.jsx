@@ -300,8 +300,12 @@ export default function SensorDrawer({ isOpen, onClose, machineId, sensor, senso
                         color: "#1e293b",
                         boxShadow: "0 10px 40px -10px rgba(0,0,0,0.15)",
                       }}
+                      labelFormatter={(t) => {
+                        // Senior Pro Fix: Ensure "1 Means 1" timeline in diagnostic tooltips.
+                        if (!t) return "";
+                        return dayjs(t).utc().format("HH:mm:ss");
+                      }}
                       formatter={(v) => [`${Number(v).toFixed(3)}`, 'Value']}
-                      labelStyle={{ display: 'none' }}
                     />
                     <Line 
                       type="monotone" 

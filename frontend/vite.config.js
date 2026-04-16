@@ -41,6 +41,7 @@ export default defineConfig(({ mode }) => {
     server: {
       host: "0.0.0.0",
       port: 5173,
+      allowedHosts: ["short-schools-taste.loca.lt", ".loca.lt", ".trycloudflare.com"],
       proxy: {
         "/api": {
           target: backendUrl,

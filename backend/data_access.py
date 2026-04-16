@@ -1237,7 +1237,7 @@ def _generate_future_horizon(machine_df, n_steps=CONTROL_ROOM_FUTURE_WINDOW_MINU
     if hasattr(last_ts, "tz") and last_ts.tz is None:
         last_ts = last_ts.tz_localize("UTC")
     elif hasattr(last_ts, "tz"):
-        last_ts = pd.to_datetime(last_update)
+        pass # Already has timezone
     # Dynamically space future horizon based on the user's window selection
     step = max(5, n_steps // 6)
     horizons = list(range(step, n_steps + 1, step))[:8] # Max 8 points for UI clarity
@@ -1295,7 +1295,7 @@ def _row_to_timeline_point(row, is_future: bool, current_safe_limits: dict = Non
     if hasattr(ts, "tz") and ts.tz is None:
         ts = ts.tz_localize("UTC")
     elif hasattr(ts, "tz"):
-        ts = pd.to_datetime(target_time)
+        pass # Already has timezone
     # Convert to epoch milliseconds for correct chart time scaling
     timestamp_ms = int(ts.timestamp() * 1000)
 
@@ -1400,8 +1400,8 @@ def build_control_room_payload(
                 "timeline": [],
                 "safe_limits": {},
                 "available_range": {
-                    "min": data_min.isoformat(),
-                    "max": data_max.isoformat()
+                    "min": (data_min.tz_localize("UTC") if data_min.tz is None else data_min).isoformat(),
+                    "max": (data_max.tz_localize("UTC") if data_max.tz is None else data_max).isoformat()
                 }
             }
 

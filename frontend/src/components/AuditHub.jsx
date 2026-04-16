@@ -401,16 +401,17 @@ export default function AuditHub({ onReplayAnomaly }) {
                       <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button 
                           onClick={() => {
-                            if (!isIgnore && row.start !== "N/A" && onReplayAnomaly) {
-                              try {
-                                const isoStr = `${row.date}T${row.end}:00Z`;
-                                // Assume input dates are IST (+5:30) and subtract offset so Epoch MS correctly lands on local time end boundary
-                                const endTs = new Date(isoStr).getTime() - (5.5 * 60 * 60 * 1000);
+                            try {
+                                // Senior Pro Fix: Use Direct Time (1 means 1). 
+                                // We no longer subtract regional offsets (like 5.5h IST).
+                                // Ensure ISO format (YYYY-MM-DD) for robust parsing across browsers.
+                                const [d, m, y] = row.date.split("-");
+                                const isoStr = `${y}-${m}-${d}T${row.end}:00Z`;
+                                const endTs = new Date(isoStr).getTime();
                                 onReplayAnomaly(row.machine, endTs);
                               } catch (e) {
                                 console.error("Could not parse date for replay jump", e);
                               }
-                            }
                           }}
                           className={`p-2 rounded-lg transition-colors ${!isIgnore && row.start !== "N/A" ? 'text-brand-600 hover:bg-brand-50' : 'text-slate-300 cursor-not-allowed'}`}
                           title="View on Dashboard"
