@@ -190,7 +190,7 @@ export default function HealthMonitor({ timeline, riskScore, auditAreas = [] }) 
               type="number"
               scale="time"
               domain={["dataMin", "dataMax"]}
-              tickFormatter={(t) => dayjs(t).tz("Asia/Kolkata").format("HH:mm")}
+              tickFormatter={(t) => dayjs(t).format("HH:mm")}
               tick={{ fill: "#64748b", fontSize: 11 }}
               axisLine={{ stroke: "#cbd5e1" }}
               tickLine={{ stroke: "#cbd5e1" }}

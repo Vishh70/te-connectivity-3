@@ -12,7 +12,7 @@ export default function HistoricalSelector({ onApply, onClear, currentAnchor }) 
   const handleApply = () => {
     if (!date || !time) return;
     // Combine date and time into ISO string
-    const isoString = new Date(`${date}T${time}`).toISOString();
+    const isoString = new Date(`${date}T${time}Z`).toISOString();
     onApply(isoString);
   };
 

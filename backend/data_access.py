@@ -1237,7 +1237,7 @@ def _generate_future_horizon(machine_df, n_steps=CONTROL_ROOM_FUTURE_WINDOW_MINU
     if hasattr(last_ts, "tz") and last_ts.tz is None:
         last_ts = last_ts.tz_localize("UTC")
     elif hasattr(last_ts, "tz"):
-        last_ts = last_ts.tz_convert("UTC")
+        last_ts = pd.to_datetime(last_update)
     # Dynamically space future horizon based on the user's window selection
     step = max(5, n_steps // 6)
     horizons = list(range(step, n_steps + 1, step))[:8] # Max 8 points for UI clarity
@@ -1295,7 +1295,7 @@ def _row_to_timeline_point(row, is_future: bool, current_safe_limits: dict = Non
     if hasattr(ts, "tz") and ts.tz is None:
         ts = ts.tz_localize("UTC")
     elif hasattr(ts, "tz"):
-        ts = ts.tz_convert("UTC")
+        ts = pd.to_datetime(target_time)
     # Convert to epoch milliseconds for correct chart time scaling
     timestamp_ms = int(ts.timestamp() * 1000)
 
@@ -1555,8 +1555,8 @@ def build_control_room_payload(
                         try:
                             # Safely parse the Date String specifically
                             d_obj = pd.to_datetime(c.get("date"), dayfirst=True).strftime("%Y-%m-%d")
-                            start_ts = pd.to_datetime(f"{d_obj} {c.get('start')}").tz_localize("Asia/Kolkata").tz_convert("UTC").timestamp() * 1000
-                            end_ts = pd.to_datetime(f"{d_obj} {c.get('end')}").tz_localize("Asia/Kolkata").tz_convert("UTC").timestamp() * 1000
+                            start_ts = pd.to_datetime(f"{d_obj} {c.get('start')}").tz_localize("UTC").timestamp() * 1000
+                            end_ts = pd.to_datetime(f"{d_obj} {c.get('end')}").tz_localize("UTC").timestamp() * 1000
                             audit_areas.append({
                                 "id": c.get("id", "Case"),
                                 "start": int(start_ts),
@@ -1703,8 +1703,8 @@ def get_audit_validation_results():
         try:
             max_risk = 0.0
             case_date = pd.to_datetime(date_str).date()
-            start_ts = pd.to_datetime(f"{date_str} {start_time_str}").tz_localize("Asia/Kolkata").tz_convert("UTC")
-            end_ts = pd.to_datetime(f"{date_str} {end_time_str}").tz_localize("Asia/Kolkata").tz_convert("UTC")
+            start_ts = pd.to_datetime(f"{date_str} {start_time_str}").tz_localize("UTC")
+            end_ts = pd.to_datetime(f"{date_str} {end_time_str}").tz_localize("UTC")
             
             mask = (history["timestamp"] >= start_ts) & (history["timestamp"] <= end_ts)
             window = history[mask]
