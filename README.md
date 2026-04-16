@@ -71,6 +71,7 @@ graph LR
 | `/api/control-room/{id}`| `GET/WS` | High-fidelity digital twin payload. | `time_window`, `future_window` |
 | `/api/trend/{id}/{p}`| `GET` | Historic sensor trend + safety limits. | `machine_id`, `parameter` |
 | `/api/audit/validation`| `GET` | Ground-truth verification results. | - |
+| `/api/analytics/fleet`| `GET` | Aggregated fleet performance metrics. | - |
 
 ---
 
@@ -101,8 +102,8 @@ docker-compose up --build
 ## 📂 Project Structure
 
 - `backend/` - Core API, Normalization Engine, and Inference.
-- `frontend/` - React Source, Visual Analytics, and XAI Dashboard.
-- `models/` - Production Weights for V5 model.
+- `frontend/` - React/Vite Source, Fleet Analytics Dashboard, and XAI Tools.
+- `models/` - Production Weights for V9 model.
 - `metrics/` - Fleet-wide thresholds and normalization calibration.
 
 ---

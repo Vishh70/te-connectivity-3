@@ -44,7 +44,7 @@ from fastapi import Depends
 
 app = FastAPI()
 
-# Senior Pro Fix: High-Visibility Connection Logger
+# Production Fix: High-Visibility Connection Logger
 @app.middleware("http")
 async def audit_logger(request, call_next):
     start_time = datetime.now()
@@ -187,7 +187,7 @@ async def websocket_machine_status(websocket: WebSocket, token: Optional[str] = 
     await websocket.accept()
     try:
         while True:
-            # Senior Pro: Unified status logic
+            # Production: Unified status logic
             status = get_all_machine_statuses()
             await websocket.send_json(status)
             await asyncio.sleep(5) # 5s refresh
@@ -241,7 +241,7 @@ def get_all_machine_statuses():
 
     def _safe_run(machine):
         try:
-            # Senior Pro: Use the unified V9 inference point
+            # Production: Use the unified V9 inference point
             risk = unified_predict_scrap(machine["id"], {}) 
             return {
                 "id": machine["id"],
@@ -368,7 +368,7 @@ async def websocket_control_room(
         await websocket.close(code=1008)
         return
 
-    # Senior Pro Fix: Normalize machine ID early to prevent NameError in logging
+    # Production Fix: Normalize machine ID early to prevent NameError in logging
     machine_norm = _normalize_machine_id(machine_id)
     print(f"[WS CONNECTED] Machine: {machine_norm} (Orig: {machine_id}) | Time Window: {time_window}m", flush=True)
     try:

@@ -300,7 +300,7 @@ def _is_canonical_machine_id(machine_norm: str) -> bool:
 
 
 def _discover_machine_ids() -> list[str]:
-    # Senior Pro Fix: Prioritize machines from the V5 Registry and Model Stats
+    # Production Fix: Prioritize machines from the V5 Registry and Model Stats
     machine_ids = set()
     
     # 1. From Registry
@@ -1249,7 +1249,7 @@ def _generate_future_horizon(machine_df, n_steps=CONTROL_ROOM_FUTURE_WINDOW_MINU
         # This ensures the forecast starts where the actual risk currently is.
         alpha = float(np.exp(-h / 15.0))
         
-        # Senior Pro Fix: Use current_risk as the baseline fallback if future models are missing or failing.
+        # Production Fix: Use current_risk as the baseline fallback if future models are missing or failing.
         # This prevents the forecast from 'cliff-diving' to 0.0 when predictive models aren't ready.
         fallback = current_risk
         
@@ -1337,7 +1337,7 @@ def build_control_room_payload(
     future_window: int = CONTROL_ROOM_FUTURE_WINDOW_MINUTES,
     anchor_time: str = None,
 ):
-    # Senior Pro Fix: Normalize immediately to handle hyphenated frontend requests
+    # Production Fix: Normalize immediately to handle hyphenated frontend requests
     machine_norm = _normalize_machine_id(machine_id)
     effective_time_window = time_window
     effective_future_window = future_window
@@ -1347,7 +1347,7 @@ def build_control_room_payload(
         return cached_payload
 
     t0 = time.perf_counter()
-    # Senior Pro Fix: Search for machine in list instead of using .get()
+    # Production Fix: Search for machine in list instead of using .get()
     machines = get_available_machines()
     machine_info = next((m for m in machines if m.get("machine_id_normalized") == machine_norm), {})
     try:
@@ -1416,7 +1416,7 @@ def build_control_room_payload(
         root_causes = []
         if model and ml_risk > 0.05:
             try:
-                # Senior Pro Fix: Use NumPy array for robust LightGBM inference
+                # Production Fix: Use NumPy array for robust LightGBM inference
                 feature_vals = [float(sensor_input.get(name, 0.0)) for name in feature_names]
                 feature_row = np.array(feature_vals).reshape(1, -1)
                 root_causes = compute_root_causes(model, feature_row, feature_names)
@@ -1444,7 +1444,7 @@ def build_control_room_payload(
         telemetry_grid = _build_telemetry_grid(machine_df, current_safe_limits, root_cause_payload)
 
     except Exception as e:
-        # Senior Pro Fix: Circuit Breaker for Self-Healing API
+        # Production Fix: Circuit Breaker for Self-Healing API
         print(f"[API Circuit Breaker] {machine_norm}: {e}")
         return {
             "machine_info": {
@@ -1599,7 +1599,7 @@ def get_recent_window(machine_id, minutes=60):
 
 def get_audit_validation_results():
     """
-    Senior Pro Audit Logic:
+    Production Audit Logic:
     Cross-references the manual scrap log (audit_cases.json) with historical telemetry 
     to verify if the model correctly predicted scrap (YES/NO).
     """
@@ -1635,7 +1635,7 @@ def get_audit_validation_results():
         start_time_str = case["start"]
         end_time_str = case["end"]
 
-        # Senior Pro Fix: Use dayfirst=True to support dd-mm-yyyy natively as requested by user
+        # Production Fix: Use dayfirst=True to support dd-mm-yyyy natively as requested by user
         try:
             case_date = pd.to_datetime(date_str, dayfirst=True).date()
         except Exception:
@@ -1736,7 +1736,7 @@ def get_audit_validation_results():
     }
 
 def save_audit_cases(cases: list):
-    """Senior Pro: Safely persist audit records to the ground-truth vault."""
+    """Production: Safely persist audit records to the ground-truth vault."""
     audit_path = PROJECT_ROOT / "backend" / "audit_cases.json"
     try:
         # Optimization: Strip UI-only fields like 'max_risk', 'status', 'predicted', 'index' 

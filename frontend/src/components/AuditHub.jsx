@@ -51,9 +51,8 @@ export default function AuditHub({ onReplayAnomaly }) {
 
   const handleSave = async (e) => {
     if (e) e.preventDefault();
-    console.log("DEBUG: handleSave attempt", formState);
 
-    // Senior Pro UI Fix: Custom explicit validation
+    // Production Validation: Ensure mandatory fields are populated
     if (!formState.machine || !formState.date || !formState.id) {
       alert("⚠️ VERIFICATION REQUIRED:\nPlease ensure Machine Identifier, Audit Date, and Case Reference are fully filled out before committing.");
       return;
@@ -62,18 +61,13 @@ export default function AuditHub({ onReplayAnomaly }) {
     try {
       setSaving(true);
       if (editingIndex !== null) {
-        console.log("DEBUG: PUT update index", editingIndex);
-        await apiClient.put(`/api/audit/cases/${editingIndex}`, formState);
+        await apiClient.put("/api/audit/case", { index: editingIndex, ...formState });
       } else {
-        console.log("DEBUG: POST new case");
-        await apiClient.post("/api/audit/cases", formState);
+        await apiClient.post("/api/audit/case", formState);
       }
-      console.log("DEBUG: Save successful");
-      setShowAddForm(false);
-      setEditingIndex(null);
       fetchAudit();
+      resetForm();
     } catch (err) {
-      console.error("DEBUG: Save failed", err);
       alert("Failed to save audit record: " + (err.response?.data?.detail || err.message));
     } finally {
       setSaving(false);
