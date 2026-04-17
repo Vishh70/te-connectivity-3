@@ -415,9 +415,9 @@ export default function AuditHub({ onReplayAnomaly }) {
                                   m = m.padStart(2, '0');
                                   d = d.padStart(2, '0');
                                   
-                                  const isoStr = `${y}-${m}-${d}T${row.end}:00Z`;
-                                  const endTs = new Date(isoStr).getTime();
-                                  onReplayAnomaly(row.machine, endTs);
+                                  const isoStr = `${y}-${m}-${d}T${row.start}:00Z`;
+                                  const startTs = new Date(isoStr).getTime();
+                                  onReplayAnomaly(row.machine, startTs);
                                 }
                               } catch (e) {
                                 console.error("Could not parse date for replay jump", e);

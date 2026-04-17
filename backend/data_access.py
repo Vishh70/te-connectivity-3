@@ -1262,19 +1262,14 @@ def _generate_future_horizon(machine_df, n_steps=CONTROL_ROOM_FUTURE_WINDOW_MINU
 
     future_points = []
     for h in horizons:
-        # Horizon blending weight (exponential decay, half-life ~15 minutes)
-        # This ensures the forecast starts where the actual risk currently is.
-        alpha = float(np.exp(-h / 15.0))
-        
-        # Production Fix: Use current_risk as the baseline fallback if future models are missing or failing.
-        # This prevents the forecast from 'cliff-diving' to 0.0 when predictive models aren't ready.
-        fallback = current_risk
-        
-        base_forecast = float(future_preds.get(f"{h}m", fallback))
-        
-        # Blended prediction logic
-        risk = (alpha * current_risk) + ((1.0 - alpha) * base_forecast)
-        risk = round(max(0.0, min(1.0, risk)), 4)
+        # If we do not have a model for this horizon (e.g. 40m, 50m, 60m), 
+        # we strictly skip it to avoid drawing fake 'fallback' points.
+        if f"{h}m" not in future_preds:
+            continue
+            
+        # Raw model prediction logic (no mathematical blending)
+        base_forecast = float(future_preds[f"{h}m"])
+        risk = round(max(0.0, min(1.0, base_forecast)), 4)
 
         future_points.append({
             "timestamp": last_ts_ms + h * 60 * 1000,
@@ -1645,12 +1640,18 @@ def get_audit_validation_results():
     total_valid = 0
 
     for idx, case in enumerate(cases):
-        machine_norm = normalize_machine_id(case.get("machine", "UNKNOWN"))
+        machine_raw = case.get("machine", "UNKNOWN")
+        machine_norm = normalize_machine_id(machine_raw)
+        
+        # Senior Pro Fix: Always resolve to a canonical display ID for the UI
+        canonical_meta = _build_machine_metadata(machine_norm)
+        display_machine_id = canonical_meta.get("display_id", machine_norm)
         
         # Senior Fix: Handle N/A or Ignore cases before attempting to load telemetry
         if case.get("start") == "N/A" or case.get("end") == "N/A" or case.get("ignore", False):
             validation_results.append({
                 **case, 
+                "machine": display_machine_id,
                 "index": idx,
                 "status": "IGNORE", 
                 "predicted": "N/A",
@@ -1698,6 +1699,7 @@ def get_audit_validation_results():
         if history.empty:
             validation_results.append({
                 **case, 
+                "machine": display_machine_id,
                 "index": idx,
                 "status": "MISSING_DATA", 
                 "predicted": "NO DATA",
@@ -1738,12 +1740,13 @@ def get_audit_validation_results():
                 max_risk = 0.0
             
             predicted_yes = float(max_risk) >= float(threshold)
-            
             if predicted_yes:
                 matches += 1
             
+            # Final prediction entry
             validation_results.append({
                 **case,
+                "machine": display_machine_id,
                 "index": idx,
                 "status": "MATCH" if predicted_yes else "MISSED",
                 "predicted": "YES" if predicted_yes else "NO",

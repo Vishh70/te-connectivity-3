@@ -140,7 +140,10 @@ export default function Header({
           <select
             id="machine-select"
             value={machineId}
-            onChange={(e) => onMachineChange(e.target.value)}
+            onChange={(e) => {
+              onMachineChange(e.target.value);
+              onAnchorTimeChange(null);
+            }}
             className="bg-transparent px-3 py-2 text-[11px] font-black text-slate-700 uppercase tracking-wider outline-none cursor-pointer hover:text-brand-600 transition-colors"
           >
             {machines.map((opt) => (

@@ -75,6 +75,7 @@ function App() {
   const [backgroundLoading, setBackgroundLoading] = useState(false);
   const [error, setError] = useState(null);
   const [backendConnecting, setBackendConnecting] = useState(false);
+  const [fleet, setFleet] = useState([]); // Canonical machine registry for ID resolution
   const [selectedSensor, setSelectedSensor] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const hasResolvedDefaultMachine = React.useRef(false);
@@ -135,6 +136,7 @@ function App() {
         if (cancelled) return;
 
         const machines = Array.isArray(response.data) ? response.data : [];
+        setFleet(machines); // Store for canonical mapping
         if (machines.length === 0) return;
 
         const preferredMachine = machines.find((machine) => machine?.id === "M-356");
@@ -163,6 +165,9 @@ function App() {
     if (isAuthenticated && machineId && anchorTime) {
       const requestId = controlRoomRequestRef.current + 1;
       controlRoomRequestRef.current = requestId;
+      
+      // Clear the previous machine's data immediately so we never render stale values.
+      setControlRoomData(null);
       
       fetchControlRoom({
         showFullLoading: true,
@@ -290,24 +295,35 @@ function App() {
     setAnchorTime(null);
   }, [draftPastWindowMinutes, draftFutureWindowMinutes]);
 
-  const handleReplayAnomaly = useCallback((machine, endTs) => {
-    // Pad 1 hour to right side so anomaly doesn't hug the edge
-    const paddedAnchor = new Date(endTs + 60 * 60 * 1000).toISOString();
-    setMachineId(machine);
+  const handleReplayAnomaly = useCallback((machineRef, startTs) => {
+    // Senior Sync Logic: Search fleet for canonical ID (e.g. M356 -> M-356)
+    // This ensures Sidebar/Header selection remains active after the jump.
+    const normalizedInput = String(machineRef || "").replace(/[^A-Z0-9]/gi, "").toUpperCase();
+    const canonical = fleet.find(m => 
+      m.id?.replace(/[^A-Z0-9]/gi, "").toUpperCase() === normalizedInput ||
+      m.machine_id_normalized?.toUpperCase() === normalizedInput
+    );
+    
+    const targetId = canonical?.id || machineRef;
+    
+    // Set anchor time to 15 minutes before the scrap starts
+    const paddedAnchor = new Date(startTs - 15 * 60 * 1000).toISOString();
+    
+    setMachineId(targetId);
     setAnchorTime(paddedAnchor);
-    setPastWindowMinutes(240);
-    setDraftPastWindowMinutes(240);
+    setPastWindowMinutes(120);
+    setDraftPastWindowMinutes(120);
+    setFutureWindowMinutes(30);
+    setDraftFutureWindowMinutes(30);
+    
+    // Clear stale data immediately to prevent "ghost" machine displays
+    setControlRoomData(null);
     setCurrentView('dashboard');
-    controlRoomRequestRef.current += 1;
-    const reqId = controlRoomRequestRef.current;
-    fetchControlRoom({
-      showFullLoading: true,
-      requestId: reqId,
-      targetMachineId: machine,
-      targetPastWindowMinutes: 240,
-      targetAnchorTime: paddedAnchor,
-    });
-  }, [fetchControlRoom]);
+    
+    // Senior Note: We do NOT call fetchControlRoom manually here anymore.
+    // The state changes to machineId and anchorTime will trigger the 
+    // useEffect at line 162 automatically, preventing race conditions.
+  }, [fleet]);
 
   useEffect(() => {
     setLimitOverrides({});
