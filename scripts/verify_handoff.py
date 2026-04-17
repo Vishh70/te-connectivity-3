@@ -13,7 +13,7 @@ def check_integrity():
     
     # 1. Infrastructure Checks (Critical Folders)
     infrastructure = {
-        "pipeline data": "Raw Telemetry Registry",
+        "pipeline  data": "Raw Telemetry Registry",
         "new_processed_data": "V5 Production Mergedata",
         "processed/safe": "Inference Mapping Buffers",
         "metrics": "Model Calibration & Stats",
