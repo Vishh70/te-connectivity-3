@@ -61,7 +61,7 @@ export default function AuditHub({ onReplayAnomaly }) {
     try {
       setSaving(true);
       if (editingIndex !== null) {
-        await apiClient.put("/api/audit/case", { index: editingIndex, ...formState });
+        await apiClient.put(`/api/audit/case/${editingIndex}`, formState);
       } else {
         await apiClient.post("/api/audit/case", formState);
       }
@@ -77,7 +77,7 @@ export default function AuditHub({ onReplayAnomaly }) {
   const handleDelete = async (index) => {
     if (!window.confirm("Are you sure you want to remove this ground-truth record?")) return;
     try {
-      await apiClient.delete(`/api/audit/cases/${index}`);
+      await apiClient.delete(`/api/audit/case/${index}`);
       fetchAudit();
     } catch (err) {
       alert("Failed to delete record: " + (err.response?.data?.detail || err.message));
@@ -402,13 +402,23 @@ export default function AuditHub({ onReplayAnomaly }) {
                         <button 
                           onClick={() => {
                             try {
-                                // Senior Pro Fix: Use Direct Time (1 means 1). 
-                                // We no longer subtract regional offsets (like 5.5h IST).
-                                // Ensure ISO format (YYYY-MM-DD) for robust parsing across browsers.
-                                const [d, m, y] = row.date.split("-");
-                                const isoStr = `${y}-${m}-${d}T${row.end}:00Z`;
-                                const endTs = new Date(isoStr).getTime();
-                                onReplayAnomaly(row.machine, endTs);
+                                // Senior Pro Fix: Robust parsing for DD-MM-YYYY or YYYY-MM-DD
+                                const parts = row.date.split(/[-/]/);
+                                let y, m, d;
+                                if (parts.length === 3) {
+                                  if (parts[2].length === 4) {
+                                    [d, m, y] = parts;
+                                  } else {
+                                    [y, m, d] = parts;
+                                  }
+                                  // Ensure 2-digit padding
+                                  m = m.padStart(2, '0');
+                                  d = d.padStart(2, '0');
+                                  
+                                  const isoStr = `${y}-${m}-${d}T${row.end}:00Z`;
+                                  const endTs = new Date(isoStr).getTime();
+                                  onReplayAnomaly(row.machine, endTs);
+                                }
                               } catch (e) {
                                 console.error("Could not parse date for replay jump", e);
                               }

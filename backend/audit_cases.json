@@ -54,14 +54,5 @@
     "start": "06:41",
     "end": "08:29",
     "comment": "We had issues with machine constantly during entire day until 05:03pm having scrap going up and down."
-  },
-  {
-    "machine": "M612",
-    "date": "2026-04-01",
-    "id": "Scrap Case 8",
-    "start": "09:59",
-    "end": "13:23",
-    "comment": "We had issues with machine constantly during entire day until 05:03pm having scrap going up and down.",
-    "ignore": true
   }
 ]

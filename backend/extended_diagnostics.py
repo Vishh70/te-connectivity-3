@@ -7,11 +7,11 @@ from backend.data_access import (
     _load_sensor_forecaster, 
     prepare_tcn_input_window,
     build_realtime_model_vector,
-    _normalize_machine_id,
+    normalize_machine_id,
     _build_machine_feb_history
 )
 from backend.forecasting import SensorForecasterWrapper
-from backend.ml_inference_v4 import predict_scrap_probability
+from backend.ml_inference_v9 import predict_scrap_v9 as predict_scrap_probability
 from backend.config_limits import ML_THRESHOLDS
 
 def run_4h_lookahead():
@@ -40,7 +40,7 @@ def run_4h_lookahead():
     
     for m in machines:
         mid = m['id']
-        machine_norm = _normalize_machine_id(mid)
+        machine_norm = normalize_machine_id(mid)
         
         try:
             # Get last 24h history for past count and future starting point

@@ -11,6 +11,7 @@ import jwt
 import os
 import json
 from datetime import datetime, timedelta, timezone
+from contextlib import asynccontextmanager
 from typing import Dict, Any, Optional, List
 import pandas as pd
 
@@ -25,7 +26,7 @@ from backend.data_access import (
     get_available_machines,
     get_audit_validation_results,
     save_audit_cases,
-    _normalize_machine_id,
+    normalize_machine_id,
     unified_predict_scrap # Now using V9 directly
 )
 from backend.ml_inference_v9 import get_production_features
@@ -42,7 +43,33 @@ from backend.ingestion_service import (
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials, OAuth2PasswordRequestForm
 from fastapi import Depends
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """
+    Modern Lifespan handler replacing deprecated on_event("startup").
+    Keeps the dashboard pointed at the newest processed data.
+    """
+    def _run_sync():
+        try:
+            should_refresh, reason = should_refresh_latest_pipeline()
+            if not should_refresh:
+                print(f"[PIPELINE] Startup sync skipped: {reason}", flush=True)
+                return
+
+            print(f"[PIPELINE] Startup sync starting in background: {reason}", flush=True)
+            run_conversion_pipeline()
+            print(f"[PIPELINE] Background startup sync completed.", flush=True)
+        except Exception as exc:
+            print(f"[PIPELINE] Background startup sync failed: {exc}", flush=True)
+
+    # Offload to background thread so FastAPI can start serving immediately
+    import threading
+    threading.Thread(target=_run_sync, daemon=True).start()
+    print(f"[SERVER] Startup initialization complete. API READY.", flush=True)
+    yield
+    print(f"[SERVER] Shutting down...", flush=True)
+
+app = FastAPI(lifespan=lifespan)
 
 # Production Fix: High-Visibility Connection Logger
 @app.middleware("http")
@@ -73,31 +100,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-@app.on_event("startup")
-async def _sync_latest_pipeline_on_startup():
-    """
-    Keep the dashboard pointed at the newest processed data.
-    Ensures the API remains available instantly by offloading sync to a background task.
-    """
-    def _run_sync():
-        try:
-            should_refresh, reason = should_refresh_latest_pipeline()
-            if not should_refresh:
-                print(f"[PIPELINE] Startup sync skipped: {reason}", flush=True)
-                return
-
-            print(f"[PIPELINE] Startup sync starting in background: {reason}", flush=True)
-            run_conversion_pipeline()
-            print(f"[PIPELINE] Background startup sync completed.", flush=True)
-        except Exception as exc:
-            print(f"[PIPELINE] Background startup sync failed: {exc}", flush=True)
-
-    # Offload to background thread so FastAPI can start serving immediately
-    import threading
-    threading.Thread(target=_run_sync, daemon=True).start()
-    print(f"[SERVER] Startup initialization complete. API READY.", flush=True)
 
 # JWT Security Definition
 security = HTTPBearer(auto_error=False)
@@ -181,7 +183,7 @@ def get_audit_validation():
     """
     return get_audit_validation_results()
 
-@app.post("/api/audit/cases", dependencies=[Depends(verify_token)])
+@app.post("/api/audit/case", dependencies=[Depends(verify_token)]) # Standardized to singular to match frontend
 async def add_audit_case(case: Dict[str, Any]):
     """Add a new ground-truth record."""
     print(f"DEBUG: Received audit case: {case}")
@@ -193,7 +195,7 @@ async def add_audit_case(case: Dict[str, Any]):
     print("DEBUG: Failed to save audit case")
     raise HTTPException(status_code=500, detail="Failed to persist audit case")
 
-@app.put("/api/audit/cases/{index}", dependencies=[Depends(verify_token)])
+@app.put("/api/audit/case/{index}", dependencies=[Depends(verify_token)]) # Standardized to singular to match frontend
 async def update_audit_case(index: int, case: Dict[str, Any]):
     """Update an existing ground-truth record."""
     results = get_audit_validation_results().get("results", [])
@@ -206,7 +208,7 @@ async def update_audit_case(index: int, case: Dict[str, Any]):
         return {"status": "success", "message": "Case updated successfully"}
     raise HTTPException(status_code=500, detail="Failed to persist audit case")
 
-@app.delete("/api/audit/cases/{index}", dependencies=[Depends(verify_token)])
+@app.delete("/api/audit/case/{index}", dependencies=[Depends(verify_token)])
 async def delete_audit_case(index: int):
     """Remove a ground-truth record."""
     results = get_audit_validation_results().get("results", [])
@@ -255,7 +257,6 @@ async def websocket_machines_status(websocket: WebSocket):
     try:
         verify_websocket_token(token)
     except Exception as e:
-        await websocket.send_json({"error": "Unauthorized", "detail": str(e)})
         await websocket.close(code=1008)
         return
 
@@ -265,7 +266,7 @@ async def websocket_machines_status(websocket: WebSocket):
             # Fetch all statuses in parallel
             results = await run_in_threadpool(get_all_machine_statuses)
             await websocket.send_json(results)
-            await asyncio.sleep(5) 
+            await asyncio.sleep(10)
     except WebSocketDisconnect:
         print("[WS DISCONNECTED] Fleet Status Stream", flush=True)
     except Exception as e:
@@ -285,7 +286,7 @@ def get_control_room_data(
 ):
     try:
         # Senior Pro Fix: Normalize machine ID for hyphenated frontend requests (M-231 -> M231)
-        machine_norm = _normalize_machine_id(machine_id)
+        machine_norm = normalize_machine_id(machine_id)
         print(f"[REQUEST] Machine: {machine_norm} (Orig: {machine_id}) | Time: {datetime.now().strftime('%H:%M:%S')} | Future: {future_window}m | Anchor: {anchor_time}", flush=True)
         result = build_control_room_payload(machine_id=machine_norm, time_window=time_window, future_window=future_window, anchor_time=anchor_time)
         return result
@@ -339,12 +340,11 @@ async def websocket_control_room(
     try:
         verify_websocket_token(token)
     except Exception as e:
-        await websocket.send_json({"error": "Unauthorized", "detail": str(e)})
         await websocket.close(code=1008)
         return
 
     # Production Fix: Normalize machine ID early to prevent NameError in logging
-    machine_norm = _normalize_machine_id(machine_id)
+    machine_norm = normalize_machine_id(machine_id)
     anchor_time = websocket.query_params.get("anchor_time")
     
     print(f"[WS CONNECTED] Machine: {machine_norm} | Anchor: {anchor_time}", flush=True)
@@ -503,14 +503,15 @@ def get_fleet_analytics():
     - Scrap event distribution across machines
     """
     from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
-    from backend.data_access import _normalize_machine_id
+    from backend.data_access import normalize_machine_id
 
     machines = get_available_machines()
 
     def _safe_payload(machine):
         mid = machine.get("id", "")
         try:
-            payload = build_control_room_payload(machine_id=mid, time_window=240, future_window=30)
+            m_norm = normalize_machine_id(mid)
+            payload = build_control_room_payload(machine_id=m_norm, time_window=240, future_window=30)
             health = payload.get("current_health", {})
             stats = payload.get("summary_stats", {})
             tg = payload.get("telemetry_grid", [])

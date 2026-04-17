@@ -2,6 +2,9 @@ import os
 import re
 import pandas as pd
 from pathlib import Path
+import subprocess
+import threading
+import sys
 import logging
 
 # Import processing logic from scripts (if they were modular)
@@ -13,6 +16,8 @@ PROCESSED_DIR = PROJECT_ROOT / "new_processed_data"
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("IngestionService")
+
+from backend.data_access import normalize_machine_id
 
 def _coerce_datetime(values, utc: bool = True):
     """Parse timestamps without noisy mixed-format warnings when possible."""
@@ -31,16 +36,29 @@ def get_ingestion_history():
         return []
     
     def _classify_file(path: Path) -> str:
-        # Use simple string check for case-insensitive robust matching
         name = path.name.lower()
-        if "csv" in name:
-            return "Machine"
-        if "xls" in name or "xlsx" in name:
-            return "Hydra"
-        return "Merged"
+        if "param" in name: return "Param"
+        if "mse" in name: return "MSE"
+        
+        # Adaptive Sniffing: Peak columns if ambiguous
+        try:
+            if path.suffix.lower() == ".csv":
+                peek = pd.read_csv(path, nrows=0)
+                if "variable_name" in peek.columns and "value" in peek.columns:
+                    return "MSE"
+            elif path.suffix.lower() in [".xlsx", ".xls"]:
+                peek = pd.read_excel(path, nrows=0)
+                if any(c in peek.columns for c in ["machine_event_create_date", "cycle_time"]):
+                    return "Hydra"
+        except Exception:
+            pass
+
+        if "csv" in name: return "MSE"
+        if "xls" in name or "xlsx" in name: return "Hydra"
+        return "Other"
 
     def _extract_machine_label(path: Path) -> str:
-        machine = get_machine_id(path.name)
+        machine = normalize_machine_id(path.name)
         return machine if machine else "AUTO"
 
     # Identify the target directory to list
@@ -122,6 +140,54 @@ def should_refresh_latest_pipeline(target_dir: Path | None = None) -> tuple[bool
 
     return False, f"{latest_processed.name} is current"
 
+def _sync_dynamic_params(path: Path):
+    """
+    Senior Pro Fix: Extracts threshold overrides from 'Param' files
+    and syncs them to metrics/dynamic_limits.json.
+    """
+    try:
+        if path.suffix.lower() == ".csv":
+            df = pd.read_csv(path)
+        else:
+            df = pd.read_excel(path)
+        
+        # Look for [parameter, min, max] pattern
+        cols = [c.lower() for c in df.columns]
+        target_col = next((c for c in df.columns if "param" in c.lower()), None)
+        min_col = next((c for c in df.columns if "min" in c.lower()), None)
+        max_col = next((c for c in df.columns if "max" in c.lower()), None)
+
+        if not (target_col and (min_col or max_col)):
+            return
+
+        overrides = {}
+        for _, row in df.iterrows():
+            param = str(row[target_col]).strip()
+            if not param: continue
+            
+            p_data = {}
+            if min_col: p_data["min"] = float(pd.to_numeric(row[min_col], errors="coerce") or 0.0)
+            if max_col: p_data["max"] = float(pd.to_numeric(row[max_col], errors="coerce") or 0.0)
+            overrides[param] = p_data
+
+        if overrides:
+            limit_file = PROJECT_ROOT / "metrics" / "dynamic_limits.json"
+            os.makedirs(limit_file.parent, exist_ok=True)
+            
+            # Merge with existing
+            current = {}
+            if limit_file.exists():
+                with open(limit_file, "r") as f:
+                    try: current = json.load(f)
+                    except: pass
+            
+            current.update(overrides)
+            with open(limit_file, "w") as f:
+                json.dump(current, f, indent=2)
+            logger.info(f"✓ Synced {len(overrides)} parameters from {path.name}")
+    except Exception as e:
+        logger.error(f"Param sync error for {path.name}: {e}")
+
 def handle_upload(
     mes_files: list[tuple[bytes, str]],
     hydra_content: bytes,
@@ -168,13 +234,25 @@ def handle_upload(
         "files": saved_files
     }
 
+def cleanup_uploaded_files(target_dir: Path):
+    """Purge temporary files after successful ingestion to save space."""
+    try:
+        if target_dir.exists() and "uploads" in str(target_dir):
+            import shutil
+            shutil.rmtree(target_dir)
+            logger.info(f"Purged temporary upload directory: {target_dir}")
+    except Exception as e:
+        logger.error(f"Cleanup failed: {e}")
+
 # Global progress tracker for the 10-step pipeline
 PIPELINE_PROGRESS = {
     "status": "idle",
     "step": 0,
     "metrics": {},
     "validation_log": [],
-    "error": None
+    "error": None,
+    "is_training": False,
+    "training_msg": ""
 }
 
 def validate_input_files(target_dir: Path | None = None):
@@ -213,7 +291,7 @@ def validate_input_files(target_dir: Path | None = None):
     for csv_path in csv_files:
         try:
             # Check Naming
-            machine_id = get_machine_id(csv_path.name)
+            machine_id = normalize_machine_id(csv_path.name)
             if not machine_id or len(machine_id) < 2:
                 errors.append(f"⚠️ Naming Warning: {csv_path.name} does not follow 'M###' pattern. Using 'AUTO' label.")
             
@@ -227,13 +305,6 @@ def validate_input_files(target_dir: Path | None = None):
             errors.append(f"❌ CSV Read Error: Could not parse {csv_path.name} ({str(e)})")
 
     return len(errors) == 0, errors
-
-def get_machine_id(filename):
-    """Extract machine ID from filename (e.g., M231Jan.csv -> M231)."""
-    match = re.search(r"(M\d+)", str(filename or "").upper())
-    if match:
-        return match.group(1)
-    return Path(filename).stem.split("-")[0].replace("Jan", "").replace("Feb", "").upper()
 
 def run_conversion_pipeline(target_dir: Path | None = None):
     """
@@ -267,16 +338,39 @@ def run_conversion_pipeline(target_dir: Path | None = None):
         os.makedirs(PROCESSED_DIR, exist_ok=True)
         PIPELINE_PROGRESS["step"] = 2
         
-        # Step 3: Pair (Identifying files)
+        # Step 3: Pair (Identifying files - Senior Pro Data Sniffer)
         xlsx_files = list(target_dir.glob("*.xlsx")) + list(target_dir.glob("*.xls"))
         csv_files = list(target_dir.glob("*.csv"))
         
-        if not xlsx_files:
-            raise FileNotFoundError(f"Missing required Hydra (.xlsx) file in {target_dir.name}")
-        if not csv_files:
-            raise FileNotFoundError(f"No Sensor (.csv) files found in {target_dir.name}. Nothing to process.")
+        # Smart Categorization
+        hydra_files = []
+        mse_files = []
+        param_files = []
         
-        hydra_file = xlsx_files[0]
+        for f in (xlsx_files + csv_files):
+            f_type = _classify_file(f)
+            if f_type == "Hydra": hydra_files.append(f)
+            elif f_type == "MSE": mse_files.append(f)
+            elif f_type == "Param": param_files.append(f)
+
+        if not hydra_files:
+            # Fallback for classification failure: use earliest XLSX
+            if xlsx_files: hydra_files = [xlsx_files[0]]
+            else: raise FileNotFoundError(f"Missing required Hydra data in {target_dir.name}")
+            
+        if not mse_files and not csv_files:
+            raise FileNotFoundError(f"No Sensor data discovered in {target_dir.name}. Nothing to process.")
+        
+        if not mse_files: mse_files = csv_files
+
+        hydra_file = hydra_files[0]
+        
+        # NEW: Process Param files if present (Sync thresholds)
+        for p_file in param_files:
+            try:
+                _sync_dynamic_params(p_file)
+            except Exception as e:
+                logger.warning(f"Failed to sync params from {p_file.name}: {e}")
         PIPELINE_PROGRESS["step"] = 3
         
         # Step 4: Align (Processing Hydra)
@@ -312,7 +406,7 @@ def run_conversion_pipeline(target_dir: Path | None = None):
         # Step 5: Aggregate (Processing Sensor Files)
         master_dfs = []
         for csv_file in csv_files:
-            machine_id = get_machine_id(csv_file.name)
+            machine_id = normalize_machine_id(csv_file.name)
             logger.info(f"Processing Sensor: {csv_file.name}")
             
             try:
@@ -370,7 +464,7 @@ def run_conversion_pipeline(target_dir: Path | None = None):
         for m_id in final_df["machine_id"].unique():
             if pd.isna(m_id):
                 continue
-            machine_norm = get_machine_id(str(m_id))
+            machine_norm = normalize_machine_id(str(m_id))
             if machine_norm:
                 m_df = final_df[final_df["machine_id"] == m_id].copy()
                 sensor_cols = [c for c in m_df.columns if c not in ("timestamp", "machine_id")]
@@ -415,6 +509,37 @@ def run_conversion_pipeline(target_dir: Path | None = None):
             "featuresCount": len(final_df.columns)
         }
         PIPELINE_PROGRESS["metrics"] = metrics
+        # FINAL STEP: Trigger Automated Model Retraining in background
+        def _run_background_training():
+            try:
+                PIPELINE_PROGRESS["is_training"] = True
+                PIPELINE_PROGRESS["training_msg"] = "Retraining AI Model..."
+                logger.info("Starting automated model retraining...")
+                
+                script_path = PROJECT_ROOT / "scripts" / "train_forecaster_v3.py"
+                result = subprocess.run(
+                    [sys.executable, str(script_path)],
+                    capture_output=True,
+                    text=True,
+                    cwd=str(PROJECT_ROOT)
+                )
+                
+                if result.returncode == 0:
+                    logger.info("✓ Automated retraining successful.")
+                    PIPELINE_PROGRESS["training_msg"] = "AI Sync Complete"
+                    # CLEANUP: Purge uploads if successful
+                    cleanup_uploaded_files(target_dir)
+                else:
+                    logger.error(f"✗ Retraining failed: {result.stderr}")
+                    PIPELINE_PROGRESS["training_msg"] = "AI Sync Failed"
+            except Exception as tr_err:
+                logger.error(f"Retraining process error: {tr_err}")
+                PIPELINE_PROGRESS["training_msg"] = "AI Sync Error"
+            finally:
+                PIPELINE_PROGRESS["is_training"] = False
+
+        threading.Thread(target=_run_background_training, daemon=True).start()
+        
         return {"status": "success", "metrics": metrics}
 
     except Exception as e:

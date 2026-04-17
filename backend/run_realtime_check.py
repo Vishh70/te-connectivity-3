@@ -95,8 +95,8 @@ def run(machine_id: str):
         # which prevents fallback machines (M607/M612 narrow columns) from tripping CRITICAL.
         machine_norm = str(latest_row.get("machine_id_normalized", "")).upper()
         if not machine_norm or machine_norm == "M":
-            from backend.data_access import _normalize_machine_id
-            machine_norm = _normalize_machine_id(machine_id)
+            from backend.data_access import normalize_machine_id
+            machine_norm = normalize_machine_id(machine_id)
         sensor_input = build_realtime_model_vector(df, machine_norm=machine_norm, strict=False)
         ml_risk = float(unified_predict_scrap(machine_norm, sensor_input))
         calibrated_threshold = float(_get_machine_threshold(machine_norm))

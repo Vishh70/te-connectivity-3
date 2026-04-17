@@ -14,7 +14,7 @@ from typing import Any, Dict, Optional
 
 import pandas as pd
 
-from backend.data_access import build_realtime_model_vector, _normalize_machine_id, get_oracle
+from backend.data_access import build_realtime_model_vector, normalize_machine_id, get_oracle
 
 # ── Model & feature list ────────────────────────────────────────────
 
@@ -53,7 +53,7 @@ def predict_from_raw(machine_id: str, raw_data: Dict[str, Any]) -> dict:
     """
     Accept one incoming sensor reading, buffer it, and return a live risk score.
     """
-    machine_key = _normalize_machine_id(machine_id)
+    machine_key = normalize_machine_id(machine_id)
     var_name = raw_data.get("variable_name")
     val = raw_data.get("value")
 
@@ -94,7 +94,7 @@ def predict_from_raw(machine_id: str, raw_data: Dict[str, Any]) -> dict:
 def get_buffer_status(machine_id: Optional[str] = None) -> dict:
     """Return buffer sizes for one or all machines."""
     if machine_id:
-        machine_key = _normalize_machine_id(machine_id)
+        machine_key = normalize_machine_id(machine_id)
         return {
             "machine_id": machine_id,
             "buffer_size": len(live_buffer.get(machine_key, {})),
@@ -108,7 +108,7 @@ def get_buffer_status(machine_id: Optional[str] = None) -> dict:
 def clear_buffer(machine_id: Optional[str] = None) -> None:
     """Clear the buffer for one or all machines."""
     if machine_id:
-        machine_key = _normalize_machine_id(machine_id)
+        machine_key = normalize_machine_id(machine_id)
         if machine_key in live_buffer:
             live_buffer[machine_key].clear()
     elif not machine_id:

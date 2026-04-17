@@ -112,7 +112,7 @@ except Exception:
 
 NEW_DATA_DIR = PROJECT_ROOT / "new_processed_data"
 RAW_DATA_DIR = PROJECT_ROOT / "raw_data"
-FALLBACK_WIDE_FILE = PROJECT_ROOT / "processed" / "features" / "rolling_features_demo.parquet"
+FALLBACK_WIDE_FILE = PROJECT_ROOT / "new_processed_data" / "cleaned_dataset_v4.5f.parquet"
 
 
 def get_latest_data_file():
@@ -172,34 +172,27 @@ def _discover_machine_ids_from_parquet(path: Path) -> set[str]:
         "machine_id_normalized",
         "machine_id",
         "machine_definition",
+        "machine_nr", # Professional AWS Redshift column name
     ]
     for column in candidate_cols:
         try:
+            # Senior Pro Upgrade: Use vectorized unique() for high-scale discovery (200+ machines)
             frame = pd.read_parquet(path, columns=[column])
+            unique_values = frame[column].dropna().unique()
+            
+            for val in unique_values:
+                machine_norm = normalize_machine_id(str(val))
+                if machine_norm != "M":
+                    machine_ids.add(machine_norm)
+            
+            if machine_ids:
+                return machine_ids
         except Exception:
             continue
-
-        if column not in frame.columns:
-            continue
-
-        machine_ids: set[str] = set()
-        for value in frame[column].array:
-            if pd.isna(value):
-                continue
-
-            machine_norm = _normalize_machine_id(value)
-            if machine_norm == "M":
-                continue
-
-            machine_ids.add(machine_norm)
-            if len(machine_ids) >= 100:
-                break
-        if machine_ids:
-            return machine_ids
     return set()
 
 def _machine_numeric_code(machine_norm: str) -> float:
-    normalized = _normalize_machine_id(machine_norm)
+    normalized = normalize_machine_id(machine_norm)
     match = re.search(r"(\d+)", normalized)
     if match:
         return float(int(match.group(1)) / 1000.0)
@@ -254,7 +247,7 @@ _MACHINE_CODE_MAP = {
     for machine_id, code in _MACHINE_REGISTRY.get("machine_codes", {}).items()
 }
 
-_CATEGORICAL_ENCODINGS_FILE = PROJECT_ROOT / "metrics" / "categorical_encodings_v5.json"
+_CATEGORICAL_ENCODINGS_FILE = PROJECT_ROOT / "models" / "part_tool_encodings.json"
 
 
 def _normalize_category_key(value: str) -> str:
@@ -312,27 +305,27 @@ def _discover_machine_ids() -> list[str]:
     # 2. From Calibration Thresholds
     machine_ids.update(PER_MACHINE_THRESHOLDS.keys())
     
-    # 3. From Parquet Discovery (Legacy/Discovery)
-    for parquet_path in (
-        NEW_DATA_DIR / "cleaned_dataset_v4.5f.parquet",
-        NEW_DATA_DIR / "cleaned_dataset_v4.parquet",
-    ):
-        if parquet_path.exists():
+    # 3. From Parquet Discovery (Automated Scanning of new_processed_data)
+    if NEW_DATA_DIR.exists():
+        for parquet_path in NEW_DATA_DIR.glob("*.parquet"):
+            # Skip evaluation/training masters, only scan potentially dynamic machine files
+            if parquet_path.name in ("FEB_TEST_RESULTS.parquet", "FINAL_TRAINING_MASTER_V3.parquet", "HYDRA_TRAIN.parquet"): 
+                continue
             machine_ids.update(_discover_machine_ids_from_parquet(parquet_path))
 
     # Filter: only keep canonical short IDs like M231, M356, M471, M607, M612
-    normalized = {_normalize_machine_id(mid) for mid in machine_ids}
+    normalized = {normalize_machine_id(mid) for mid in machine_ids}
     canonical = {mid for mid in normalized if _is_canonical_machine_id(mid)}
     return sorted(canonical, key=_machine_sort_key)
 
 def _build_machine_metadata(machine_norm: str) -> dict:
-    machine_norm = _normalize_machine_id(machine_norm)
+    machine_norm = normalize_machine_id(machine_norm)
     display_id = _display_machine_id(machine_norm)
     machine_number = _machine_number_from_norm(machine_norm)
 
     registry_machines = _MACHINE_REGISTRY.get("machines", [])
     for machine in registry_machines:
-        if _normalize_machine_id(machine.get("machine_id_normalized") or machine.get("id") or machine.get("machine_id")) == machine_norm:
+        if normalize_machine_id(machine.get("machine_id_normalized") or machine.get("id") or machine.get("machine_id")) == machine_norm:
             return {
                 "id": machine.get("id", display_id),
                 "display_id": machine.get("display_id", display_id),
@@ -580,8 +573,25 @@ def build_realtime_model_vector(window_df: pd.DataFrame, machine_norm: str = "",
 
     return latest
 
-def _normalize_machine_id(machine_id: str) -> str:
-    compact = re.sub(r"[^A-Za-z0-9]", "", str(machine_id or "")).upper()
+def normalize_machine_id(machine_id: str) -> str:
+    """
+    Standardizes machine IDs into 'M###' format.
+    Senior Pro Fix: Intelligent pattern recognition for messy filenames (MSE, Param, Hydra).
+    """
+    s = str(machine_id or "")
+    
+    # 1. Look for explicit M### or M-### pattern
+    match = re.search(r"M[ \-_]?(\d+)", s, re.IGNORECASE)
+    if match:
+        return f"M{match.group(1)}"
+        
+    # 2. Look for standalone numeric sequence of 3 or 4 digits
+    match_num = re.search(r"(\d{3,4})", s)
+    if match_num:
+        return f"M{match_num.group(1)}"
+        
+    # 3. Fallback: Clean and prepend M
+    compact = re.sub(r"[^A-Za-z0-9]", "", s).upper()
     if compact.startswith("M"):
         return compact
     return f"M{compact}"
@@ -593,14 +603,14 @@ def _display_machine_id(machine_norm: str) -> str:
     return machine_norm
 
 def _machine_number_from_norm(machine_norm: str) -> str:
-    machine_norm = _normalize_machine_id(machine_norm)
+    machine_norm = normalize_machine_id(machine_norm)
     match = re.match(r"^M(\d+)$", machine_norm)
     if match:
         return match.group(1)
     return _display_machine_id(machine_norm)
 
 def get_machine_code(machine_norm: str) -> float:
-    machine_norm = _normalize_machine_id(machine_norm)
+    machine_norm = normalize_machine_id(machine_norm)
     return _machine_numeric_code(machine_norm)
 
 def get_machine_metadata(machine_norm: str) -> dict:
@@ -611,7 +621,7 @@ def _is_degenerate_threshold(value: float) -> bool:
 
 def _get_machine_threshold(machine_norm: str) -> float:
     """Return the calibrated binary threshold for a machine, or the default fallback."""
-    machine_norm = _normalize_machine_id(machine_norm)
+    machine_norm = normalize_machine_id(machine_norm)
     machine_threshold = PER_MACHINE_THRESHOLDS.get(machine_norm)
     if machine_threshold is not None and not _is_degenerate_threshold(float(machine_threshold)):
         return float(machine_threshold)
@@ -902,7 +912,7 @@ def _resolve_machine_data_path(machine_norm: str) -> Path:
     
     return p3
 
-@lru_cache(maxsize=4) # Reduced from 16 to prevent OOM
+@lru_cache(maxsize=32) # Increased from 4 to prevent thrashing with fleet analytics
 def _load_machine_pivot(machine_norm: str, time_window_minutes: int | None = 1440, anchor_time: str | None = None):
     machine_path = _resolve_machine_data_path(machine_norm)
     if not machine_path.exists():
@@ -966,7 +976,9 @@ def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | Non
         return history, {"machine_id": machine_norm, "machine_definition": machine_definition}
 
     file_path = get_latest_data_file()
-    cache_key = ("feb_history", machine_norm, str(file_path), file_path.stat().st_mtime if file_path.exists() else 0, time_window_minutes, anchor_time)
+    # FAST-TRACK PERFORMANCE FIX: Do NOT include dynamic time variables in the backend data cache key. 
+    # Otherwise, every live tick re-reads the 100MB Parquet file from disk!
+    cache_key = ("feb_history", machine_norm, str(file_path), file_path.stat().st_mtime if file_path.exists() else 0)
     cached = _get_cached(cache_key)
     if cached is not None:
         return cached
@@ -1019,17 +1031,17 @@ def _build_machine_feb_history(machine_norm: str, time_window_minutes: int | Non
                     machine_filter_col = candidate
                     break
             if machine_filter_col is not None:
-                normalized_filter = history[machine_filter_col].astype(str).map(_normalize_machine_id)
+                normalized_filter = history[machine_filter_col].astype(str).map(normalize_machine_id)
                 history = history.loc[normalized_filter == machine_norm].copy()
         except Exception:
             try:
                 history = pd.read_parquet(file_path, engine="pyarrow")
                 if "machine_id_normalized" in history.columns:
-                    history = history[history["machine_id_normalized"].astype(str).map(_normalize_machine_id) == machine_norm].copy()
+                    history = history[history["machine_id_normalized"].astype(str).map(normalize_machine_id) == machine_norm].copy()
                 elif "machine_id" in history.columns:
-                    history = history[history["machine_id"].astype(str).map(_normalize_machine_id) == machine_norm].copy()
+                    history = history[history["machine_id"].astype(str).map(normalize_machine_id) == machine_norm].copy()
                 elif "machine_definition" in history.columns:
-                    history = history[history["machine_definition"].astype(str).map(_normalize_machine_id) == machine_norm].copy()
+                    history = history[history["machine_definition"].astype(str).map(normalize_machine_id) == machine_norm].copy()
                 machine_definition = "PROCESSED_DATA"
             except Exception as inner_e:
                 print(f"Error loading processed file {file_path}: {inner_e}")
@@ -1276,9 +1288,7 @@ def _generate_future_horizon(machine_df, n_steps=CONTROL_ROOM_FUTURE_WINDOW_MINU
 
     return future_points
 
-def _row_to_timeline_point(row, is_future: bool, current_safe_limits: dict = None):
-    machine_norm = str(_series_to_scalar(row.get("machine_id_normalized", ""), default="")).upper()
-    _, model_features = unified_get_model_and_features(machine_norm)
+def _row_to_timeline_point(row, is_future: bool, machine_norm: str, model_features: tuple, current_safe_limits: dict = None):
     
     sensors = {}
     sensor_keys = current_safe_limits.keys() if current_safe_limits else []
@@ -1343,13 +1353,12 @@ def build_control_room_payload(
     anchor_time: str = None,
 ):
     # Production Fix: Normalize immediately to handle hyphenated frontend requests
-    machine_norm = _normalize_machine_id(machine_id)
+    machine_norm = normalize_machine_id(machine_id)
     effective_time_window = time_window
     effective_future_window = future_window
-    payload_key = ("payload", machine_id, effective_time_window, effective_future_window, anchor_time)
-    cached_payload = _get_cached(payload_key)
-    if cached_payload is not None:
-        return cached_payload
+    # The heavy dataset is cached in RAM below. We do NOT want to cache the final payload,
+    # otherwise Live Mode (anchor_time=None) will freeze completely and show 'fake' stale data indefinitely.
+    # We must construct a fresh slice of the correct data every tick.
 
     t0 = time.perf_counter()
     # Production Fix: Search for machine in list instead of using .get()
@@ -1510,9 +1519,10 @@ def build_control_room_payload(
     past_timeline = _downsample(past_window, max_points=320)
     future_timeline = future_horizon
 
+    _, model_features = unified_get_model_and_features(machine_norm)
     timeline = []
     for _, row in past_timeline.iterrows():
-        timeline.append(_row_to_timeline_point(row, is_future=False, current_safe_limits=current_safe_limits))
+        timeline.append(_row_to_timeline_point(row, False, machine_norm, model_features, current_safe_limits))
 
     # Timeline continuity: future timestamps are already epoch ms from _generate_future_horizon.
     # Add a bridge point so the past line and future line connect at the boundary.
@@ -1550,7 +1560,7 @@ def build_control_room_payload(
         if audit_path.exists():
             cases = json.loads(audit_path.read_text())
             for c in cases:
-                if _normalize_machine_id(c.get("machine", "")) == machine_norm and not c.get("ignore", False):
+                if normalize_machine_id(c.get("machine", "")) == machine_norm and not c.get("ignore", False):
                     if c.get("start") not in ["", "N/A"] and c.get("end") not in ["", "N/A"]:
                         try:
                             # Safely parse the Date String specifically
@@ -1584,11 +1594,10 @@ def build_control_room_payload(
         "safe_limits": _clean_limit_payload(current_safe_limits),
         "audit_reference_areas": audit_areas,
     }
-    _set_cached(payload_key, payload)
     return payload
 
 def get_recent_window(machine_id, minutes=60):
-    machine_norm = _normalize_machine_id(machine_id)
+    machine_norm = normalize_machine_id(machine_id)
     history, _ = _build_machine_feb_history(machine_norm, time_window_minutes=minutes)
     
     if history.empty:
@@ -1636,7 +1645,7 @@ def get_audit_validation_results():
     total_valid = 0
 
     for idx, case in enumerate(cases):
-        machine_norm = _normalize_machine_id(case.get("machine", "UNKNOWN"))
+        machine_norm = normalize_machine_id(case.get("machine", "UNKNOWN"))
         
         # Senior Fix: Handle N/A or Ignore cases before attempting to load telemetry
         if case.get("start") == "N/A" or case.get("end") == "N/A" or case.get("ignore", False):
