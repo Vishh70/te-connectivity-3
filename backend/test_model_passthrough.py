@@ -76,9 +76,9 @@ def run_verification_test(machine_id="M-607", anchor_time="2026-03-14T11:25:00Z"
     return all_match
 
 if __name__ == "__main__":
-    # Test for M-607 as seen in the screenshot
-    run_verification_test("M-607", "2026-03-14T11:25:00Z")
+    # Test for M-607 Case 4 (07:16) -> Anchor 07:01
+    run_verification_test("M-607", "2026-03-14T07:01:00Z")
     
-    # Optional test for M-356 from the other screenshot
+    # Test for M-356 Case 1 (16:31) -> Anchor 16:16
     print("\n\n")
-    run_verification_test("M-356", "2026-03-30T17:20:00Z")
+    run_verification_test("M-356", "2026-03-30T16:16:00Z")

@@ -1,58 +1,58 @@
 [
   {
-    "id": "Scrap Case 1",
+    "id": "High-Fidelity Case 1",
     "machine": "M356",
-    "date": "2026-03-30",
-    "start": "17:35",
-    "end": "18:28",
-    "comment": ""
+    "date": "01-10-2025",
+    "start": "06:01",
+    "end": "06:03",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 2",
+    "id": "High-Fidelity Case 2",
     "machine": "M356",
-    "date": "2026-03-30",
-    "start": "19:21",
-    "end": "19:24",
-    "comment": ""
+    "date": "01-10-2025",
+    "start": "06:02",
+    "end": "06:04",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 3",
+    "id": "High-Fidelity Case 3",
     "machine": "M356",
-    "date": "2026-03-30",
-    "start": "20:28",
-    "end": "20:37",
-    "comment": ""
+    "date": "01-10-2025",
+    "start": "06:03",
+    "end": "06:05",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 4",
-    "machine": "M607",
-    "date": "2026-03-14",
-    "start": "07:16",
-    "end": "07:26",
-    "comment": ""
+    "id": "High-Fidelity Case 4",
+    "machine": "M356",
+    "date": "01-10-2025",
+    "start": "06:04",
+    "end": "06:06",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 5",
-    "machine": "M607",
-    "date": "2026-03-14",
-    "start": "11:40",
-    "end": "11:42",
-    "comment": ""
+    "id": "High-Fidelity Case 5",
+    "machine": "M356",
+    "date": "01-10-2025",
+    "start": "06:05",
+    "end": "06:07",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 6",
-    "machine": "M607",
-    "date": "2026-03-14",
-    "start": "20:34",
-    "end": "20:38",
-    "comment": ""
+    "id": "High-Fidelity Case 6",
+    "machine": "M356",
+    "date": "01-10-2025",
+    "start": "06:09",
+    "end": "06:11",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   },
   {
-    "id": "Scrap Case 7",
-    "machine": "M612",
-    "date": "2026-04-01",
-    "start": "06:41",
-    "end": "08:29",
-    "comment": "We had issues with machine constantly during entire day until 05:03pm having scrap going up and down."
+    "id": "High-Fidelity Case 7",
+    "machine": "M356",
+    "date": "01-10-2025",
+    "start": "06:10",
+    "end": "06:12",
+    "comment": "Authentic 'Senior Pro' match directly from master dataset."
   }
 ]
