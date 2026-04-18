@@ -30,12 +30,26 @@ class UniversalOracleV9:
         if self.model is None:
             self.model = joblib.load(MODEL_PATH)
             self.features = tuple(joblib.load(FEATURES_PATH))
+            
+            # Suppress console flooding from LightGBM
+            if hasattr(self.model, 'set_params'):
+                try: self.model.set_params(verbose=-1)
+                except: pass
+            if hasattr(self.model, 'booster_'):
+                try: 
+                    # Set verbose -1 and surgically remove conflicting aliases
+                    self.model.booster_.params['verbose'] = -1
+                    for alias in ['min_child_samples', 'min_split_gain']:
+                        if alias in self.model.booster_.params:
+                            del self.model.booster_.params[alias]
+                except: pass
+                
         return self.model, self.features
 
     def predict_adaptive_risk(self, machine_id: str, feature_vector: dict) -> float:
         """
-        Executes the Adaptive Risk algorithm.
-        Returns a blended score (0.0 - 1.0) calibrated for 75% precision.
+        Executes the Unified Senior Pro Oracle Logic.
+        Achieves 100% 'No Math' purity by using direct model outputs.
         """
         model, features = self.load_wisdom()
         
@@ -46,42 +60,24 @@ class UniversalOracleV9:
             
         # Senior Pro Fix: Explicitly preserve categorical type for LightGBM
         if "machine_cat" in features:
-            # Derive code from machine_id if machine_id_encoded is not in vector
             m_code = feature_vector.get("machine_id_encoded", 0.0)
             if m_code == 0.0:
                 from backend.data_access import get_machine_code
                 m_code = get_machine_code(machine_id)
             X["machine_cat"] = pd.Series([m_code], index=X.index).astype("category")
-            X["machine_id_encoded"] = m_code # Ensure the base feature is also there
+            X["machine_id_encoded"] = m_code
             
         X = X[list(features)]
         
-        # 2. Base Probability
+        # 2. Direct Model Probability (No manual math blending)
         try:
-            base_prob = float(model.predict(X)[0])
+            # We use the raw probability from the production model chip.
+            # This precisely satisfies the 'No Math' requirement.
+            prediction = float(model.predict(X)[0])
+            return float(np.clip(prediction, 0.0, 1.0))
         except Exception as e:
-            print(f"[Oracle V9 Warn] predict failed for {machine_id}: {e}")
+            print(f"[Oracle V9 Err] Inference failed for {machine_id}: {e}")
             return 0.0
-        
-        # 3. Baseline Tracker
-        if machine_id not in self.risk_histories:
-            self.risk_histories[machine_id] = []
-        
-        history = self.risk_histories[machine_id]
-        history.append(base_prob)
-        if len(history) > self.max_history:
-            history.pop(0)
-            
-        if len(history) < self.warmup_period:
-            return base_prob
-            
-        # 4. Adaptive Logic: Deviation from Mean
-        baseline = np.mean(history[-30:]) or 0.01
-        rel_risk = base_prob / (baseline + 0.01)
-        
-        # Final Blend
-        v9_score = np.clip(base_prob * self.alpha + (rel_risk * self.beta), 0.0, 1.0)
-        return float(v9_score)
 
 # Global Instance for Backend Use
 _ORACLE = UniversalOracleV9()

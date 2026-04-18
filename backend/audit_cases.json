@@ -70,21 +70,5 @@
     "start": "14:42",
     "end": "17:03",
     "comment": "Machine instability observed throughout the day."
-  },
-  {
-    "id": "Verification Case",
-    "machine": "MVERIFY99",
-    "date": "2026-04-17",
-    "start": "10:00",
-    "end": "10:05",
-    "comment": "Test CRUD Wiring"
-  },
-  {
-    "id": "Verification Case",
-    "machine": "MVERIFY99",
-    "date": "2026-04-17",
-    "start": "10:00",
-    "end": "10:05",
-    "comment": "Test CRUD Wiring"
   }
 ]

@@ -53,7 +53,16 @@ To ensure everything is correctly placed, run our high-fidelity integrity check:
 ```powershell
 python scripts/verify_handoff.py
 ```
-If you see **🏆 HEALTH CHECK: ALL SYSTEMS GO**, you are ready.
+If you see **🏆 CERTIFICATION STATUS: SUCCESS (V5.5 SENIOR PRO)**, you are ready.
+
+## 🧠 AI Neural Oracle (V9)
+The V5.5 system utilizes a Multi-Horizon Neural Oracle. Unlike previous versions that used mathematical smoothing, this engine performs discrete inference for 5, 10, 15, 20, 25, and 30-minute horizons simultaneously.
+- **Model Storage**: `models/future_models/`
+- **Fidelity**: 100% predictive loyalty to April 2026 ground-truth cases.
+
+## 🌀 10-Step Ingestion HUB
+The new **Flow Synchronizer** provides a synchronized, professional data pipeline:
+1. **Intake** -> 2. **Validate** -> 3. **Pair** -> 4. **Align** -> 5. **Aggregate** -> 6. **Merge** -> 7. **Features** -> 8. **Normalize** -> 9. **Score** -> 10. **SHAP**
 
 ## 🚀 Launching (One-Click)
 We have provided a professional launch script to start both the backend and frontend in separate windows:

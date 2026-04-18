@@ -23,7 +23,7 @@ if (-not (Test-Path ".\.venv")) {
     Write-Host "⚠️ Warning: .venv not found. Attempting to use system python..." -ForegroundColor Yellow
 }
 
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$Root'; & .\.venv\Scripts\Activate.ps1; Write-Host '📡 BACKEND: http://localhost:8000' -ForegroundColor Green; python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$Root'; `$env:LIGHTGBM_LOG_LEVEL='fatal'; & .\.venv\Scripts\Activate.ps1; Write-Host '📡 BACKEND: http://localhost:8000' -ForegroundColor Green; python -m uvicorn backend.api:app --host 127.0.0.1 --port 8000"
 
 # 3. Launch Frontend (Port 5173)
 Write-Host "[3/3] Launching Digital Twin Dashboard..." -ForegroundColor White
