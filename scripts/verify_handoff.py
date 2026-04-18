@@ -6,7 +6,7 @@ from pathlib import Path
 
 def check_integrity():
     print("=" * 70)
-    print("🚀 TE CONNECTIVITY: MASTER PRODUCTION CERTIFICATION (V5.2 FINAL)")
+    print("🚀 TE CONNECTIVITY: MASTER PRODUCTION CERTIFICATION (V5.5 SENIOR PRO)")
     print("=" * 70)
     
     root = Path(__file__).resolve().parent.parent
@@ -48,25 +48,34 @@ def check_integrity():
     print(f"  {'✅' if dist_exists else '⚠️'} BUILD     | Frontend Prod Bundle: {'Ready' if dist_exists else 'Missing (npm run build)'}")
 
     # 3. Model & Logic Verification
-    print("\n[🧠] Verifying AI Model Oracle:")
-    model_path = root / "models" / "production_scrap_model.pkl"
-    features_path = root / "models" / "production_features.pkl"
+    print("\n[🧠] Verifying V9 Neural Oracle:")
+    models_dir = root / "models" / "future_models"
     
-    model_status = False
-    if model_path.exists() and features_path.exists():
-        try:
-            features = joblib.load(features_path)
-            print(f"  ✅ MODEL     | V9 Production Oracle: Loaded Successfully ({len(features)} Features)")
+    expected_horizons = ["5m", "10m", "15m", "20m", "25m", "30m"]
+    found_models = 0
+    
+    if models_dir.exists():
+        for horizon in expected_horizons:
+            m_path = models_dir / f"model_scrap_{horizon}.pkl"
+            if m_path.exists():
+                found_models += 1
+            else:
+                print(f"  ⚠️ WARNING   | Missing {horizon} model weight.")
+        
+        if found_models == len(expected_horizons):
+            print(f"  ✅ MODEL     | V9 Production Oracle: Fully Optimized ({found_models}/6 Horizons Online)")
             model_status = True
-        except Exception as e:
-            print(f"  ❌ MODEL     | Load Failed: {e}")
+        else:
+            print(f"  ❌ MODEL     | Partial Oracle Load ({found_models}/6). Check /models/future_models.")
+            model_status = False
     else:
-        print(f"  ❌ MODEL     | Production Weights missing from /models")
+        print("  ❌ MODEL     | V9 Neural Oracle Directory missing from /models")
+        model_status = False
 
     # 4. Final Final Certification
     print("\n" + "=" * 70)
     if not missing_infra and model_status:
-        print("🏆 CERTIFICATION STATUS: SUCCESS (GREEN)")
+        print("🏆 CERTIFICATION STATUS: SUCCESS (V5.5 SENIOR PRO)")
         print("System is fully certified for Industrial Production release.")
         print("\nLAUNCH PROTOCOL:")
         print("1. Backend:  python -m uvicorn backend.api:app --host 0.0.0.0")

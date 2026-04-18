@@ -1,4 +1,4 @@
-name: "V5 Production Verification"
+name: "V5.5 Master Certification"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   verify-backend:
-    name: "Backend - Smoke Tests"
+    name: "Backend - Master Smoke Tests"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,13 +17,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: 'pip' # Senior Pro: Add caching for faster runs
 
-      - name: Install CI Test Dependencies
+      - name: Install Master CI Dependencies
         run: |
           python -m pip install --upgrade pip
-          # Install only the packages needed for API smoke tests in CI
-          # (avoids heavy ML dependencies and Windows-only packages)
-          pip install fastapi[all] httpx pytest pyjwt pandas joblib lightgbm scikit-learn shap anyio
+          # Add pyarrow for parquet support and align with V5.5 requirements
+          pip install fastapi[all] httpx pytest pyjwt pandas joblib lightgbm scikit-learn shap pyarrow anyio
 
       - name: Run Backend Smoke Tests (Pytest)
         env:
