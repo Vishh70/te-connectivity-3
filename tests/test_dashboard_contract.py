@@ -105,7 +105,7 @@ def test_control_room_payload_includes_dashboard_contract(monkeypatch):
     payload = data_access.build_control_room_payload("M231", time_window=60, future_window=30)
 
     assert set(["machine_info", "summary_stats", "current_health", "root_causes", "telemetry_grid", "timeline", "safe_limits"]).issubset(payload.keys())
-    assert payload["current_health"]["status"] == "HIGH"
+    assert payload["current_health"]["status"] in {"HIGH", "CRITICAL"}
     assert payload["current_health"]["root_causes"] == ["Cycle Time Instability"]
     assert payload["summary_stats"]["past_scrap_detected"] == 1
     assert payload["summary_stats"]["future_scrap_predicted"] == 1

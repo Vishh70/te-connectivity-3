@@ -50,15 +50,65 @@ def check_integrity():
     # 3. Model & Logic Verification
     print("\n[🧠] Verifying V9 Neural Oracle:")
     models_dir = root / "models" / "future_models"
+    manifest_path = models_dir / "future_model_manifest.json"
     
     expected_horizons = ["5m", "10m", "15m", "20m", "25m", "30m"]
     found_models = 0
+    manifest = {}
+
+    def _unwrap_artifact(artifact):
+        if isinstance(artifact, dict):
+            model = artifact.get("model") or artifact.get("estimator") or artifact.get("forecaster")
+            feature_names = (
+                artifact.get("feature_names")
+                or artifact.get("features")
+                or artifact.get("feature_columns")
+                or []
+            )
+            if not isinstance(feature_names, list):
+                feature_names = list(feature_names) if feature_names else []
+            return model or artifact, feature_names
+        return artifact, []
+
+    def _feature_count(model) -> int:
+        if isinstance(model, dict):
+            _, feature_names = _unwrap_artifact(model)
+            return len(feature_names)
+        if hasattr(model, "feature_name_"):
+            try:
+                return len(list(model.feature_name_))
+            except Exception:
+                pass
+        if hasattr(model, "feature_name"):
+            try:
+                names = model.feature_name() if callable(model.feature_name) else model.feature_name
+                return len(list(names))
+            except Exception:
+                return 0
+        return 0
+
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            print(f"  ✅ MANIFEST | Loaded {manifest_path.name}")
+        except Exception as exc:
+            print(f"  ❌ MANIFEST | Failed to read {manifest_path.name}: {exc}")
+            manifest = {}
+    else:
+        print("  ⚠️ MANIFEST | future_model_manifest.json missing (recommended)")
     
     if models_dir.exists():
         for horizon in expected_horizons:
             m_path = models_dir / f"model_scrap_{horizon}.pkl"
             if m_path.exists():
-                found_models += 1
+                try:
+                    artifact = joblib.load(m_path)
+                    model, feature_names = _unwrap_artifact(artifact)
+                    feature_count = len(feature_names) or _feature_count(model)
+                    print(f"  ✅ MODEL     | {horizon:4} | Loadable ({feature_count} features)")
+                    found_models += 1
+                except Exception as exc:
+                    print(f"  ❌ MODEL     | {horizon:4} | Failed to load: {exc}")
             else:
                 print(f"  ⚠️ WARNING   | Missing {horizon} model weight.")
         
@@ -71,6 +121,14 @@ def check_integrity():
     else:
         print("  ❌ MODEL     | V9 Neural Oracle Directory missing from /models")
         model_status = False
+
+    if manifest:
+        missing_manifest_horizons = [h for h in expected_horizons if h not in (manifest.get("models") or {})]
+        if missing_manifest_horizons:
+            print(f"  ❌ MANIFEST | Missing horizons: {', '.join(missing_manifest_horizons)}")
+            model_status = False
+        else:
+            print("  ✅ MANIFEST | Horizon coverage verified")
 
     # 4. Final Final Certification
     print("\n" + "=" * 70)

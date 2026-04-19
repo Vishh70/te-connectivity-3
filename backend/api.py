@@ -1,27 +1,29 @@
 import sys
 import os
-from pathlib import Path
+import warnings
 
 # SET LIGHTGBM LOG LEVEL BEFORE ANY IMPORTS
 os.environ['LIGHTGBM_LOG_LEVEL'] = 'fatal'
+
+# SENIOR PRO: Suppress all third-party noise globally before loading anything else
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", message="remove second argument of ws_handler")
+
+from pathlib import Path
 
 # Add project root to sys.path for direct script execution
 root_path = str(Path(__file__).resolve().parent.parent)
 if root_path not in sys.path:
     sys.path.insert(0, root_path)
 
-import asyncio
-import jwt
-import json
-import warnings
 from datetime import datetime, timedelta, timezone
 from contextlib import asynccontextmanager
 from typing import Dict, Any, Optional, List
 import pandas as pd
-
-# Globally silence LightGBM terminal spam
-warnings.filterwarnings("ignore", category=UserWarning)
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+import jwt
+import json
+import asyncio
 
 from fastapi import FastAPI, HTTPException, Query, WebSocket, WebSocketDisconnect, WebSocketException, File, UploadFile, BackgroundTasks
 from fastapi.concurrency import run_in_threadpool
